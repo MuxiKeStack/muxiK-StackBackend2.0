@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+option go_package = "./pb";
+package pb;
+
+message LoginRequest{
+  string  StudentID  = 1;
+  string Password  = 2;
+}
+
+message LoginResponse{
+  string Token = 1;
+  bool  IfNew = 2;
+}
+
+message GenerateTokenRequest{
+  string StudentID = 1;
+}
+
+message GenerateTokenResponse{
+  string Token = 1;
+}
+
+service usercenter{
+  rpc login(LoginRequest)returns(LoginResponse);
+}

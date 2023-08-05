@@ -1,0 +1,21 @@
+syntax = "v1"
+
+info(
+    title: "用户中心"
+    desc: "用户服务"
+    author: "Barry Wu"
+    email: "wyxnatural@gmail.com"
+    version: "v1"
+)
+
+type (
+    LoginRequest{
+        StudentId string `json:"studentId"`
+        Password string `json:"password"`
+    }
+
+    LoginResponse{
+        Token string `json:"token"`
+        IfNew bool  `json:"ifnew"`
+    }
+)
