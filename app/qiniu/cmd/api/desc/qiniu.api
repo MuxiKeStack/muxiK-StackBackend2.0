@@ -1,0 +1,26 @@
+syntax = "v1"
+
+info(
+	title: "QiniuToken"
+	desc: "Get QiniuToken to upload file"
+	author: "BarryWu"
+	email: "wyx_natural@gmail.com"
+	version: "v1"
+)
+
+type (
+	QiniuTokenRequest  {}
+	QiniuTokenResponse {
+		Token string `json:"qiniu_token"`
+	}
+)
+@server (
+	prefix: api/v1/qiniu
+	group : qiniu
+)
+
+service qiniu{
+	@doc "qiniu_token"
+	@handler qiniu_token
+	get /token (QiniuTokenRequest) returns (QiniuTokenResponse)
+}
