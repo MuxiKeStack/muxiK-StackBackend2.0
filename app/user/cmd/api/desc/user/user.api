@@ -8,6 +8,23 @@ info(
     version: "v1"
 )
 
+type PersonalInfo{
+    StudentId string `json:"studentId"`
+    UserName string  `json:"userName"`
+    Avatar string  `json:"avatar"`
+    IsBlocked int64 `json:"isBlocked"`
+    RoleGrade int64 `json:"roleGrade"`
+    Integral int64 `json:"integral"`
+    Licence int64 `json:"licence"`
+}
+
+type OtherInfo{
+    StudentId string `json:"studentId"`
+    UserName string  `json:"userName"`
+    Avatar string  `json:"avatar"`
+}
+
+
 type (
     LoginRequest{
         StudentId string `json:"studentId"`
@@ -17,5 +34,38 @@ type (
     LoginResponse{
         Token string `json:"token"`
         IfNew bool  `json:"ifnew"`
+    }
+)
+
+type (
+    UpdateInfoRequest{
+        UserName string `json:"userName"`
+        Avatar string `json:"avatar"`
+    }
+    UpdateInfoResponse{}
+)
+
+type (
+    SharingRequest{
+
+    }
+    SharingResponse{
+
+    }
+)
+
+type (
+    MyInfoRequest{}
+    MyInfoResponse{
+        PersonalInfo PersonalInfo `json:"personalInfo"`
+    }
+)
+
+type (
+    OtherInfoRequest{
+        StudentID string `path:"sid"`
+    }
+    OtherInfoResponse{
+        OtherInfo OtherInfo `json:"otherInfo"`
     }
 )

@@ -31,3 +31,18 @@ func (s *UsercenterServer) GenerateToken(ctx context.Context, in *pb.GenerateTok
 	l := logic.NewGenerateTokenLogic(ctx, s.svcCtx)
 	return l.GenerateToken(in)
 }
+
+func (s *UsercenterServer) UpdateInfo(ctx context.Context, in *pb.UpdateInfoRequest) (*pb.UpdateInfoResponse, error) {
+	l := logic.NewUpdateInfoLogic(ctx, s.svcCtx)
+	return l.UpdateInfo(in)
+}
+
+func (s *UsercenterServer) SharingPlan(ctx context.Context, in *pb.SharingRequest) (*pb.SharingResponse, error) {
+	l := logic.NewSharingPlanLogic(ctx, s.svcCtx)
+	return l.SharingPlan(in)
+}
+
+func (s *UsercenterServer) GetInfo(ctx context.Context, in *pb.GetInfoRequest) (*pb.GetInfoResponse, error) {
+	l := logic.NewGetInfoLogic(ctx, s.svcCtx)
+	return l.GetInfo(in)
+}

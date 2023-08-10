@@ -21,3 +21,26 @@ service usercenter{
 	@handler login
 	post /login (LoginRequest)returns(LoginResponse)
 }
+
+@server (
+	prefix : api/v1/user
+	jwt :JwtAuth
+	middleware :AuthorizeHandler
+)
+service usercenter{
+	@doc "更新信息"
+	@handler updateInfo
+	post /info (UpdateInfoRequest)returns(UpdateInfoResponse)
+	
+	@doc "共享计划"
+	@handler sharingPlan
+	get /share (SharingRequest)returns(SharingResponse)
+	
+	@doc "获取个人信息"
+	@handler getMyInfo
+	get /info (MyInfoRequest)returns(MyInfoResponse)
+	
+	@doc "获取他人信息"
+	@handler getOtherInfo
+	get /info/:sid (OtherInfoRequest)returns(OtherInfoResponse)
+}

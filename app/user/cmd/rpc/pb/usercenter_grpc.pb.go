@@ -21,6 +21,9 @@ const _ = grpc.SupportPackageIsVersion7
 const (
 	Usercenter_Login_FullMethodName         = "/pb.usercenter/login"
 	Usercenter_GenerateToken_FullMethodName = "/pb.usercenter/generateToken"
+	Usercenter_UpdateInfo_FullMethodName    = "/pb.usercenter/updateInfo"
+	Usercenter_SharingPlan_FullMethodName   = "/pb.usercenter/sharingPlan"
+	Usercenter_GetInfo_FullMethodName       = "/pb.usercenter/getInfo"
 )
 
 // UsercenterClient is the client API for Usercenter service.
@@ -29,6 +32,9 @@ const (
 type UsercenterClient interface {
 	Login(ctx context.Context, in *LoginRequest, opts ...grpc.CallOption) (*LoginResponse, error)
 	GenerateToken(ctx context.Context, in *GenerateTokenRequest, opts ...grpc.CallOption) (*GenerateTokenResponse, error)
+	UpdateInfo(ctx context.Context, in *UpdateInfoRequest, opts ...grpc.CallOption) (*UpdateInfoResponse, error)
+	SharingPlan(ctx context.Context, in *SharingRequest, opts ...grpc.CallOption) (*SharingResponse, error)
+	GetInfo(ctx context.Context, in *GetInfoRequest, opts ...grpc.CallOption) (*GetInfoResponse, error)
 }
 
 type usercenterClient struct {
@@ -57,12 +63,42 @@ func (c *usercenterClient) GenerateToken(ctx context.Context, in *GenerateTokenR
 	return out, nil
 }
 
+func (c *usercenterClient) UpdateInfo(ctx context.Context, in *UpdateInfoRequest, opts ...grpc.CallOption) (*UpdateInfoResponse, error) {
+	out := new(UpdateInfoResponse)
+	err := c.cc.Invoke(ctx, Usercenter_UpdateInfo_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *usercenterClient) SharingPlan(ctx context.Context, in *SharingRequest, opts ...grpc.CallOption) (*SharingResponse, error) {
+	out := new(SharingResponse)
+	err := c.cc.Invoke(ctx, Usercenter_SharingPlan_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *usercenterClient) GetInfo(ctx context.Context, in *GetInfoRequest, opts ...grpc.CallOption) (*GetInfoResponse, error) {
+	out := new(GetInfoResponse)
+	err := c.cc.Invoke(ctx, Usercenter_GetInfo_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // UsercenterServer is the server API for Usercenter service.
 // All implementations must embed UnimplementedUsercenterServer
 // for forward compatibility
 type UsercenterServer interface {
 	Login(context.Context, *LoginRequest) (*LoginResponse, error)
 	GenerateToken(context.Context, *GenerateTokenRequest) (*GenerateTokenResponse, error)
+	UpdateInfo(context.Context, *UpdateInfoRequest) (*UpdateInfoResponse, error)
+	SharingPlan(context.Context, *SharingRequest) (*SharingResponse, error)
+	GetInfo(context.Context, *GetInfoRequest) (*GetInfoResponse, error)
 	mustEmbedUnimplementedUsercenterServer()
 }
 
@@ -75,6 +111,15 @@ func (UnimplementedUsercenterServer) Login(context.Context, *LoginRequest) (*Log
 }
 func (UnimplementedUsercenterServer) GenerateToken(context.Context, *GenerateTokenRequest) (*GenerateTokenResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GenerateToken not implemented")
+}
+func (UnimplementedUsercenterServer) UpdateInfo(context.Context, *UpdateInfoRequest) (*UpdateInfoResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateInfo not implemented")
+}
+func (UnimplementedUsercenterServer) SharingPlan(context.Context, *SharingRequest) (*SharingResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SharingPlan not implemented")
+}
+func (UnimplementedUsercenterServer) GetInfo(context.Context, *GetInfoRequest) (*GetInfoResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetInfo not implemented")
 }
 func (UnimplementedUsercenterServer) mustEmbedUnimplementedUsercenterServer() {}
 
@@ -125,6 +170,60 @@ func _Usercenter_GenerateToken_Handler(srv interface{}, ctx context.Context, dec
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Usercenter_UpdateInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateInfoRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UsercenterServer).UpdateInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Usercenter_UpdateInfo_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UsercenterServer).UpdateInfo(ctx, req.(*UpdateInfoRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Usercenter_SharingPlan_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SharingRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UsercenterServer).SharingPlan(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Usercenter_SharingPlan_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UsercenterServer).SharingPlan(ctx, req.(*SharingRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Usercenter_GetInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetInfoRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UsercenterServer).GetInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Usercenter_GetInfo_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UsercenterServer).GetInfo(ctx, req.(*GetInfoRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // Usercenter_ServiceDesc is the grpc.ServiceDesc for Usercenter service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -139,6 +238,18 @@ var Usercenter_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "generateToken",
 			Handler:    _Usercenter_GenerateToken_Handler,
+		},
+		{
+			MethodName: "updateInfo",
+			Handler:    _Usercenter_UpdateInfo_Handler,
+		},
+		{
+			MethodName: "sharingPlan",
+			Handler:    _Usercenter_SharingPlan_Handler,
+		},
+		{
+			MethodName: "getInfo",
+			Handler:    _Usercenter_GetInfo_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

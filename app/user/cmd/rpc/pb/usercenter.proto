@@ -7,7 +7,6 @@ message LoginRequest{
   string  StudentID  = 1;
   string Password  = 2;
 }
-
 message LoginResponse{
   string Token = 1;
   bool  IfNew = 2;
@@ -18,13 +17,42 @@ message GenerateTokenRequest{
   int64 RoleGrade = 2;
   int64 Licence = 3;
 }
-
 message GenerateTokenResponse{
   string Token = 1;
 }
 
+message UpdateInfoRequest{
+  string SID = 1;
+  string UserName = 2;
+  string Avatar  = 3;
+}
+message  UpdateInfoResponse{
+}
 
+message SharingRequest{
+  string SID = 1;
+}
+message SharingResponse{
+
+}
+
+message GetInfoRequest{
+  string SID = 1;
+}
+
+message GetInfoResponse{
+  string StudentID = 1;
+  string UserName = 2;
+  string Avatar = 3;
+  int64 IsBlocked = 4;
+  int64 RoleGrade = 5;
+  int64 Integral = 6;
+  int64 Licence = 7;
+}
 service usercenter{
   rpc login(LoginRequest)returns(LoginResponse);
   rpc generateToken(GenerateTokenRequest) returns(GenerateTokenResponse);
+  rpc updateInfo(UpdateInfoRequest)returns(UpdateInfoResponse);
+  rpc sharingPlan(SharingRequest)returns(SharingResponse);
+  rpc getInfo(GetInfoRequest)returns(GetInfoResponse);
 }
