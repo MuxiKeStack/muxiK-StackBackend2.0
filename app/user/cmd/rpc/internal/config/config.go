@@ -14,4 +14,8 @@ type Config struct {
 		AccessSecret string
 		AccessExpire int64
 	}
+	Default struct {
+		Avatar   string
+		Username string
+	}
 }

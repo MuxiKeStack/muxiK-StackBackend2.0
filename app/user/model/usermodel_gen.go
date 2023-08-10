@@ -4,7 +4,6 @@ package model
 
 import (
 	"context"
-	"database/sql"
 	"fmt"
 
 	"github.com/SpectatorNan/gorm-zero/gormc"
@@ -35,14 +34,14 @@ type (
 	}
 
 	User struct {
-		Id        int64          `gorm:"column:id"`
-		Sid       string         `gorm:"column:sid"` // 学生学号
-		Username  sql.NullString `gorm:"column:username"`
-		Avatar    sql.NullString `gorm:"column:avatar"`
-		IsBlocked int64          `gorm:"column:is_blocked"` // 封号
-		RoleGrade int64          `gorm:"column:role_grade"`
-		Integral  int64          `gorm:"column:integral"` // 积分
-		Licence   int64          `gorm:"column:licence"`  // 成绩查看许可
+		Id        int64  `gorm:"column:id"`
+		Sid       string `gorm:"column:sid"` // 学生学号
+		Username  string `gorm:"column:username"`
+		Avatar    string `gorm:"column:avatar"`
+		IsBlocked int64  `gorm:"column:is_blocked"` // 封号
+		RoleGrade int64  `gorm:"column:role_grade"`
+		Integral  int64  `gorm:"column:integral"` // 积分
+		Licence   int64  `gorm:"column:licence"`  // 成绩查看许可
 	}
 )
 
