@@ -46,6 +46,7 @@ func (c customUserModel) IncreaseIntegral(ctx context.Context, sid string, integ
 		user.RoleGrade = 4
 	case 300:
 		user.RoleGrade = 5
+	default:
 	}
 	err = c.ExecCtx(ctx, func(conn *gorm.DB) error {
 		db := conn
