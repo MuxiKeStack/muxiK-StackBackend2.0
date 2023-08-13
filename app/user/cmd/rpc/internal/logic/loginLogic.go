@@ -8,7 +8,10 @@ import (
 	"github.com/MuxiKeStack/muxiK-StackBackend2.0/app/user/model"
 	"github.com/MuxiKeStack/muxiK-StackBackend2.0/common/ccnu_one_login"
 	"github.com/MuxiKeStack/muxiK-StackBackend2.0/common/helpers"
+	rds "github.com/MuxiKeStack/muxiK-StackBackend2.0/common/redis"
+	"github.com/MuxiKeStack/muxiK-StackBackend2.0/common/redis_store"
 	"github.com/zeromicro/go-zero/core/logx"
+	"time"
 )
 
 type LoginLogic struct {
@@ -64,5 +67,42 @@ func (l *LoginLogic) Login(in *pb.LoginRequest) (*pb.LoginResponse, error) {
 		return nil, err
 	}
 	resp.Token = tokenResp.Token
+	err = l.setIntegral(in.StudentID)
+	if err != nil {
+		return nil, err
+	}
 	return resp, nil
+}
+
+func (l *LoginLogic) setIntegral(sid string) error {
+	tomorrow := time.Now().Add(24 * time.Hour)
+	expiration := time.Date(tomorrow.Year(), tomorrow.Month(), tomorrow.Day(), 0, 0, 0, 0, time.UTC)
+	duration := expiration.Sub(time.Now())
+	var likeIntegral = redis_store.RedisStore{
+		RedisClient: &rds.RedisClient{
+			Client:  l.svcCtx.RedisClient,
+			Context: l.ctx,
+		},
+		KeyPrefix: "like_integral_",
+	}
+	likeResult := likeIntegral.Get(sid, false)
+	if likeResult == "" {
+		if err := likeIntegral.Set(sid, 0, duration); err != nil {
+			return err
+		}
+	}
+	var commentIntegral = redis_store.RedisStore{
+		RedisClient: &rds.RedisClient{
+			Client:  l.svcCtx.RedisClient,
+			Context: l.ctx,
+		},
+		KeyPrefix: "comment_integral_",
+	}
+	commentResult := commentIntegral.Get(sid, false)
+	if commentResult == "" {
+		if err := commentIntegral.Set(sid, 0, duration); err != nil {
+			return err
+		}
+	}
+	return nil
 }

@@ -19,11 +19,12 @@ import (
 const _ = grpc.SupportPackageIsVersion7
 
 const (
-	Usercenter_Login_FullMethodName         = "/pb.usercenter/login"
-	Usercenter_GenerateToken_FullMethodName = "/pb.usercenter/generateToken"
-	Usercenter_UpdateInfo_FullMethodName    = "/pb.usercenter/updateInfo"
-	Usercenter_SharingPlan_FullMethodName   = "/pb.usercenter/sharingPlan"
-	Usercenter_GetInfo_FullMethodName       = "/pb.usercenter/getInfo"
+	Usercenter_Login_FullMethodName            = "/pb.usercenter/login"
+	Usercenter_GenerateToken_FullMethodName    = "/pb.usercenter/generateToken"
+	Usercenter_UpdateInfo_FullMethodName       = "/pb.usercenter/updateInfo"
+	Usercenter_SharingPlan_FullMethodName      = "/pb.usercenter/sharingPlan"
+	Usercenter_GetInfo_FullMethodName          = "/pb.usercenter/getInfo"
+	Usercenter_IncreaseIntegral_FullMethodName = "/pb.usercenter/increaseIntegral"
 )
 
 // UsercenterClient is the client API for Usercenter service.
@@ -35,6 +36,7 @@ type UsercenterClient interface {
 	UpdateInfo(ctx context.Context, in *UpdateInfoRequest, opts ...grpc.CallOption) (*UpdateInfoResponse, error)
 	SharingPlan(ctx context.Context, in *SharingRequest, opts ...grpc.CallOption) (*SharingResponse, error)
 	GetInfo(ctx context.Context, in *GetInfoRequest, opts ...grpc.CallOption) (*GetInfoResponse, error)
+	IncreaseIntegral(ctx context.Context, in *IncreaseIntegralRequest, opts ...grpc.CallOption) (*IncreaseIntegralResponse, error)
 }
 
 type usercenterClient struct {
@@ -90,6 +92,15 @@ func (c *usercenterClient) GetInfo(ctx context.Context, in *GetInfoRequest, opts
 	return out, nil
 }
 
+func (c *usercenterClient) IncreaseIntegral(ctx context.Context, in *IncreaseIntegralRequest, opts ...grpc.CallOption) (*IncreaseIntegralResponse, error) {
+	out := new(IncreaseIntegralResponse)
+	err := c.cc.Invoke(ctx, Usercenter_IncreaseIntegral_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // UsercenterServer is the server API for Usercenter service.
 // All implementations must embed UnimplementedUsercenterServer
 // for forward compatibility
@@ -99,6 +110,7 @@ type UsercenterServer interface {
 	UpdateInfo(context.Context, *UpdateInfoRequest) (*UpdateInfoResponse, error)
 	SharingPlan(context.Context, *SharingRequest) (*SharingResponse, error)
 	GetInfo(context.Context, *GetInfoRequest) (*GetInfoResponse, error)
+	IncreaseIntegral(context.Context, *IncreaseIntegralRequest) (*IncreaseIntegralResponse, error)
 	mustEmbedUnimplementedUsercenterServer()
 }
 
@@ -120,6 +132,9 @@ func (UnimplementedUsercenterServer) SharingPlan(context.Context, *SharingReques
 }
 func (UnimplementedUsercenterServer) GetInfo(context.Context, *GetInfoRequest) (*GetInfoResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetInfo not implemented")
+}
+func (UnimplementedUsercenterServer) IncreaseIntegral(context.Context, *IncreaseIntegralRequest) (*IncreaseIntegralResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method IncreaseIntegral not implemented")
 }
 func (UnimplementedUsercenterServer) mustEmbedUnimplementedUsercenterServer() {}
 
@@ -224,6 +239,24 @@ func _Usercenter_GetInfo_Handler(srv interface{}, ctx context.Context, dec func(
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Usercenter_IncreaseIntegral_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IncreaseIntegralRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UsercenterServer).IncreaseIntegral(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Usercenter_IncreaseIntegral_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UsercenterServer).IncreaseIntegral(ctx, req.(*IncreaseIntegralRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // Usercenter_ServiceDesc is the grpc.ServiceDesc for Usercenter service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -250,6 +283,10 @@ var Usercenter_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "getInfo",
 			Handler:    _Usercenter_GetInfo_Handler,
+		},
+		{
+			MethodName: "increaseIntegral",
+			Handler:    _Usercenter_IncreaseIntegral_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

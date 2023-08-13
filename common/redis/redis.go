@@ -2,7 +2,6 @@ package redis
 
 import (
 	"context"
-	"fmt"
 	"github.com/go-redis/redis/v8"
 	"time"
 )
@@ -14,7 +13,7 @@ type RedisClient struct {
 
 // Set 存储 key 对应的 value，且设置 expiration 过期时间
 func (rds RedisClient) Set(key string, value interface{}, expiration time.Duration) error {
-	fmt.Println(key, value)
+	//fmt.Println(key, value)
 
 	if err := rds.Client.Set(rds.Context, key, value, expiration).Err(); err != nil {
 		return err
