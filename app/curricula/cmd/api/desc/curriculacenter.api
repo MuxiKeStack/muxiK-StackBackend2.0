@@ -1,0 +1,22 @@
+syntax = "v1"
+
+info(
+	title: "课程中心"
+	desc: "课程服务"
+	author: "BYmmc.kit"
+	email: "SJMbaiyang@163.com"
+	version: "v1"
+)
+
+import (
+	"curricula/curricula.api"
+)
+
+@server (
+	prefix : api/v1/curricula
+)
+service curriculacenter{
+	@doc "新增课程"
+	@handler addCurricula
+	post /add (AddCurriculaRequest)returns(AddCurriculaResponse)
+}

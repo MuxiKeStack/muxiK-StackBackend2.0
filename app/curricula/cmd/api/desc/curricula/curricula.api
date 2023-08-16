@@ -1,0 +1,36 @@
+syntax = "v1"
+
+info(
+    title: "课程中心"
+    desc: "课程服务"
+    author: "BYmmc.kit"
+    email: "SJMbaiyang@163.com"
+    version: "v1"
+)
+
+//课程模型
+type CurriculaModel {
+    CurriculaId uint32 `json:"curriculaId"` //课程号
+    CurriculaName string `json:"curriculaName"` //课程名称
+    Teacher string `json:"teacher"` //授课教师
+    Type uint8 `json:"type"`    //课程类型，公共课为0，专业课为1
+    Rate float32 `json:"rate"` //课程评分
+    StartsNum uint32 `json:"startsNum"` //课程评分人数
+    GradeSampleSize uint32 `json:"gradeSampleSize"` //课程成绩样本数
+    TotalGrade float32  `json:"totalGrade"` //总成绩均分
+    UsualGrade float32  `json:"usualGrade"` //平时成绩均分
+    GradeRank1 uint32 `json:"gradeRank1"` //成绩85分以上的人数
+    GradeRank2 uint32 `json:"gradeRank2"` //成绩70--85的人数
+    GradeRank3 uint32 `json:"gradeRank3"` //成绩70分以下的人数
+}
+
+type (
+    AddCurriculaRequest{
+        CurriculaId uint32 `json:"curriculaId"`
+        CurriculaNmae string `json:"curriculaName"`
+        Teacher string `json:"teacher"`
+        Type uint32  `json:"type"`
+    }
+
+    AddCurriculaResponse{}
+)
