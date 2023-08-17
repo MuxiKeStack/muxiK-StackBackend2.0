@@ -49,10 +49,23 @@ message GetInfoResponse{
   int64 Integral = 6;
   int64 Licence = 7;
 }
+
+message IncreaseIntegralRequest{
+  string StudentId = 1;
+  string Type= 2;
+  int64 Integral = 3;
+}
+message IncreaseIntegralResponse{
+  string StudentId = 1;
+  int64 Integral = 2;
+  int64 RoleGrade =3;
+}
+
 service usercenter{
   rpc login(LoginRequest)returns(LoginResponse);
   rpc generateToken(GenerateTokenRequest) returns(GenerateTokenResponse);
   rpc updateInfo(UpdateInfoRequest)returns(UpdateInfoResponse);
   rpc sharingPlan(SharingRequest)returns(SharingResponse);
   rpc getInfo(GetInfoRequest)returns(GetInfoResponse);
+  rpc increaseIntegral(IncreaseIntegralRequest)returns(IncreaseIntegralResponse);
 }

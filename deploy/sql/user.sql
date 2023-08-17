@@ -5,7 +5,7 @@ CREATE TABLE `user` (
     `avatar`     VARCHAR(255)  NOT NULL ,
     `is_blocked` TINYINT(1)   NOT NULL DEFAULT 0 COMMENT '封号',
     `role_grade` INT NOT NULL DEFAULT 0,
-    `integral` INT NOT NULL DEFAULT 0 COMMENT'积分',
+    `integral` INT NOT NULL DEFAULT 0 COMMENT'总积分',
     `licence`    TINYINT(1)   NOT NULL DEFAULT 0 COMMENT '成绩查看许可',
      PRIMARY KEY (`id`),
     UNIQUE KEY `idx_sid_unique`(`sid`)

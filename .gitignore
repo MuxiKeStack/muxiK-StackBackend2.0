@@ -45,7 +45,7 @@ upload
 .idea
 *-tools
 
-.default.etcd
+/default.etcd
 
 # config
 *.yaml

@@ -46,3 +46,8 @@ func (s *UsercenterServer) GetInfo(ctx context.Context, in *pb.GetInfoRequest) (
 	l := logic.NewGetInfoLogic(ctx, s.svcCtx)
 	return l.GetInfo(in)
 }
+
+func (s *UsercenterServer) IncreaseIntegral(ctx context.Context, in *pb.IncreaseIntegralRequest) (*pb.IncreaseIntegralResponse, error) {
+	l := logic.NewIncreaseIntegralLogic(ctx, s.svcCtx)
+	return l.IncreaseIntegral(in)
+}
