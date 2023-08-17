@@ -1,0 +1,109 @@
+syntax = "v1"
+
+info(
+    title: "evaluation"
+    desc: "evaluate courses"
+    author: "@a48zhang"
+    email: "3557695455@qq.com"
+    version: "v1"
+)
+
+
+type EvaluationInfo{
+    PostId string `json:"pid"`
+    StudentId string `json:"sid"`
+    CourseId string `json:"cid"`
+    Info string  `json:"info"`
+}
+
+type (
+    EvaluateRequest{
+    CourseId string `json:"cid"`
+    Info string `json:"info"`
+    }
+    EvaluateResponse{
+    Status string `json:"status"`
+    }
+)
+
+type (
+    DeleteEvaluationRequest{
+    PostId string `path:"pid"`
+    }
+    DeleteEvaluationResponse{
+    Status string `json:"status"`
+    }
+)
+
+type(
+    RestoreEvaluationRequest{
+    PostId string `path:"pid"`
+    }
+    RestoreEvaluationResponse{
+    Status string `json:"status"`
+    }
+)
+
+type (
+    GetHistoryRequest{
+    StudentId string `path:"sid"`
+    }
+    GetHistoryResponse{
+    Status string `json:"status"`
+    }
+)
+
+type (
+    GetEvaluationRequest{
+    CourseId string `path:"cid"`
+    }
+    GetEvaluationResponse{
+    Status string `json:"status"`
+    Info[] EvaluationInfo `json:"info"`
+    }
+)
+
+type(
+    LikeRequest{
+        PostId string `path:"pid"`
+    }
+    LikeResponse{
+        Status string `json:"status"`
+    }
+    CancelLikeRequest{
+        PostId string `path:"pid"`
+    }
+    CancelLikeResponse{
+        Status string `json:"status"`
+    }
+)
+
+type(
+    OpposeRequest{
+        PostId string `path:"pid"`
+    }
+    OpposeResponse{
+        Status string `json:"status"`
+    }
+    CancelOpposeRequest{
+        PostId string `path:"pid"`
+    }
+    CancelOpposeResponse{
+        Status string `json:"status"`
+    }
+)
+
+type(
+    ReportRequest{
+        PostId string `json:"pid"`
+        Reason string `json:"reason"`
+    }
+    ReportResponse{
+        Status string `json:"status"`
+    }
+)
+
+
+
+
+
