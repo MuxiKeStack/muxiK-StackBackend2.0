@@ -2,12 +2,11 @@ package logic
 
 import (
 	"context"
+	"github.com/MuxiKeStack/muxiK-StackBackend2.0/app/curricula/cmd/rpc/pb/pb"
 	"github.com/MuxiKeStack/muxiK-StackBackend2.0/app/curricula/model"
 	"github.com/MuxiKeStack/muxiK-StackBackend2.0/common/xerr"
 
 	"github.com/MuxiKeStack/muxiK-StackBackend2.0/app/curricula/cmd/rpc/internal/svc"
-	"github.com/MuxiKeStack/muxiK-StackBackend2.0/app/curricula/cmd/rpc/pb/pb"
-
 	"github.com/zeromicro/go-zero/core/logx"
 )
 

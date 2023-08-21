@@ -13,11 +13,31 @@ import (
 )
 
 type (
-	AddCurriculaRequest  = pb.AddCurriculaRequest
-	AddCurriculaResponse = pb.AddCurriculaResponse
+	AddCurriculaRequest          = pb.AddCurriculaRequest
+	AddCurriculaResponse         = pb.AddCurriculaResponse
+	CheckCharacteristicsRequest  = pb.CheckCharacteristicsRequest
+	CheckCharacteristicsResponse = pb.CheckCharacteristicsResponse
+	CollectCurriculumRequest     = pb.CollectCurriculumRequest
+	CollectCurriculumResponse    = pb.CollectCurriculumResponse
+	CurriculaInfo                = pb.CurriculaInfo
+	CurriculaModel               = pb.CurriculaModel
+	CurriculumDetailRequest      = pb.CurriculumDetailRequest
+	CurriculumDetailResponse     = pb.CurriculumDetailResponse
+	DeleteCurriculaRequest       = pb.DeleteCurriculaRequest
+	DeleteCurriculaResponse      = pb.DeleteCurriculaResponse
+	SearchCurriculaRequest       = pb.SearchCurriculaRequest
+	SearchCurriculaResponse      = pb.SearchCurriculaResponse
+	UpdateCurriculaRequest       = pb.UpdateCurriculaRequest
+	UpdateCurriculaResponse      = pb.UpdateCurriculaResponse
 
 	Curriculacenter interface {
 		AddCurricula(ctx context.Context, in *AddCurriculaRequest, opts ...grpc.CallOption) (*AddCurriculaResponse, error)
+		DeleteCurricula(ctx context.Context, in *DeleteCurriculaRequest, opts ...grpc.CallOption) (*DeleteCurriculaResponse, error)
+		UpdateCurricula(ctx context.Context, in *UpdateCurriculaRequest, opts ...grpc.CallOption) (*UpdateCurriculaResponse, error)
+		SearchCurricula(ctx context.Context, in *SearchCurriculaRequest, opts ...grpc.CallOption) (*SearchCurriculaResponse, error)
+		CurriculumDetail(ctx context.Context, in *CurriculumDetailRequest, opts ...grpc.CallOption) (*CurriculumDetailResponse, error)
+		CheckCharacteristics(ctx context.Context, in *CheckCharacteristicsRequest, opts ...grpc.CallOption) (*CheckCharacteristicsResponse, error)
+		CollectCurriculum(ctx context.Context, in *CollectCurriculumRequest, opts ...grpc.CallOption) (*CollectCurriculumResponse, error)
 	}
 
 	defaultCurriculacenter struct {
@@ -34,4 +54,34 @@ func NewCurriculacenter(cli zrpc.Client) Curriculacenter {
 func (m *defaultCurriculacenter) AddCurricula(ctx context.Context, in *AddCurriculaRequest, opts ...grpc.CallOption) (*AddCurriculaResponse, error) {
 	client := pb.NewCurriculacenterClient(m.cli.Conn())
 	return client.AddCurricula(ctx, in, opts...)
+}
+
+func (m *defaultCurriculacenter) DeleteCurricula(ctx context.Context, in *DeleteCurriculaRequest, opts ...grpc.CallOption) (*DeleteCurriculaResponse, error) {
+	client := pb.NewCurriculacenterClient(m.cli.Conn())
+	return client.DeleteCurricula(ctx, in, opts...)
+}
+
+func (m *defaultCurriculacenter) UpdateCurricula(ctx context.Context, in *UpdateCurriculaRequest, opts ...grpc.CallOption) (*UpdateCurriculaResponse, error) {
+	client := pb.NewCurriculacenterClient(m.cli.Conn())
+	return client.UpdateCurricula(ctx, in, opts...)
+}
+
+func (m *defaultCurriculacenter) SearchCurricula(ctx context.Context, in *SearchCurriculaRequest, opts ...grpc.CallOption) (*SearchCurriculaResponse, error) {
+	client := pb.NewCurriculacenterClient(m.cli.Conn())
+	return client.SearchCurricula(ctx, in, opts...)
+}
+
+func (m *defaultCurriculacenter) CurriculumDetail(ctx context.Context, in *CurriculumDetailRequest, opts ...grpc.CallOption) (*CurriculumDetailResponse, error) {
+	client := pb.NewCurriculacenterClient(m.cli.Conn())
+	return client.CurriculumDetail(ctx, in, opts...)
+}
+
+func (m *defaultCurriculacenter) CheckCharacteristics(ctx context.Context, in *CheckCharacteristicsRequest, opts ...grpc.CallOption) (*CheckCharacteristicsResponse, error) {
+	client := pb.NewCurriculacenterClient(m.cli.Conn())
+	return client.CheckCharacteristics(ctx, in, opts...)
+}
+
+func (m *defaultCurriculacenter) CollectCurriculum(ctx context.Context, in *CollectCurriculumRequest, opts ...grpc.CallOption) (*CollectCurriculumResponse, error) {
+	client := pb.NewCurriculacenterClient(m.cli.Conn())
+	return client.CollectCurriculum(ctx, in, opts...)
 }

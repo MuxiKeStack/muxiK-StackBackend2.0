@@ -20,6 +20,236 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+type CurriculaModel struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	DataId          int64   `protobuf:"varint,1,opt,name=DataId,proto3" json:"DataId,omitempty"`
+	CurriculaId     uint32  `protobuf:"varint,2,opt,name=CurriculaId,proto3" json:"CurriculaId,omitempty"`
+	CurriculaName   string  `protobuf:"bytes,3,opt,name=CurriculaName,proto3" json:"CurriculaName,omitempty"`
+	Teacher         string  `protobuf:"bytes,4,opt,name=Teacher,proto3" json:"Teacher,omitempty"`
+	Type            uint32  `protobuf:"varint,5,opt,name=Type,proto3" json:"Type,omitempty"`
+	Rate            float32 `protobuf:"fixed32,6,opt,name=Rate,proto3" json:"Rate,omitempty"`
+	StarsNum        uint32  `protobuf:"varint,7,opt,name=StarsNum,proto3" json:"StarsNum,omitempty"`
+	GradeSampleSize uint32  `protobuf:"varint,8,opt,name=GradeSampleSize,proto3" json:"GradeSampleSize,omitempty"`
+	TotalGrade      float32 `protobuf:"fixed32,9,opt,name=TotalGrade,proto3" json:"TotalGrade,omitempty"`
+	UsualGrade      float32 `protobuf:"fixed32,10,opt,name=UsualGrade,proto3" json:"UsualGrade,omitempty"`
+	GradeRk1        uint32  `protobuf:"varint,11,opt,name=GradeRk1,proto3" json:"GradeRk1,omitempty"`
+	GradeRk2        uint32  `protobuf:"varint,12,opt,name=GradeRk2,proto3" json:"GradeRk2,omitempty"`
+	GradeRk3        uint32  `protobuf:"varint,13,opt,name=GradeRk3,proto3" json:"GradeRk3,omitempty"`
+}
+
+func (x *CurriculaModel) Reset() {
+	*x = CurriculaModel{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_curriculacenter_proto_msgTypes[0]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *CurriculaModel) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CurriculaModel) ProtoMessage() {}
+
+func (x *CurriculaModel) ProtoReflect() protoreflect.Message {
+	mi := &file_curriculacenter_proto_msgTypes[0]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CurriculaModel.ProtoReflect.Descriptor instead.
+func (*CurriculaModel) Descriptor() ([]byte, []int) {
+	return file_curriculacenter_proto_rawDescGZIP(), []int{0}
+}
+
+func (x *CurriculaModel) GetDataId() int64 {
+	if x != nil {
+		return x.DataId
+	}
+	return 0
+}
+
+func (x *CurriculaModel) GetCurriculaId() uint32 {
+	if x != nil {
+		return x.CurriculaId
+	}
+	return 0
+}
+
+func (x *CurriculaModel) GetCurriculaName() string {
+	if x != nil {
+		return x.CurriculaName
+	}
+	return ""
+}
+
+func (x *CurriculaModel) GetTeacher() string {
+	if x != nil {
+		return x.Teacher
+	}
+	return ""
+}
+
+func (x *CurriculaModel) GetType() uint32 {
+	if x != nil {
+		return x.Type
+	}
+	return 0
+}
+
+func (x *CurriculaModel) GetRate() float32 {
+	if x != nil {
+		return x.Rate
+	}
+	return 0
+}
+
+func (x *CurriculaModel) GetStarsNum() uint32 {
+	if x != nil {
+		return x.StarsNum
+	}
+	return 0
+}
+
+func (x *CurriculaModel) GetGradeSampleSize() uint32 {
+	if x != nil {
+		return x.GradeSampleSize
+	}
+	return 0
+}
+
+func (x *CurriculaModel) GetTotalGrade() float32 {
+	if x != nil {
+		return x.TotalGrade
+	}
+	return 0
+}
+
+func (x *CurriculaModel) GetUsualGrade() float32 {
+	if x != nil {
+		return x.UsualGrade
+	}
+	return 0
+}
+
+func (x *CurriculaModel) GetGradeRk1() uint32 {
+	if x != nil {
+		return x.GradeRk1
+	}
+	return 0
+}
+
+func (x *CurriculaModel) GetGradeRk2() uint32 {
+	if x != nil {
+		return x.GradeRk2
+	}
+	return 0
+}
+
+func (x *CurriculaModel) GetGradeRk3() uint32 {
+	if x != nil {
+		return x.GradeRk3
+	}
+	return 0
+}
+
+type CurriculaInfo struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	DataId        int64   `protobuf:"varint,1,opt,name=DataId,proto3" json:"DataId,omitempty"`
+	CurriculaId   uint32  `protobuf:"varint,2,opt,name=CurriculaId,proto3" json:"CurriculaId,omitempty"`
+	CurriculaName string  `protobuf:"bytes,3,opt,name=CurriculaName,proto3" json:"CurriculaName,omitempty"`
+	Teacher       string  `protobuf:"bytes,4,opt,name=Teacher,proto3" json:"Teacher,omitempty"`
+	Type          uint32  `protobuf:"varint,5,opt,name=Type,proto3" json:"Type,omitempty"`
+	Rate          float32 `protobuf:"fixed32,6,opt,name=Rate,proto3" json:"Rate,omitempty"`
+}
+
+func (x *CurriculaInfo) Reset() {
+	*x = CurriculaInfo{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_curriculacenter_proto_msgTypes[1]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *CurriculaInfo) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CurriculaInfo) ProtoMessage() {}
+
+func (x *CurriculaInfo) ProtoReflect() protoreflect.Message {
+	mi := &file_curriculacenter_proto_msgTypes[1]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CurriculaInfo.ProtoReflect.Descriptor instead.
+func (*CurriculaInfo) Descriptor() ([]byte, []int) {
+	return file_curriculacenter_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *CurriculaInfo) GetDataId() int64 {
+	if x != nil {
+		return x.DataId
+	}
+	return 0
+}
+
+func (x *CurriculaInfo) GetCurriculaId() uint32 {
+	if x != nil {
+		return x.CurriculaId
+	}
+	return 0
+}
+
+func (x *CurriculaInfo) GetCurriculaName() string {
+	if x != nil {
+		return x.CurriculaName
+	}
+	return ""
+}
+
+func (x *CurriculaInfo) GetTeacher() string {
+	if x != nil {
+		return x.Teacher
+	}
+	return ""
+}
+
+func (x *CurriculaInfo) GetType() uint32 {
+	if x != nil {
+		return x.Type
+	}
+	return 0
+}
+
+func (x *CurriculaInfo) GetRate() float32 {
+	if x != nil {
+		return x.Rate
+	}
+	return 0
+}
+
 type AddCurriculaRequest struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -34,7 +264,7 @@ type AddCurriculaRequest struct {
 func (x *AddCurriculaRequest) Reset() {
 	*x = AddCurriculaRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_curriculacenter_proto_msgTypes[0]
+		mi := &file_curriculacenter_proto_msgTypes[2]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -47,7 +277,7 @@ func (x *AddCurriculaRequest) String() string {
 func (*AddCurriculaRequest) ProtoMessage() {}
 
 func (x *AddCurriculaRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_curriculacenter_proto_msgTypes[0]
+	mi := &file_curriculacenter_proto_msgTypes[2]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -60,7 +290,7 @@ func (x *AddCurriculaRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddCurriculaRequest.ProtoReflect.Descriptor instead.
 func (*AddCurriculaRequest) Descriptor() ([]byte, []int) {
-	return file_curriculacenter_proto_rawDescGZIP(), []int{0}
+	return file_curriculacenter_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *AddCurriculaRequest) GetCurriculaId() uint32 {
@@ -100,7 +330,7 @@ type AddCurriculaResponse struct {
 func (x *AddCurriculaResponse) Reset() {
 	*x = AddCurriculaResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_curriculacenter_proto_msgTypes[1]
+		mi := &file_curriculacenter_proto_msgTypes[3]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -113,7 +343,7 @@ func (x *AddCurriculaResponse) String() string {
 func (*AddCurriculaResponse) ProtoMessage() {}
 
 func (x *AddCurriculaResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_curriculacenter_proto_msgTypes[1]
+	mi := &file_curriculacenter_proto_msgTypes[3]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -126,31 +356,732 @@ func (x *AddCurriculaResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddCurriculaResponse.ProtoReflect.Descriptor instead.
 func (*AddCurriculaResponse) Descriptor() ([]byte, []int) {
-	return file_curriculacenter_proto_rawDescGZIP(), []int{1}
+	return file_curriculacenter_proto_rawDescGZIP(), []int{3}
+}
+
+type SearchCurriculaRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	CurriculaId   uint32 `protobuf:"varint,1,opt,name=CurriculaId,proto3" json:"CurriculaId,omitempty"`
+	CurriculaName string `protobuf:"bytes,2,opt,name=CurriculaName,proto3" json:"CurriculaName,omitempty"`
+	Teacher       string `protobuf:"bytes,3,opt,name=Teacher,proto3" json:"Teacher,omitempty"`
+	Type          uint32 `protobuf:"varint,4,opt,name=Type,proto3" json:"Type,omitempty"`
+}
+
+func (x *SearchCurriculaRequest) Reset() {
+	*x = SearchCurriculaRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_curriculacenter_proto_msgTypes[4]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *SearchCurriculaRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SearchCurriculaRequest) ProtoMessage() {}
+
+func (x *SearchCurriculaRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_curriculacenter_proto_msgTypes[4]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SearchCurriculaRequest.ProtoReflect.Descriptor instead.
+func (*SearchCurriculaRequest) Descriptor() ([]byte, []int) {
+	return file_curriculacenter_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *SearchCurriculaRequest) GetCurriculaId() uint32 {
+	if x != nil {
+		return x.CurriculaId
+	}
+	return 0
+}
+
+func (x *SearchCurriculaRequest) GetCurriculaName() string {
+	if x != nil {
+		return x.CurriculaName
+	}
+	return ""
+}
+
+func (x *SearchCurriculaRequest) GetTeacher() string {
+	if x != nil {
+		return x.Teacher
+	}
+	return ""
+}
+
+func (x *SearchCurriculaRequest) GetType() uint32 {
+	if x != nil {
+		return x.Type
+	}
+	return 0
+}
+
+type SearchCurriculaResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Info []*CurriculaInfo `protobuf:"bytes,1,rep,name=Info,proto3" json:"Info,omitempty"`
+}
+
+func (x *SearchCurriculaResponse) Reset() {
+	*x = SearchCurriculaResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_curriculacenter_proto_msgTypes[5]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *SearchCurriculaResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SearchCurriculaResponse) ProtoMessage() {}
+
+func (x *SearchCurriculaResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_curriculacenter_proto_msgTypes[5]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SearchCurriculaResponse.ProtoReflect.Descriptor instead.
+func (*SearchCurriculaResponse) Descriptor() ([]byte, []int) {
+	return file_curriculacenter_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *SearchCurriculaResponse) GetInfo() []*CurriculaInfo {
+	if x != nil {
+		return x.Info
+	}
+	return nil
+}
+
+type DeleteCurriculaRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	CurriculaId   uint32 `protobuf:"varint,1,opt,name=CurriculaId,proto3" json:"CurriculaId,omitempty"`
+	CurriculaName string `protobuf:"bytes,2,opt,name=CurriculaName,proto3" json:"CurriculaName,omitempty"`
+	Teacher       string `protobuf:"bytes,3,opt,name=Teacher,proto3" json:"Teacher,omitempty"`
+	Type          uint32 `protobuf:"varint,4,opt,name=Type,proto3" json:"Type,omitempty"`
+}
+
+func (x *DeleteCurriculaRequest) Reset() {
+	*x = DeleteCurriculaRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_curriculacenter_proto_msgTypes[6]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *DeleteCurriculaRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DeleteCurriculaRequest) ProtoMessage() {}
+
+func (x *DeleteCurriculaRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_curriculacenter_proto_msgTypes[6]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DeleteCurriculaRequest.ProtoReflect.Descriptor instead.
+func (*DeleteCurriculaRequest) Descriptor() ([]byte, []int) {
+	return file_curriculacenter_proto_rawDescGZIP(), []int{6}
+}
+
+func (x *DeleteCurriculaRequest) GetCurriculaId() uint32 {
+	if x != nil {
+		return x.CurriculaId
+	}
+	return 0
+}
+
+func (x *DeleteCurriculaRequest) GetCurriculaName() string {
+	if x != nil {
+		return x.CurriculaName
+	}
+	return ""
+}
+
+func (x *DeleteCurriculaRequest) GetTeacher() string {
+	if x != nil {
+		return x.Teacher
+	}
+	return ""
+}
+
+func (x *DeleteCurriculaRequest) GetType() uint32 {
+	if x != nil {
+		return x.Type
+	}
+	return 0
+}
+
+type DeleteCurriculaResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+}
+
+func (x *DeleteCurriculaResponse) Reset() {
+	*x = DeleteCurriculaResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_curriculacenter_proto_msgTypes[7]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *DeleteCurriculaResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DeleteCurriculaResponse) ProtoMessage() {}
+
+func (x *DeleteCurriculaResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_curriculacenter_proto_msgTypes[7]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DeleteCurriculaResponse.ProtoReflect.Descriptor instead.
+func (*DeleteCurriculaResponse) Descriptor() ([]byte, []int) {
+	return file_curriculacenter_proto_rawDescGZIP(), []int{7}
+}
+
+type UpdateCurriculaRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Model []*CurriculaModel `protobuf:"bytes,1,rep,name=Model,proto3" json:"Model,omitempty"`
+}
+
+func (x *UpdateCurriculaRequest) Reset() {
+	*x = UpdateCurriculaRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_curriculacenter_proto_msgTypes[8]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *UpdateCurriculaRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UpdateCurriculaRequest) ProtoMessage() {}
+
+func (x *UpdateCurriculaRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_curriculacenter_proto_msgTypes[8]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UpdateCurriculaRequest.ProtoReflect.Descriptor instead.
+func (*UpdateCurriculaRequest) Descriptor() ([]byte, []int) {
+	return file_curriculacenter_proto_rawDescGZIP(), []int{8}
+}
+
+func (x *UpdateCurriculaRequest) GetModel() []*CurriculaModel {
+	if x != nil {
+		return x.Model
+	}
+	return nil
+}
+
+type UpdateCurriculaResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+}
+
+func (x *UpdateCurriculaResponse) Reset() {
+	*x = UpdateCurriculaResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_curriculacenter_proto_msgTypes[9]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *UpdateCurriculaResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UpdateCurriculaResponse) ProtoMessage() {}
+
+func (x *UpdateCurriculaResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_curriculacenter_proto_msgTypes[9]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UpdateCurriculaResponse.ProtoReflect.Descriptor instead.
+func (*UpdateCurriculaResponse) Descriptor() ([]byte, []int) {
+	return file_curriculacenter_proto_rawDescGZIP(), []int{9}
+}
+
+type CheckCharacteristicsRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Type uint32 `protobuf:"varint,1,opt,name=Type,proto3" json:"Type,omitempty"`
+}
+
+func (x *CheckCharacteristicsRequest) Reset() {
+	*x = CheckCharacteristicsRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_curriculacenter_proto_msgTypes[10]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *CheckCharacteristicsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CheckCharacteristicsRequest) ProtoMessage() {}
+
+func (x *CheckCharacteristicsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_curriculacenter_proto_msgTypes[10]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CheckCharacteristicsRequest.ProtoReflect.Descriptor instead.
+func (*CheckCharacteristicsRequest) Descriptor() ([]byte, []int) {
+	return file_curriculacenter_proto_rawDescGZIP(), []int{10}
+}
+
+func (x *CheckCharacteristicsRequest) GetType() uint32 {
+	if x != nil {
+		return x.Type
+	}
+	return 0
+}
+
+type CheckCharacteristicsResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Info []*CurriculaInfo `protobuf:"bytes,1,rep,name=Info,proto3" json:"Info,omitempty"`
+}
+
+func (x *CheckCharacteristicsResponse) Reset() {
+	*x = CheckCharacteristicsResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_curriculacenter_proto_msgTypes[11]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *CheckCharacteristicsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CheckCharacteristicsResponse) ProtoMessage() {}
+
+func (x *CheckCharacteristicsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_curriculacenter_proto_msgTypes[11]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CheckCharacteristicsResponse.ProtoReflect.Descriptor instead.
+func (*CheckCharacteristicsResponse) Descriptor() ([]byte, []int) {
+	return file_curriculacenter_proto_rawDescGZIP(), []int{11}
+}
+
+func (x *CheckCharacteristicsResponse) GetInfo() []*CurriculaInfo {
+	if x != nil {
+		return x.Info
+	}
+	return nil
+}
+
+type CurriculumDetailRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	DataId int64 `protobuf:"varint,1,opt,name=DataId,proto3" json:"DataId,omitempty"`
+}
+
+func (x *CurriculumDetailRequest) Reset() {
+	*x = CurriculumDetailRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_curriculacenter_proto_msgTypes[12]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *CurriculumDetailRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CurriculumDetailRequest) ProtoMessage() {}
+
+func (x *CurriculumDetailRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_curriculacenter_proto_msgTypes[12]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CurriculumDetailRequest.ProtoReflect.Descriptor instead.
+func (*CurriculumDetailRequest) Descriptor() ([]byte, []int) {
+	return file_curriculacenter_proto_rawDescGZIP(), []int{12}
+}
+
+func (x *CurriculumDetailRequest) GetDataId() int64 {
+	if x != nil {
+		return x.DataId
+	}
+	return 0
+}
+
+type CurriculumDetailResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Info []*CurriculaModel `protobuf:"bytes,1,rep,name=Info,proto3" json:"Info,omitempty"`
+}
+
+func (x *CurriculumDetailResponse) Reset() {
+	*x = CurriculumDetailResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_curriculacenter_proto_msgTypes[13]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *CurriculumDetailResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CurriculumDetailResponse) ProtoMessage() {}
+
+func (x *CurriculumDetailResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_curriculacenter_proto_msgTypes[13]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CurriculumDetailResponse.ProtoReflect.Descriptor instead.
+func (*CurriculumDetailResponse) Descriptor() ([]byte, []int) {
+	return file_curriculacenter_proto_rawDescGZIP(), []int{13}
+}
+
+func (x *CurriculumDetailResponse) GetInfo() []*CurriculaModel {
+	if x != nil {
+		return x.Info
+	}
+	return nil
+}
+
+type CollectCurriculumRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	DataId int64 `protobuf:"varint,1,opt,name=DataId,proto3" json:"DataId,omitempty"`
+}
+
+func (x *CollectCurriculumRequest) Reset() {
+	*x = CollectCurriculumRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_curriculacenter_proto_msgTypes[14]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *CollectCurriculumRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CollectCurriculumRequest) ProtoMessage() {}
+
+func (x *CollectCurriculumRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_curriculacenter_proto_msgTypes[14]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CollectCurriculumRequest.ProtoReflect.Descriptor instead.
+func (*CollectCurriculumRequest) Descriptor() ([]byte, []int) {
+	return file_curriculacenter_proto_rawDescGZIP(), []int{14}
+}
+
+func (x *CollectCurriculumRequest) GetDataId() int64 {
+	if x != nil {
+		return x.DataId
+	}
+	return 0
+}
+
+type CollectCurriculumResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+}
+
+func (x *CollectCurriculumResponse) Reset() {
+	*x = CollectCurriculumResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_curriculacenter_proto_msgTypes[15]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *CollectCurriculumResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CollectCurriculumResponse) ProtoMessage() {}
+
+func (x *CollectCurriculumResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_curriculacenter_proto_msgTypes[15]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CollectCurriculumResponse.ProtoReflect.Descriptor instead.
+func (*CollectCurriculumResponse) Descriptor() ([]byte, []int) {
+	return file_curriculacenter_proto_rawDescGZIP(), []int{15}
 }
 
 var File_curriculacenter_proto protoreflect.FileDescriptor
 
 var file_curriculacenter_proto_rawDesc = []byte{
 	0x0a, 0x15, 0x63, 0x75, 0x72, 0x72, 0x69, 0x63, 0x75, 0x6c, 0x61, 0x63, 0x65, 0x6e, 0x74, 0x65,
-	0x72, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x12, 0x02, 0x70, 0x62, 0x22, 0x8b, 0x01, 0x0a, 0x13,
-	0x41, 0x64, 0x64, 0x43, 0x75, 0x72, 0x72, 0x69, 0x63, 0x75, 0x6c, 0x61, 0x52, 0x65, 0x71, 0x75,
-	0x65, 0x73, 0x74, 0x12, 0x20, 0x0a, 0x0b, 0x43, 0x75, 0x72, 0x72, 0x69, 0x63, 0x75, 0x6c, 0x61,
-	0x49, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x0b, 0x43, 0x75, 0x72, 0x72, 0x69, 0x63,
-	0x75, 0x6c, 0x61, 0x49, 0x64, 0x12, 0x24, 0x0a, 0x0d, 0x43, 0x75, 0x72, 0x72, 0x69, 0x63, 0x75,
-	0x6c, 0x61, 0x4e, 0x61, 0x6d, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0d, 0x43, 0x75,
-	0x72, 0x72, 0x69, 0x63, 0x75, 0x6c, 0x61, 0x4e, 0x61, 0x6d, 0x65, 0x12, 0x18, 0x0a, 0x07, 0x54,
-	0x65, 0x61, 0x63, 0x68, 0x65, 0x72, 0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x54, 0x65,
-	0x61, 0x63, 0x68, 0x65, 0x72, 0x12, 0x12, 0x0a, 0x04, 0x54, 0x79, 0x70, 0x65, 0x18, 0x04, 0x20,
-	0x01, 0x28, 0x0d, 0x52, 0x04, 0x54, 0x79, 0x70, 0x65, 0x22, 0x16, 0x0a, 0x14, 0x41, 0x64, 0x64,
-	0x43, 0x75, 0x72, 0x72, 0x69, 0x63, 0x75, 0x6c, 0x61, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
-	0x65, 0x32, 0x54, 0x0a, 0x0f, 0x63, 0x75, 0x72, 0x72, 0x69, 0x63, 0x75, 0x6c, 0x61, 0x63, 0x65,
-	0x6e, 0x74, 0x65, 0x72, 0x12, 0x41, 0x0a, 0x0c, 0x61, 0x64, 0x64, 0x43, 0x75, 0x72, 0x72, 0x69,
-	0x63, 0x75, 0x6c, 0x61, 0x12, 0x17, 0x2e, 0x70, 0x62, 0x2e, 0x41, 0x64, 0x64, 0x43, 0x75, 0x72,
-	0x72, 0x69, 0x63, 0x75, 0x6c, 0x61, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x18, 0x2e,
-	0x70, 0x62, 0x2e, 0x41, 0x64, 0x64, 0x43, 0x75, 0x72, 0x72, 0x69, 0x63, 0x75, 0x6c, 0x61, 0x52,
-	0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x42, 0x06, 0x5a, 0x04, 0x2e, 0x2f, 0x70, 0x62, 0x62,
-	0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x72, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x12, 0x02, 0x70, 0x62, 0x22, 0x8c, 0x03, 0x0a, 0x0e,
+	0x43, 0x75, 0x72, 0x72, 0x69, 0x63, 0x75, 0x6c, 0x61, 0x4d, 0x6f, 0x64, 0x65, 0x6c, 0x12, 0x16,
+	0x0a, 0x06, 0x44, 0x61, 0x74, 0x61, 0x49, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x03, 0x52, 0x06,
+	0x44, 0x61, 0x74, 0x61, 0x49, 0x64, 0x12, 0x20, 0x0a, 0x0b, 0x43, 0x75, 0x72, 0x72, 0x69, 0x63,
+	0x75, 0x6c, 0x61, 0x49, 0x64, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x0b, 0x43, 0x75, 0x72,
+	0x72, 0x69, 0x63, 0x75, 0x6c, 0x61, 0x49, 0x64, 0x12, 0x24, 0x0a, 0x0d, 0x43, 0x75, 0x72, 0x72,
+	0x69, 0x63, 0x75, 0x6c, 0x61, 0x4e, 0x61, 0x6d, 0x65, 0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52,
+	0x0d, 0x43, 0x75, 0x72, 0x72, 0x69, 0x63, 0x75, 0x6c, 0x61, 0x4e, 0x61, 0x6d, 0x65, 0x12, 0x18,
+	0x0a, 0x07, 0x54, 0x65, 0x61, 0x63, 0x68, 0x65, 0x72, 0x18, 0x04, 0x20, 0x01, 0x28, 0x09, 0x52,
+	0x07, 0x54, 0x65, 0x61, 0x63, 0x68, 0x65, 0x72, 0x12, 0x12, 0x0a, 0x04, 0x54, 0x79, 0x70, 0x65,
+	0x18, 0x05, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x04, 0x54, 0x79, 0x70, 0x65, 0x12, 0x12, 0x0a, 0x04,
+	0x52, 0x61, 0x74, 0x65, 0x18, 0x06, 0x20, 0x01, 0x28, 0x02, 0x52, 0x04, 0x52, 0x61, 0x74, 0x65,
+	0x12, 0x1a, 0x0a, 0x08, 0x53, 0x74, 0x61, 0x72, 0x73, 0x4e, 0x75, 0x6d, 0x18, 0x07, 0x20, 0x01,
+	0x28, 0x0d, 0x52, 0x08, 0x53, 0x74, 0x61, 0x72, 0x73, 0x4e, 0x75, 0x6d, 0x12, 0x28, 0x0a, 0x0f,
+	0x47, 0x72, 0x61, 0x64, 0x65, 0x53, 0x61, 0x6d, 0x70, 0x6c, 0x65, 0x53, 0x69, 0x7a, 0x65, 0x18,
+	0x08, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x0f, 0x47, 0x72, 0x61, 0x64, 0x65, 0x53, 0x61, 0x6d, 0x70,
+	0x6c, 0x65, 0x53, 0x69, 0x7a, 0x65, 0x12, 0x1e, 0x0a, 0x0a, 0x54, 0x6f, 0x74, 0x61, 0x6c, 0x47,
+	0x72, 0x61, 0x64, 0x65, 0x18, 0x09, 0x20, 0x01, 0x28, 0x02, 0x52, 0x0a, 0x54, 0x6f, 0x74, 0x61,
+	0x6c, 0x47, 0x72, 0x61, 0x64, 0x65, 0x12, 0x1e, 0x0a, 0x0a, 0x55, 0x73, 0x75, 0x61, 0x6c, 0x47,
+	0x72, 0x61, 0x64, 0x65, 0x18, 0x0a, 0x20, 0x01, 0x28, 0x02, 0x52, 0x0a, 0x55, 0x73, 0x75, 0x61,
+	0x6c, 0x47, 0x72, 0x61, 0x64, 0x65, 0x12, 0x1a, 0x0a, 0x08, 0x47, 0x72, 0x61, 0x64, 0x65, 0x52,
+	0x6b, 0x31, 0x18, 0x0b, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x08, 0x47, 0x72, 0x61, 0x64, 0x65, 0x52,
+	0x6b, 0x31, 0x12, 0x1a, 0x0a, 0x08, 0x47, 0x72, 0x61, 0x64, 0x65, 0x52, 0x6b, 0x32, 0x18, 0x0c,
+	0x20, 0x01, 0x28, 0x0d, 0x52, 0x08, 0x47, 0x72, 0x61, 0x64, 0x65, 0x52, 0x6b, 0x32, 0x12, 0x1a,
+	0x0a, 0x08, 0x47, 0x72, 0x61, 0x64, 0x65, 0x52, 0x6b, 0x33, 0x18, 0x0d, 0x20, 0x01, 0x28, 0x0d,
+	0x52, 0x08, 0x47, 0x72, 0x61, 0x64, 0x65, 0x52, 0x6b, 0x33, 0x22, 0xb1, 0x01, 0x0a, 0x0d, 0x43,
+	0x75, 0x72, 0x72, 0x69, 0x63, 0x75, 0x6c, 0x61, 0x49, 0x6e, 0x66, 0x6f, 0x12, 0x16, 0x0a, 0x06,
+	0x44, 0x61, 0x74, 0x61, 0x49, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x03, 0x52, 0x06, 0x44, 0x61,
+	0x74, 0x61, 0x49, 0x64, 0x12, 0x20, 0x0a, 0x0b, 0x43, 0x75, 0x72, 0x72, 0x69, 0x63, 0x75, 0x6c,
+	0x61, 0x49, 0x64, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x0b, 0x43, 0x75, 0x72, 0x72, 0x69,
+	0x63, 0x75, 0x6c, 0x61, 0x49, 0x64, 0x12, 0x24, 0x0a, 0x0d, 0x43, 0x75, 0x72, 0x72, 0x69, 0x63,
+	0x75, 0x6c, 0x61, 0x4e, 0x61, 0x6d, 0x65, 0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0d, 0x43,
+	0x75, 0x72, 0x72, 0x69, 0x63, 0x75, 0x6c, 0x61, 0x4e, 0x61, 0x6d, 0x65, 0x12, 0x18, 0x0a, 0x07,
+	0x54, 0x65, 0x61, 0x63, 0x68, 0x65, 0x72, 0x18, 0x04, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x54,
+	0x65, 0x61, 0x63, 0x68, 0x65, 0x72, 0x12, 0x12, 0x0a, 0x04, 0x54, 0x79, 0x70, 0x65, 0x18, 0x05,
+	0x20, 0x01, 0x28, 0x0d, 0x52, 0x04, 0x54, 0x79, 0x70, 0x65, 0x12, 0x12, 0x0a, 0x04, 0x52, 0x61,
+	0x74, 0x65, 0x18, 0x06, 0x20, 0x01, 0x28, 0x02, 0x52, 0x04, 0x52, 0x61, 0x74, 0x65, 0x22, 0x8b,
+	0x01, 0x0a, 0x13, 0x41, 0x64, 0x64, 0x43, 0x75, 0x72, 0x72, 0x69, 0x63, 0x75, 0x6c, 0x61, 0x52,
+	0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x20, 0x0a, 0x0b, 0x43, 0x75, 0x72, 0x72, 0x69, 0x63,
+	0x75, 0x6c, 0x61, 0x49, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x0b, 0x43, 0x75, 0x72,
+	0x72, 0x69, 0x63, 0x75, 0x6c, 0x61, 0x49, 0x64, 0x12, 0x24, 0x0a, 0x0d, 0x43, 0x75, 0x72, 0x72,
+	0x69, 0x63, 0x75, 0x6c, 0x61, 0x4e, 0x61, 0x6d, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52,
+	0x0d, 0x43, 0x75, 0x72, 0x72, 0x69, 0x63, 0x75, 0x6c, 0x61, 0x4e, 0x61, 0x6d, 0x65, 0x12, 0x18,
+	0x0a, 0x07, 0x54, 0x65, 0x61, 0x63, 0x68, 0x65, 0x72, 0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52,
+	0x07, 0x54, 0x65, 0x61, 0x63, 0x68, 0x65, 0x72, 0x12, 0x12, 0x0a, 0x04, 0x54, 0x79, 0x70, 0x65,
+	0x18, 0x04, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x04, 0x54, 0x79, 0x70, 0x65, 0x22, 0x16, 0x0a, 0x14,
+	0x41, 0x64, 0x64, 0x43, 0x75, 0x72, 0x72, 0x69, 0x63, 0x75, 0x6c, 0x61, 0x52, 0x65, 0x73, 0x70,
+	0x6f, 0x6e, 0x73, 0x65, 0x22, 0x8e, 0x01, 0x0a, 0x16, 0x53, 0x65, 0x61, 0x72, 0x63, 0x68, 0x43,
+	0x75, 0x72, 0x72, 0x69, 0x63, 0x75, 0x6c, 0x61, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12,
+	0x20, 0x0a, 0x0b, 0x43, 0x75, 0x72, 0x72, 0x69, 0x63, 0x75, 0x6c, 0x61, 0x49, 0x64, 0x18, 0x01,
+	0x20, 0x01, 0x28, 0x0d, 0x52, 0x0b, 0x43, 0x75, 0x72, 0x72, 0x69, 0x63, 0x75, 0x6c, 0x61, 0x49,
+	0x64, 0x12, 0x24, 0x0a, 0x0d, 0x43, 0x75, 0x72, 0x72, 0x69, 0x63, 0x75, 0x6c, 0x61, 0x4e, 0x61,
+	0x6d, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0d, 0x43, 0x75, 0x72, 0x72, 0x69, 0x63,
+	0x75, 0x6c, 0x61, 0x4e, 0x61, 0x6d, 0x65, 0x12, 0x18, 0x0a, 0x07, 0x54, 0x65, 0x61, 0x63, 0x68,
+	0x65, 0x72, 0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x54, 0x65, 0x61, 0x63, 0x68, 0x65,
+	0x72, 0x12, 0x12, 0x0a, 0x04, 0x54, 0x79, 0x70, 0x65, 0x18, 0x04, 0x20, 0x01, 0x28, 0x0d, 0x52,
+	0x04, 0x54, 0x79, 0x70, 0x65, 0x22, 0x40, 0x0a, 0x17, 0x53, 0x65, 0x61, 0x72, 0x63, 0x68, 0x43,
+	0x75, 0x72, 0x72, 0x69, 0x63, 0x75, 0x6c, 0x61, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65,
+	0x12, 0x25, 0x0a, 0x04, 0x49, 0x6e, 0x66, 0x6f, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x11,
+	0x2e, 0x70, 0x62, 0x2e, 0x43, 0x75, 0x72, 0x72, 0x69, 0x63, 0x75, 0x6c, 0x61, 0x49, 0x6e, 0x66,
+	0x6f, 0x52, 0x04, 0x49, 0x6e, 0x66, 0x6f, 0x22, 0x8e, 0x01, 0x0a, 0x16, 0x44, 0x65, 0x6c, 0x65,
+	0x74, 0x65, 0x43, 0x75, 0x72, 0x72, 0x69, 0x63, 0x75, 0x6c, 0x61, 0x52, 0x65, 0x71, 0x75, 0x65,
+	0x73, 0x74, 0x12, 0x20, 0x0a, 0x0b, 0x43, 0x75, 0x72, 0x72, 0x69, 0x63, 0x75, 0x6c, 0x61, 0x49,
+	0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x0b, 0x43, 0x75, 0x72, 0x72, 0x69, 0x63, 0x75,
+	0x6c, 0x61, 0x49, 0x64, 0x12, 0x24, 0x0a, 0x0d, 0x43, 0x75, 0x72, 0x72, 0x69, 0x63, 0x75, 0x6c,
+	0x61, 0x4e, 0x61, 0x6d, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0d, 0x43, 0x75, 0x72,
+	0x72, 0x69, 0x63, 0x75, 0x6c, 0x61, 0x4e, 0x61, 0x6d, 0x65, 0x12, 0x18, 0x0a, 0x07, 0x54, 0x65,
+	0x61, 0x63, 0x68, 0x65, 0x72, 0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x54, 0x65, 0x61,
+	0x63, 0x68, 0x65, 0x72, 0x12, 0x12, 0x0a, 0x04, 0x54, 0x79, 0x70, 0x65, 0x18, 0x04, 0x20, 0x01,
+	0x28, 0x0d, 0x52, 0x04, 0x54, 0x79, 0x70, 0x65, 0x22, 0x19, 0x0a, 0x17, 0x44, 0x65, 0x6c, 0x65,
+	0x74, 0x65, 0x43, 0x75, 0x72, 0x72, 0x69, 0x63, 0x75, 0x6c, 0x61, 0x52, 0x65, 0x73, 0x70, 0x6f,
+	0x6e, 0x73, 0x65, 0x22, 0x42, 0x0a, 0x16, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x43, 0x75, 0x72,
+	0x72, 0x69, 0x63, 0x75, 0x6c, 0x61, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x28, 0x0a,
+	0x05, 0x4d, 0x6f, 0x64, 0x65, 0x6c, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x12, 0x2e, 0x70,
+	0x62, 0x2e, 0x43, 0x75, 0x72, 0x72, 0x69, 0x63, 0x75, 0x6c, 0x61, 0x4d, 0x6f, 0x64, 0x65, 0x6c,
+	0x52, 0x05, 0x4d, 0x6f, 0x64, 0x65, 0x6c, 0x22, 0x19, 0x0a, 0x17, 0x55, 0x70, 0x64, 0x61, 0x74,
+	0x65, 0x43, 0x75, 0x72, 0x72, 0x69, 0x63, 0x75, 0x6c, 0x61, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e,
+	0x73, 0x65, 0x22, 0x31, 0x0a, 0x1b, 0x43, 0x68, 0x65, 0x63, 0x6b, 0x43, 0x68, 0x61, 0x72, 0x61,
+	0x63, 0x74, 0x65, 0x72, 0x69, 0x73, 0x74, 0x69, 0x63, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73,
+	0x74, 0x12, 0x12, 0x0a, 0x04, 0x54, 0x79, 0x70, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0d, 0x52,
+	0x04, 0x54, 0x79, 0x70, 0x65, 0x22, 0x45, 0x0a, 0x1c, 0x43, 0x68, 0x65, 0x63, 0x6b, 0x43, 0x68,
+	0x61, 0x72, 0x61, 0x63, 0x74, 0x65, 0x72, 0x69, 0x73, 0x74, 0x69, 0x63, 0x73, 0x52, 0x65, 0x73,
+	0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x25, 0x0a, 0x04, 0x49, 0x6e, 0x66, 0x6f, 0x18, 0x01, 0x20,
+	0x03, 0x28, 0x0b, 0x32, 0x11, 0x2e, 0x70, 0x62, 0x2e, 0x43, 0x75, 0x72, 0x72, 0x69, 0x63, 0x75,
+	0x6c, 0x61, 0x49, 0x6e, 0x66, 0x6f, 0x52, 0x04, 0x49, 0x6e, 0x66, 0x6f, 0x22, 0x31, 0x0a, 0x17,
+	0x43, 0x75, 0x72, 0x72, 0x69, 0x63, 0x75, 0x6c, 0x75, 0x6d, 0x44, 0x65, 0x74, 0x61, 0x69, 0x6c,
+	0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x16, 0x0a, 0x06, 0x44, 0x61, 0x74, 0x61, 0x49,
+	0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x03, 0x52, 0x06, 0x44, 0x61, 0x74, 0x61, 0x49, 0x64, 0x22,
+	0x42, 0x0a, 0x18, 0x43, 0x75, 0x72, 0x72, 0x69, 0x63, 0x75, 0x6c, 0x75, 0x6d, 0x44, 0x65, 0x74,
+	0x61, 0x69, 0x6c, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x26, 0x0a, 0x04, 0x49,
+	0x6e, 0x66, 0x6f, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x12, 0x2e, 0x70, 0x62, 0x2e, 0x43,
+	0x75, 0x72, 0x72, 0x69, 0x63, 0x75, 0x6c, 0x61, 0x4d, 0x6f, 0x64, 0x65, 0x6c, 0x52, 0x04, 0x49,
+	0x6e, 0x66, 0x6f, 0x22, 0x32, 0x0a, 0x18, 0x43, 0x6f, 0x6c, 0x6c, 0x65, 0x63, 0x74, 0x43, 0x75,
+	0x72, 0x72, 0x69, 0x63, 0x75, 0x6c, 0x75, 0x6d, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12,
+	0x16, 0x0a, 0x06, 0x44, 0x61, 0x74, 0x61, 0x49, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x03, 0x52,
+	0x06, 0x44, 0x61, 0x74, 0x61, 0x49, 0x64, 0x22, 0x1b, 0x0a, 0x19, 0x43, 0x6f, 0x6c, 0x6c, 0x65,
+	0x63, 0x74, 0x43, 0x75, 0x72, 0x72, 0x69, 0x63, 0x75, 0x6c, 0x75, 0x6d, 0x52, 0x65, 0x73, 0x70,
+	0x6f, 0x6e, 0x73, 0x65, 0x32, 0xb4, 0x04, 0x0a, 0x0f, 0x63, 0x75, 0x72, 0x72, 0x69, 0x63, 0x75,
+	0x6c, 0x61, 0x63, 0x65, 0x6e, 0x74, 0x65, 0x72, 0x12, 0x41, 0x0a, 0x0c, 0x61, 0x64, 0x64, 0x43,
+	0x75, 0x72, 0x72, 0x69, 0x63, 0x75, 0x6c, 0x61, 0x12, 0x17, 0x2e, 0x70, 0x62, 0x2e, 0x41, 0x64,
+	0x64, 0x43, 0x75, 0x72, 0x72, 0x69, 0x63, 0x75, 0x6c, 0x61, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73,
+	0x74, 0x1a, 0x18, 0x2e, 0x70, 0x62, 0x2e, 0x41, 0x64, 0x64, 0x43, 0x75, 0x72, 0x72, 0x69, 0x63,
+	0x75, 0x6c, 0x61, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x4a, 0x0a, 0x0f, 0x64,
+	0x65, 0x6c, 0x65, 0x74, 0x65, 0x43, 0x75, 0x72, 0x72, 0x69, 0x63, 0x75, 0x6c, 0x61, 0x12, 0x1a,
+	0x2e, 0x70, 0x62, 0x2e, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x43, 0x75, 0x72, 0x72, 0x69, 0x63,
+	0x75, 0x6c, 0x61, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x1b, 0x2e, 0x70, 0x62, 0x2e,
+	0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x43, 0x75, 0x72, 0x72, 0x69, 0x63, 0x75, 0x6c, 0x61, 0x52,
+	0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x4a, 0x0a, 0x0f, 0x75, 0x70, 0x64, 0x61, 0x74,
+	0x65, 0x43, 0x75, 0x72, 0x72, 0x69, 0x63, 0x75, 0x6c, 0x61, 0x12, 0x1a, 0x2e, 0x70, 0x62, 0x2e,
+	0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x43, 0x75, 0x72, 0x72, 0x69, 0x63, 0x75, 0x6c, 0x61, 0x52,
+	0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x1b, 0x2e, 0x70, 0x62, 0x2e, 0x55, 0x70, 0x64, 0x61,
+	0x74, 0x65, 0x43, 0x75, 0x72, 0x72, 0x69, 0x63, 0x75, 0x6c, 0x61, 0x52, 0x65, 0x73, 0x70, 0x6f,
+	0x6e, 0x73, 0x65, 0x12, 0x4a, 0x0a, 0x0f, 0x73, 0x65, 0x61, 0x72, 0x63, 0x68, 0x43, 0x75, 0x72,
+	0x72, 0x69, 0x63, 0x75, 0x6c, 0x61, 0x12, 0x1a, 0x2e, 0x70, 0x62, 0x2e, 0x53, 0x65, 0x61, 0x72,
+	0x63, 0x68, 0x43, 0x75, 0x72, 0x72, 0x69, 0x63, 0x75, 0x6c, 0x61, 0x52, 0x65, 0x71, 0x75, 0x65,
+	0x73, 0x74, 0x1a, 0x1b, 0x2e, 0x70, 0x62, 0x2e, 0x53, 0x65, 0x61, 0x72, 0x63, 0x68, 0x43, 0x75,
+	0x72, 0x72, 0x69, 0x63, 0x75, 0x6c, 0x61, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12,
+	0x4d, 0x0a, 0x10, 0x63, 0x75, 0x72, 0x72, 0x69, 0x63, 0x75, 0x6c, 0x75, 0x6d, 0x44, 0x65, 0x74,
+	0x61, 0x69, 0x6c, 0x12, 0x1b, 0x2e, 0x70, 0x62, 0x2e, 0x43, 0x75, 0x72, 0x72, 0x69, 0x63, 0x75,
+	0x6c, 0x75, 0x6d, 0x44, 0x65, 0x74, 0x61, 0x69, 0x6c, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74,
+	0x1a, 0x1c, 0x2e, 0x70, 0x62, 0x2e, 0x43, 0x75, 0x72, 0x72, 0x69, 0x63, 0x75, 0x6c, 0x75, 0x6d,
+	0x44, 0x65, 0x74, 0x61, 0x69, 0x6c, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x59,
+	0x0a, 0x14, 0x63, 0x68, 0x65, 0x63, 0x6b, 0x43, 0x68, 0x61, 0x72, 0x61, 0x63, 0x74, 0x65, 0x72,
+	0x69, 0x73, 0x74, 0x69, 0x63, 0x73, 0x12, 0x1f, 0x2e, 0x70, 0x62, 0x2e, 0x43, 0x68, 0x65, 0x63,
+	0x6b, 0x43, 0x68, 0x61, 0x72, 0x61, 0x63, 0x74, 0x65, 0x72, 0x69, 0x73, 0x74, 0x69, 0x63, 0x73,
+	0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x20, 0x2e, 0x70, 0x62, 0x2e, 0x43, 0x68, 0x65,
+	0x63, 0x6b, 0x43, 0x68, 0x61, 0x72, 0x61, 0x63, 0x74, 0x65, 0x72, 0x69, 0x73, 0x74, 0x69, 0x63,
+	0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x50, 0x0a, 0x11, 0x63, 0x6f, 0x6c,
+	0x6c, 0x65, 0x63, 0x74, 0x43, 0x75, 0x72, 0x72, 0x69, 0x63, 0x75, 0x6c, 0x75, 0x6d, 0x12, 0x1c,
+	0x2e, 0x70, 0x62, 0x2e, 0x43, 0x6f, 0x6c, 0x6c, 0x65, 0x63, 0x74, 0x43, 0x75, 0x72, 0x72, 0x69,
+	0x63, 0x75, 0x6c, 0x75, 0x6d, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x1d, 0x2e, 0x70,
+	0x62, 0x2e, 0x43, 0x6f, 0x6c, 0x6c, 0x65, 0x63, 0x74, 0x43, 0x75, 0x72, 0x72, 0x69, 0x63, 0x75,
+	0x6c, 0x75, 0x6d, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x42, 0x06, 0x5a, 0x04, 0x2e,
+	0x2f, 0x70, 0x62, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -165,19 +1096,49 @@ func file_curriculacenter_proto_rawDescGZIP() []byte {
 	return file_curriculacenter_proto_rawDescData
 }
 
-var file_curriculacenter_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
+var file_curriculacenter_proto_msgTypes = make([]protoimpl.MessageInfo, 16)
 var file_curriculacenter_proto_goTypes = []interface{}{
-	(*AddCurriculaRequest)(nil),  // 0: pb.AddCurriculaRequest
-	(*AddCurriculaResponse)(nil), // 1: pb.AddCurriculaResponse
+	(*CurriculaModel)(nil),               // 0: pb.CurriculaModel
+	(*CurriculaInfo)(nil),                // 1: pb.CurriculaInfo
+	(*AddCurriculaRequest)(nil),          // 2: pb.AddCurriculaRequest
+	(*AddCurriculaResponse)(nil),         // 3: pb.AddCurriculaResponse
+	(*SearchCurriculaRequest)(nil),       // 4: pb.SearchCurriculaRequest
+	(*SearchCurriculaResponse)(nil),      // 5: pb.SearchCurriculaResponse
+	(*DeleteCurriculaRequest)(nil),       // 6: pb.DeleteCurriculaRequest
+	(*DeleteCurriculaResponse)(nil),      // 7: pb.DeleteCurriculaResponse
+	(*UpdateCurriculaRequest)(nil),       // 8: pb.UpdateCurriculaRequest
+	(*UpdateCurriculaResponse)(nil),      // 9: pb.UpdateCurriculaResponse
+	(*CheckCharacteristicsRequest)(nil),  // 10: pb.CheckCharacteristicsRequest
+	(*CheckCharacteristicsResponse)(nil), // 11: pb.CheckCharacteristicsResponse
+	(*CurriculumDetailRequest)(nil),      // 12: pb.CurriculumDetailRequest
+	(*CurriculumDetailResponse)(nil),     // 13: pb.CurriculumDetailResponse
+	(*CollectCurriculumRequest)(nil),     // 14: pb.CollectCurriculumRequest
+	(*CollectCurriculumResponse)(nil),    // 15: pb.CollectCurriculumResponse
 }
 var file_curriculacenter_proto_depIdxs = []int32{
-	0, // 0: pb.curriculacenter.addCurricula:input_type -> pb.AddCurriculaRequest
-	1, // 1: pb.curriculacenter.addCurricula:output_type -> pb.AddCurriculaResponse
-	1, // [1:2] is the sub-list for method output_type
-	0, // [0:1] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	1,  // 0: pb.SearchCurriculaResponse.Info:type_name -> pb.CurriculaInfo
+	0,  // 1: pb.UpdateCurriculaRequest.Model:type_name -> pb.CurriculaModel
+	1,  // 2: pb.CheckCharacteristicsResponse.Info:type_name -> pb.CurriculaInfo
+	0,  // 3: pb.CurriculumDetailResponse.Info:type_name -> pb.CurriculaModel
+	2,  // 4: pb.curriculacenter.addCurricula:input_type -> pb.AddCurriculaRequest
+	6,  // 5: pb.curriculacenter.deleteCurricula:input_type -> pb.DeleteCurriculaRequest
+	8,  // 6: pb.curriculacenter.updateCurricula:input_type -> pb.UpdateCurriculaRequest
+	4,  // 7: pb.curriculacenter.searchCurricula:input_type -> pb.SearchCurriculaRequest
+	12, // 8: pb.curriculacenter.curriculumDetail:input_type -> pb.CurriculumDetailRequest
+	10, // 9: pb.curriculacenter.checkCharacteristics:input_type -> pb.CheckCharacteristicsRequest
+	14, // 10: pb.curriculacenter.collectCurriculum:input_type -> pb.CollectCurriculumRequest
+	3,  // 11: pb.curriculacenter.addCurricula:output_type -> pb.AddCurriculaResponse
+	7,  // 12: pb.curriculacenter.deleteCurricula:output_type -> pb.DeleteCurriculaResponse
+	9,  // 13: pb.curriculacenter.updateCurricula:output_type -> pb.UpdateCurriculaResponse
+	5,  // 14: pb.curriculacenter.searchCurricula:output_type -> pb.SearchCurriculaResponse
+	13, // 15: pb.curriculacenter.curriculumDetail:output_type -> pb.CurriculumDetailResponse
+	11, // 16: pb.curriculacenter.checkCharacteristics:output_type -> pb.CheckCharacteristicsResponse
+	15, // 17: pb.curriculacenter.collectCurriculum:output_type -> pb.CollectCurriculumResponse
+	11, // [11:18] is the sub-list for method output_type
+	4,  // [4:11] is the sub-list for method input_type
+	4,  // [4:4] is the sub-list for extension type_name
+	4,  // [4:4] is the sub-list for extension extendee
+	0,  // [0:4] is the sub-list for field type_name
 }
 
 func init() { file_curriculacenter_proto_init() }
@@ -187,7 +1148,7 @@ func file_curriculacenter_proto_init() {
 	}
 	if !protoimpl.UnsafeEnabled {
 		file_curriculacenter_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*AddCurriculaRequest); i {
+			switch v := v.(*CurriculaModel); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -199,7 +1160,175 @@ func file_curriculacenter_proto_init() {
 			}
 		}
 		file_curriculacenter_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*CurriculaInfo); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_curriculacenter_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*AddCurriculaRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_curriculacenter_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*AddCurriculaResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_curriculacenter_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*SearchCurriculaRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_curriculacenter_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*SearchCurriculaResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_curriculacenter_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*DeleteCurriculaRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_curriculacenter_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*DeleteCurriculaResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_curriculacenter_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*UpdateCurriculaRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_curriculacenter_proto_msgTypes[9].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*UpdateCurriculaResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_curriculacenter_proto_msgTypes[10].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*CheckCharacteristicsRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_curriculacenter_proto_msgTypes[11].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*CheckCharacteristicsResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_curriculacenter_proto_msgTypes[12].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*CurriculumDetailRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_curriculacenter_proto_msgTypes[13].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*CurriculumDetailResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_curriculacenter_proto_msgTypes[14].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*CollectCurriculumRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_curriculacenter_proto_msgTypes[15].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*CollectCurriculumResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -217,7 +1346,7 @@ func file_curriculacenter_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_curriculacenter_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   2,
+			NumMessages:   16,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
