@@ -6,8 +6,8 @@ import (
 	"github.com/MuxiKeStack/muxiK-StackBackend2.0/app/curricula/cmd/api/internal/config"
 	"github.com/MuxiKeStack/muxiK-StackBackend2.0/app/curricula/cmd/api/internal/handler"
 	"github.com/MuxiKeStack/muxiK-StackBackend2.0/app/curricula/cmd/api/internal/svc"
-
 	"github.com/zeromicro/go-zero/core/conf"
+
 	"github.com/zeromicro/go-zero/rest"
 )
 

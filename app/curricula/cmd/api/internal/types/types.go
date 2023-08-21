@@ -2,6 +2,7 @@
 package types
 
 type CurriculaModel struct {
+	DataId          int64   `json:"dataId"`          //数据库主键
 	CurriculaId     uint32  `json:"curriculaId"`     //课程号
 	CurriculaName   string  `json:"curriculaName"`   //课程名称
 	Teacher         string  `json:"teacher"`         //授课教师
@@ -16,6 +17,20 @@ type CurriculaModel struct {
 	GradeRank3      uint32  `json:"gradeRank3"`      //成绩70分以下的人数
 }
 
+type CurriculaInfo struct {
+	DataId        int64   `json:"dataId"`
+	CurriculaId   uint32  `json:"curriculaId"`   //课程号
+	CurriculaName string  `json:"curriculaName"` //课程名称
+	Teacher       string  `json:"teacher"`       //授课教师
+	Type          uint8   `json:"type"`          //课程类型，公共课为0，专业课为1
+	Rate          float32 `json:"rate"`          //课程评分
+}
+
+type UserCollection struct {
+	Sid       string           `json:"sid"`       //学号
+	Curricula []CurriculaModel `json:"curricula"` //收藏的课程
+}
+
 type AddCurriculaRequest struct {
 	CurriculaId   uint32 `json:"curriculaId"`
 	CurriculaNmae string `json:"curriculaName"`
@@ -24,4 +39,55 @@ type AddCurriculaRequest struct {
 }
 
 type AddCurriculaResponse struct {
+}
+
+type SearchCurriculaRequest struct {
+	CurriculaId   uint32 `json:"curriculaId"`
+	CurriculaName string `json:"curriculaName"`
+	Teacher       string `json:"teacher"`
+	Type          uint8  `json:"type"`
+}
+
+type SearchCurriculaResponse struct {
+	Info []CurriculaInfo `json:"info"`
+}
+
+type DeleteCurriculaRequest struct {
+	CurriculaId   uint32 `json:"curriculaId"`
+	CurriculaName string `json:"curriculaName"`
+	Teacher       string `json:"teacher"`
+	Type          uint8  `json:"type"`
+}
+
+type DeleteCurriculaResponse struct {
+}
+
+type UpdateCurriculaRequest struct {
+	CurriculaModel
+}
+
+type UpdateCurriculaResponse struct {
+}
+
+type CheckCharacteristicsRequest struct {
+	Type uint8 `json:"type"`
+}
+
+type CheckCharacteristicsResponse struct {
+	Info []CurriculaInfo `json:"info"`
+}
+
+type CurriculumDetailRequest struct {
+	DataId int64 `json:"dataId"`
+}
+
+type CurriculumDetailResponse struct {
+	CurriculaModel
+}
+
+type CollectCurriculumRequest struct {
+	DataId int64 `json:"dataId"`
+}
+
+type CollectCurriculumResponse struct {
 }

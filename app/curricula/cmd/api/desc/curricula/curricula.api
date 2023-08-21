@@ -10,6 +10,7 @@ info(
 
 //课程模型
 type CurriculaModel {
+    DataId int64 `json:"dataId"` //数据库主键
     CurriculaId uint32 `json:"curriculaId"` //课程号
     CurriculaName string `json:"curriculaName"` //课程名称
     Teacher string `json:"teacher"` //授课教师
@@ -24,6 +25,22 @@ type CurriculaModel {
     GradeRank3 uint32 `json:"gradeRank3"` //成绩70分以下的人数
 }
 
+//课程概况
+type CurriculaInfo{
+    DataId int64  `json:"dataId"`
+    CurriculaId uint32 `json:"curriculaId"` //课程号
+    CurriculaName string `json:"curriculaName"` //课程名称
+    Teacher string `json:"teacher"` //授课教师
+    Type uint8 `json:"type"`    //课程类型，公共课为0，专业课为1
+    Rate float32 `json:"rate"` //课程评分
+}
+
+//收藏模型
+type UserCollection{
+    Sid string `json:"sid"` //学号
+    Curricula []CurriculaModel `json:"curricula"`//收藏的课程
+}
+
 type (
     AddCurriculaRequest{
         CurriculaId uint32 `json:"curriculaId"`
@@ -33,4 +50,52 @@ type (
     }
 
     AddCurriculaResponse{}
+
+    SearchCurriculaRequest{
+        CurriculaId uint32 `json:"curriculaId"`
+        CurriculaName string `json:"curriculaName"`
+        Teacher string `json:"teacher"`
+        Type uint8 `json:"type"`
+    }
+
+    SearchCurriculaResponse{
+        Info []CurriculaInfo `json:"info"`
+    }
+
+    DeleteCurriculaRequest{
+        CurriculaId uint32 `json:"curriculaId"`
+        CurriculaName string `json:"curriculaName"`
+        Teacher string `json:"teacher"`
+        Type uint8 `json:"type"`
+    }
+
+    DeleteCurriculaResponse{}
+
+    UpdateCurriculaRequest{
+        CurriculaModel
+    }
+
+    UpdateCurriculaResponse{}
+
+    CheckCharacteristicsRequest{
+        Type uint8 `json:"type"`
+    }
+
+    CheckCharacteristicsResponse{
+        Info []CurriculaInfo `json:"info"`
+    }
+
+    CurriculumDetailRequest{
+        DataId int64 `json:"dataId"`
+    }
+
+    CurriculumDetailResponse{
+        CurriculaModel
+    }
+
+    CollectCurriculumRequest{
+        DataId int64 `json:"dataId"`
+    }
+
+    CollectCurriculumResponse{}
 )
