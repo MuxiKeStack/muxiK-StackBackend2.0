@@ -1,4 +1,4 @@
-syntax = "proto3";
+ syntax = "proto3";
 
 option go_package = "./pb";
 package pb;
@@ -50,10 +50,7 @@ message SearchCurriculaResponse{
 }
 
 message DeleteCurriculaRequest{
-  uint32 CurriculaId = 1;
-  string CurriculaName = 2;
-  string Teacher = 3;
-  uint32 Type = 4;
+  int64 DataId = 1;
 }
 
 message DeleteCurriculaResponse{

@@ -2,6 +2,7 @@ package logic
 
 import (
 	"context"
+	"github.com/MuxiKeStack/muxiK-StackBackend2.0/app/curricula/model"
 
 	"github.com/MuxiKeStack/muxiK-StackBackend2.0/app/curricula/cmd/rpc/internal/svc"
 	"github.com/MuxiKeStack/muxiK-StackBackend2.0/app/curricula/cmd/rpc/pb/pb"
@@ -24,7 +25,25 @@ func NewSearchCurriculaLogic(ctx context.Context, svcCtx *svc.ServiceContext) *S
 }
 
 func (l *SearchCurriculaLogic) SearchCurricula(in *pb.SearchCurriculaRequest) (*pb.SearchCurriculaResponse, error) {
-	// todo: add your logic here and delete this line
-
-	return &pb.SearchCurriculaResponse{}, nil
+	var curricula model.Cinfo
+	curricula = model.Cinfo{
+		CurriculaId:   in.CurriculaId,
+		CurriculaName: in.CurriculaName,
+		Teacher:       in.Teacher,
+		Type:          uint8(in.Type),
+	}
+	resp, err := l.svcCtx.CurriculaModel.FindByInfos(l.ctx, curricula)
+	if err != nil {
+		return &pb.SearchCurriculaResponse{}, err
+	}
+	var res *pb.SearchCurriculaResponse
+	res.Info[0] = &pb.CurriculaInfo{
+		DataId:        resp.Id,
+		CurriculaId:   uint32(resp.Cid),
+		CurriculaName: resp.CurriculaName,
+		Teacher:       resp.Teacher,
+		Type:          uint32(resp.Type),
+		Rate:          float32(resp.Rate.Float64),
+	}
+	return res, nil
 }

@@ -2,6 +2,7 @@ package logic
 
 import (
 	"context"
+	"github.com/MuxiKeStack/muxiK-StackBackend2.0/app/curricula/cmd/rpc/pb/pb"
 
 	"github.com/MuxiKeStack/muxiK-StackBackend2.0/app/curricula/cmd/api/internal/svc"
 	"github.com/MuxiKeStack/muxiK-StackBackend2.0/app/curricula/cmd/api/internal/types"
@@ -24,7 +25,10 @@ func NewDeleteCurriculaLogic(ctx context.Context, svcCtx *svc.ServiceContext) *D
 }
 
 func (l *DeleteCurriculaLogic) DeleteCurricula(req *types.DeleteCurriculaRequest) (resp *types.DeleteCurriculaResponse, err error) {
-	// todo: add your logic here and delete this line
-
-	return
+	// todo: Test this method
+	_, err = l.svcCtx.CurriculaCenterRpc.DeleteCurricula(l.ctx, &pb.DeleteCurriculaRequest{DataId: req.DataId})
+	if err != nil {
+		return nil, err
+	}
+	return resp, nil
 }

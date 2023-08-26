@@ -24,7 +24,10 @@ func NewDeleteCurriculaLogic(ctx context.Context, svcCtx *svc.ServiceContext) *D
 }
 
 func (l *DeleteCurriculaLogic) DeleteCurricula(in *pb.DeleteCurriculaRequest) (*pb.DeleteCurriculaResponse, error) {
-	// todo: add your logic here and delete this line
-
+	// todo: Test this method
+	err := l.svcCtx.CurriculaModel.Delete(l.ctx, in.DataId)
+	if err != nil {
+		return nil, err
+	}
 	return &pb.DeleteCurriculaResponse{}, nil
 }

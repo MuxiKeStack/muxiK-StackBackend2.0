@@ -53,10 +53,7 @@ type SearchCurriculaResponse struct {
 }
 
 type DeleteCurriculaRequest struct {
-	CurriculaId   uint32 `json:"curriculaId"`
-	CurriculaName string `json:"curriculaName"`
-	Teacher       string `json:"teacher"`
-	Type          uint8  `json:"type"`
+	DataId int64 `json:"dataId"`
 }
 
 type DeleteCurriculaResponse struct {

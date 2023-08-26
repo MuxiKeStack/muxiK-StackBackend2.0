@@ -1,6 +1,6 @@
 CREATE TABLE `curriculas`(
     `id`             INT UNSIGNED NOT NULL AUTO_INCREMENT,
-    `cid`            INT          NOT NULL UNIQUE COMMENT '课程编号',
+    `cid`            INT          NOT NULL COMMENT '课程编号',
     `curricula_name` VARCHAR(255) NOT NULL,
     `teacher`        VARCHAR(255) NOT NULL,
     `type`           TINYINT(1) NOT NULL,
@@ -12,6 +12,5 @@ CREATE TABLE `curriculas`(
     `grade_r1` INT UNSIGNED,
     `grade_r2` INT UNSIGNED,
     `grade_r3` INT UNSIGNED,
-    PRIMARY KEY (`id`),
-    UNIQUE KEY `cid_index` (`cid`)
+    PRIMARY KEY (`id`)
 )ENGINE=InnoDB DEFAULT CHARSET=UTF8MB4;

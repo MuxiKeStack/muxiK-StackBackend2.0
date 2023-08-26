@@ -24,7 +24,23 @@ func NewCheckCharacteristicsLogic(ctx context.Context, svcCtx *svc.ServiceContex
 }
 
 func (l *CheckCharacteristicsLogic) CheckCharacteristics(in *pb.CheckCharacteristicsRequest) (*pb.CheckCharacteristicsResponse, error) {
-	// todo: add your logic here and delete this line
-
-	return &pb.CheckCharacteristicsResponse{}, nil
+	// todo: Test this method
+	var resp *pb.CheckCharacteristicsResponse
+	result, err := l.svcCtx.CurriculaModel.FindByTag(l.ctx, uint8(in.Type))
+	if err != nil {
+		return nil, err
+	}
+	i := 0
+	for result[i] != nil {
+		resp.Info[i] = &pb.CurriculaInfo{
+			DataId:        result[i].Id,
+			CurriculaId:   uint32(result[i].Cid),
+			CurriculaName: result[i].CurriculaName,
+			Teacher:       result[i].Teacher,
+			Type:          uint32(result[i].Type),
+			Rate:          float32(result[i].Rate.Float64),
+		}
+		i++
+	}
+	return resp, nil
 }

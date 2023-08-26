@@ -24,7 +24,26 @@ func NewCurriculumDetailLogic(ctx context.Context, svcCtx *svc.ServiceContext) *
 }
 
 func (l *CurriculumDetailLogic) CurriculumDetail(in *pb.CurriculumDetailRequest) (*pb.CurriculumDetailResponse, error) {
-	// todo: add your logic here and delete this line
-
-	return &pb.CurriculumDetailResponse{}, nil
+	// todo: Test this method
+	curricula, err := l.svcCtx.CurriculaModel.FindOne(l.ctx, in.DataId)
+	if err != nil {
+		return nil, err
+	}
+	var res pb.CurriculumDetailResponse
+	res.Info[0] = &pb.CurriculaModel{
+		DataId:          curricula.Id,
+		CurriculaId:     uint32(curricula.Cid),
+		CurriculaName:   curricula.CurriculaName,
+		Teacher:         curricula.Teacher,
+		Type:            uint32(curricula.Type),
+		Rate:            float32(curricula.Rate.Float64),
+		StarsNum:        uint32(curricula.StartsNum.Int64),
+		GradeSampleSize: uint32(curricula.GradeSampleSize.Int64),
+		TotalGrade:      float32(curricula.TotalGrade.Float64),
+		UsualGrade:      float32(curricula.UsualGrade.Float64),
+		GradeRk1:        uint32(curricula.GradeR1.Int64),
+		GradeRk2:        uint32(curricula.GradeR2.Int64),
+		GradeRk3:        uint32(curricula.GradeR3.Int64),
+	}
+	return &res, nil
 }
