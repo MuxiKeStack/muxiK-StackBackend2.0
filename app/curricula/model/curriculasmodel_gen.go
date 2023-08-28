@@ -25,7 +25,6 @@ type (
 	curriculasModel interface {
 		Insert(ctx context.Context, data *Curriculas) (sql.Result, error)
 		FindOne(ctx context.Context, id int64) (*Curriculas, error)
-		FindOneByCid(ctx context.Context, cid int64) (*Curriculas, error)
 		Update(ctx context.Context, data *Curriculas) error
 		Delete(ctx context.Context, id int64) error
 	}
@@ -86,29 +85,15 @@ func (m *defaultCurriculasModel) FindOne(ctx context.Context, id int64) (*Curric
 	}
 }
 
-func (m *defaultCurriculasModel) FindOneByCid(ctx context.Context, cid int64) (*Curriculas, error) {
-	var resp Curriculas
-	query := fmt.Sprintf("select %s from %s where `cid` = ? limit 1", curriculasRows, m.table)
-	err := m.conn.QueryRowCtx(ctx, &resp, query, cid)
-	switch err {
-	case nil:
-		return &resp, nil
-	case sqlc.ErrNotFound:
-		return nil, ErrNotFound
-	default:
-		return nil, err
-	}
-}
-
 func (m *defaultCurriculasModel) Insert(ctx context.Context, data *Curriculas) (sql.Result, error) {
 	query := fmt.Sprintf("insert into %s (%s) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", m.table, curriculasRowsExpectAutoSet)
 	ret, err := m.conn.ExecCtx(ctx, query, data.Cid, data.CurriculaName, data.Teacher, data.Type, data.Rate, data.StartsNum, data.GradeSampleSize, data.TotalGrade, data.UsualGrade, data.GradeR1, data.GradeR2, data.GradeR3)
 	return ret, err
 }
 
-func (m *defaultCurriculasModel) Update(ctx context.Context, newData *Curriculas) error {
+func (m *defaultCurriculasModel) Update(ctx context.Context, data *Curriculas) error {
 	query := fmt.Sprintf("update %s set %s where `id` = ?", m.table, curriculasRowsWithPlaceHolder)
-	_, err := m.conn.ExecCtx(ctx, query, newData.Cid, newData.CurriculaName, newData.Teacher, newData.Type, newData.Rate, newData.StartsNum, newData.GradeSampleSize, newData.TotalGrade, newData.UsualGrade, newData.GradeR1, newData.GradeR2, newData.GradeR3, newData.Id)
+	_, err := m.conn.ExecCtx(ctx, query, data.Cid, data.CurriculaName, data.Teacher, data.Type, data.Rate, data.StartsNum, data.GradeSampleSize, data.TotalGrade, data.UsualGrade, data.GradeR1, data.GradeR2, data.GradeR3, data.Id)
 	return err
 }
 

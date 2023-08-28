@@ -2,6 +2,8 @@ package logic
 
 import (
 	"context"
+	"github.com/MuxiKeStack/muxiK-StackBackend2.0/app/curricula/cmd/rpc/pb/pb"
+	"github.com/MuxiKeStack/muxiK-StackBackend2.0/common/ctxdata"
 
 	"github.com/MuxiKeStack/muxiK-StackBackend2.0/app/curricula/cmd/api/internal/svc"
 	"github.com/MuxiKeStack/muxiK-StackBackend2.0/app/curricula/cmd/api/internal/types"
@@ -24,7 +26,14 @@ func NewCollectCurriculumLogic(ctx context.Context, svcCtx *svc.ServiceContext) 
 }
 
 func (l *CollectCurriculumLogic) CollectCurriculum(req *types.CollectCurriculumRequest) (resp *types.CollectCurriculumResponse, err error) {
-	// todo: add your logic here and delete this line
-
-	return
+	// todo: Test this method
+	sid := ctxdata.GetStudentIdFromCtx(l.ctx)
+	_, err = l.svcCtx.CurriculaCenterRpc.CollectCurriculum(l.ctx, &pb.CollectCurriculumRequest{
+		DataId: req.DataId,
+		SID:    sid,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return resp, nil
 }

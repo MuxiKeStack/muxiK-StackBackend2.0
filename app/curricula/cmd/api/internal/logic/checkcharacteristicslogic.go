@@ -25,7 +25,7 @@ func NewCheckCharacteristicsLogic(ctx context.Context, svcCtx *svc.ServiceContex
 }
 
 func (l *CheckCharacteristicsLogic) CheckCharacteristics(req *types.CheckCharacteristicsRequest) (resp *types.CheckCharacteristicsResponse, err error) {
-	// todo: add your logic here and delete this line
+	// todo: Test this method
 	result, err := l.svcCtx.CurriculaCenterRpc.CheckCharacteristics(l.ctx, &pb.CheckCharacteristicsRequest{Type: uint32(req.Type)})
 	if err != nil {
 		return nil, err

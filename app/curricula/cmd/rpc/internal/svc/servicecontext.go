@@ -7,13 +7,15 @@ import (
 )
 
 type ServiceContext struct {
-	Config         config.Config
-	CurriculaModel model.CurriculasModel
+	Config          config.Config
+	CurriculaModel  model.CurriculasModel
+	CollectionModel model.CollectionsModel
 }
 
 func NewServiceContext(c config.Config) *ServiceContext {
 	return &ServiceContext{
-		Config:         c,
-		CurriculaModel: model.NewCurriculasModel(sqlx.NewMysql(c.DB.DataSource)),
+		Config:          c,
+		CurriculaModel:  model.NewCurriculasModel(sqlx.NewMysql(c.DB.DataSource)),
+		CollectionModel: model.NewCollectionsModel(sqlx.NewMysql(c.DB.DataSource)),
 	}
 }

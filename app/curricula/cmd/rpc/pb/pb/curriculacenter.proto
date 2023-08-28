@@ -81,6 +81,7 @@ message CurriculumDetailResponse{
 
 message CollectCurriculumRequest{
   int64 DataId = 1;
+  string SID = 2;
 }
 
 message CollectCurriculumResponse{

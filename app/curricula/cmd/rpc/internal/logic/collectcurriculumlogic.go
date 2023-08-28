@@ -2,6 +2,7 @@ package logic
 
 import (
 	"context"
+	"github.com/MuxiKeStack/muxiK-StackBackend2.0/app/curricula/model"
 
 	"github.com/MuxiKeStack/muxiK-StackBackend2.0/app/curricula/cmd/rpc/internal/svc"
 	"github.com/MuxiKeStack/muxiK-StackBackend2.0/app/curricula/cmd/rpc/pb/pb"
@@ -24,7 +25,13 @@ func NewCollectCurriculumLogic(ctx context.Context, svcCtx *svc.ServiceContext) 
 }
 
 func (l *CollectCurriculumLogic) CollectCurriculum(in *pb.CollectCurriculumRequest) (*pb.CollectCurriculumResponse, error) {
-	// todo: add your logic here and delete this line
-
+	// todo: Test this method
+	_, err := l.svcCtx.CollectionModel.Insert(l.ctx, &model.Collections{
+		Sid:     in.SID,
+		CDataId: in.DataId,
+	})
+	if err != nil {
+		return nil, err
+	}
 	return &pb.CollectCurriculumResponse{}, nil
 }
