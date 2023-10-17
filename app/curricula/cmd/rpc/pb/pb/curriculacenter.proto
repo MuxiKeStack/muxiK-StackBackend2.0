@@ -1,0 +1,98 @@
+ syntax = "proto3";
+
+option go_package = "./pb";
+package pb;
+
+message CurriculaModel{
+  int64 DataId = 1;
+  uint32 CurriculaId = 2;
+  string CurriculaName = 3;
+  string Teacher = 4;
+  uint32 Type = 5;
+  float Rate = 6;
+  uint32 StarsNum = 7;
+  uint32 GradeSampleSize = 8;
+  float  TotalGrade = 9;
+  float UsualGrade = 10;
+  uint32 GradeRk1 = 11;
+  uint32 GradeRk2 = 12;
+  uint32 GradeRk3 = 13;
+}
+
+message CurriculaInfo{
+  int64 DataId = 1;
+  uint32 CurriculaId = 2;
+  string CurriculaName = 3;
+  string Teacher = 4;
+  uint32 Type = 5;
+  float Rate = 6;
+}
+
+message AddCurriculaRequest{
+  uint32 CurriculaId = 1;
+  string CurriculaName = 2;
+  string Teacher = 3;
+  uint32 Type = 4;
+}
+
+message AddCurriculaResponse{
+}
+
+message SearchCurriculaRequest{
+  uint32 CurriculaId = 1;
+  string CurriculaName = 2;
+  string Teacher = 3;
+  uint32 Type = 4;
+}
+
+message SearchCurriculaResponse{
+  repeated CurriculaInfo Info = 1;
+}
+
+message DeleteCurriculaRequest{
+  int64 DataId = 1;
+}
+
+message DeleteCurriculaResponse{
+}
+
+message UpdateCurriculaRequest{
+  repeated CurriculaModel Model = 1;
+}
+
+message UpdateCurriculaResponse{
+}
+
+message CheckCharacteristicsRequest{
+  uint32 Type = 1;
+}
+
+message CheckCharacteristicsResponse{
+  repeated CurriculaInfo Info = 1;
+}
+
+message CurriculumDetailRequest{
+  int64 DataId = 1;
+}
+
+message CurriculumDetailResponse{
+  repeated CurriculaModel Info = 1;
+}
+
+message CollectCurriculumRequest{
+  int64 DataId = 1;
+  string SID = 2;
+}
+
+message CollectCurriculumResponse{
+}
+
+service curriculacenter{
+  rpc addCurricula(AddCurriculaRequest)returns(AddCurriculaResponse);
+  rpc deleteCurricula(DeleteCurriculaRequest)returns(DeleteCurriculaResponse);
+  rpc updateCurricula(UpdateCurriculaRequest)returns(UpdateCurriculaResponse);
+  rpc searchCurricula(SearchCurriculaRequest)returns(SearchCurriculaResponse);
+  rpc curriculumDetail(CurriculumDetailRequest)returns(CurriculumDetailResponse);
+  rpc checkCharacteristics(CheckCharacteristicsRequest)returns(CheckCharacteristicsResponse);
+  rpc collectCurriculum(CollectCurriculumRequest)returns(CollectCurriculumResponse);
+}

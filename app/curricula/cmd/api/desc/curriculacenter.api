@@ -1,0 +1,53 @@
+syntax = "v1"
+
+info(
+	title: "课程中心"
+	desc: "课程服务"
+	author: "BYmmc.kit"
+	email: "SJMbaiyang@163.com"
+	version: "v1"
+)
+
+import (
+	"curricula/curricula.api"
+)
+
+@server (
+	prefix : api/v1/curricula
+)
+service curriculacenter{
+	@doc "新增课程"
+	@handler addCurricula
+	post /add (AddCurriculaRequest)returns(AddCurriculaResponse)
+
+	@doc "删除课程"
+	@handler deleteCurricula
+	delete /delete (DeleteCurriculaRequest)returns(DeleteCurriculaResponse)
+
+	@doc "修改课程内容"
+	@handler updateCurricula
+	post /update (UpdateCurriculaRequest)returns(UpdateCurriculaResponse)
+
+	@doc "搜索课程"
+	@handler searchCurricula
+	post /search (SearchCurriculaRequest)returns(SearchCurriculaResponse)
+
+	@doc "查看课程详情"
+	@handler curriculumDetail
+	post /detail (CurriculumDetailRequest)returns(CurriculumDetailResponse)
+
+	@doc "根据课程性质查看课程"
+	@handler checkCharacteristics
+	post /check_type (CheckCharacteristicsRequest)returns(CheckCharacteristicsResponse)
+}
+
+@server (
+	prefix : api/v1/user
+	jwt :JwtAuth
+	middleware :AuthorizeHandler
+)
+service curriculacenter{
+	@doc "收藏课程"
+	@handler collectCurriculum
+	post /collect (CollectCurriculumRequest)returns(CollectCurriculumResponse)
+}

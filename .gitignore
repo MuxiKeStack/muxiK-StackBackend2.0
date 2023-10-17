@@ -50,3 +50,5 @@ upload
 # config
 *.yaml
 go.work.sum
+/app/curricula/cmd/rpc/etc/
+/app/curricula/cmd/api/etc/
