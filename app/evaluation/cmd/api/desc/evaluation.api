@@ -1,0 +1,82 @@
+syntax = "v1"
+
+info(
+	title: "evaluation"
+	desc: "evaluate courses"
+	author: "@a48zhang"
+	email: "3557695455@qq.com"
+	version: "v1"
+)
+
+import "types.api"
+
+@server(
+	prefix: api/v1/evaluation
+	jwt: JwtAuth
+)
+
+service EvaluationService {
+	/*
+	1.课程评价（是否上课判断）Evaluation
+
+	2.删除评课 DeleteEvaluation
+
+	3.恢复已删除的评课 RestoreEvaluation
+
+	4.查看自己的历史评课 GetHistory
+
+	5.查看课程评课内容 GetEvaluation
+	*/
+	@handler Evaluation
+	post /evaluate(EvaluateRequest) returns(EvaluateResponse)
+	@handler DeleteEvaluation
+	get /delete(DeleteEvaluationRequest) returns(DeleteEvaluationResponse)
+	@handler RestoreEvaluation
+	get /restore(RestoreEvaluationRequest) returns(RestoreEvaluationResponse)
+	@handler GetHistory
+	get /history(GetHistoryRequest) returns(GetHistoryResponse)
+	@handler GetEvaluation
+	get /get(GetEvaluationRequest) returns(GetEvaluationResponse)
+	/*
+	9.点赞 Like
+
+	10.取消点赞 CancelLike
+
+	11.反对 Oppose
+
+	12.取消反对 CancelOppose
+
+	13.举报 Report
+	*/
+	@handler Like
+	get /like(LikeRequest) returns(LikeResponse)
+	@handler CancelLike
+	get /cancel_like(CancelLikeRequest) returns(CancelLikeResponse)
+	@handler Oppose
+	get /oppose(OpposeRequest) returns(OpposeResponse)
+	@handler CancelOppose
+	get /cancel_oppose(CancelOpposeRequest) returns(CancelOpposeResponse)
+	@handler Report
+	post /report(ReportRequest) returns(ReportResponse)
+
+	// TODO
+
+	// 19.获取被折叠的课程评价 GetFoldedEvaluation
+	// @handler GetFoldedEvaluation
+	// get /get_folded(GetFoldedEvaluationRequest) returns(GetFoldedEvaluationResponse)
+
+	// admin
+	/*
+	14.获取被举报的评课信息（管理员后台功能）GetReportedEvaluation
+
+	17.折叠课程评价（管理员后台功能）FoldEvaluation
+
+	18.恢复被折叠的课程评价（管理员后台功能）RestoreFoldedEvaluation
+	*/
+	// @handler GetReportedEvaluation
+	// get /get_reported(GetReportedEvaluationRequest) returns(GetReportedEvaluationResponse)
+	// @handler FoldEvaluation
+	// get /fold(FoldEvaluationRequest) returns(FoldEvaluationResponse)
+	// @handler RestoreFoldedEvaluation
+	// get /restore_folded(RestoreFoldedEvaluationRequest) returns(RestoreFoldedEvaluationResponse)
+}
