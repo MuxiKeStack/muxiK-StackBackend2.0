@@ -30,13 +30,13 @@ service EvaluationService {
 	@handler Evaluation
 	post /evaluate(EvaluateRequest) returns(EvaluateResponse)
 	@handler DeleteEvaluation
-	get /delete(DeleteEvaluationRequest) returns(DeleteEvaluationResponse)
+	get /delete/:pid(DeleteEvaluationRequest) returns(DeleteEvaluationResponse)
 	@handler RestoreEvaluation
-	get /restore(RestoreEvaluationRequest) returns(RestoreEvaluationResponse)
+	get /restore/:pid(RestoreEvaluationRequest) returns(RestoreEvaluationResponse)
 	@handler GetHistory
-	get /history(GetHistoryRequest) returns(GetHistoryResponse)
+	get /history/:sid(GetHistoryRequest) returns(GetHistoryResponse)
 	@handler GetEvaluation
-	get /get(GetEvaluationRequest) returns(GetEvaluationResponse)
+	get /get/:cid (GetEvaluationRequest) returns(GetEvaluationResponse)
 	/*
 	9.点赞 Like
 
@@ -49,15 +49,15 @@ service EvaluationService {
 	13.举报 Report
 	*/
 	@handler Like
-	get /like(LikeRequest) returns(LikeResponse)
+	get /like/:pid(LikeRequest) returns(LikeResponse)
 	@handler CancelLike
-	get /cancel_like(CancelLikeRequest) returns(CancelLikeResponse)
+	get /cancel_like/:pid(CancelLikeRequest) returns(CancelLikeResponse)
 	@handler Oppose
-	get /oppose(OpposeRequest) returns(OpposeResponse)
+	get /oppose/:pid(OpposeRequest) returns(OpposeResponse)
 	@handler CancelOppose
-	get /cancel_oppose(CancelOpposeRequest) returns(CancelOpposeResponse)
+	get /cancel_oppose/:pid(CancelOpposeRequest) returns(CancelOpposeResponse)
 	@handler Report
-	post /report(ReportRequest) returns(ReportResponse)
+	post /report/:pid(ReportRequest) returns(ReportResponse)
 
 	// TODO
 

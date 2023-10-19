@@ -1,0 +1,77 @@
+syntax = "proto3";
+
+option go_package = "./pb";
+package pb;
+
+message Evaluation{
+  string pid = 1;
+  string sid = 2;
+  string cid = 3;
+  bool folded = 4;
+  bool deleted = 5;
+  string info = 6;
+  int32 liked = 7;
+  int32 disliked = 8;
+  string createAt = 9;
+  string updateAt = 10;
+  string deleteAt = 11;
+}
+
+message CreateEvaluationRequest{
+  Evaluation e = 1;
+}
+
+message StatusResponse{
+  bool status = 1;
+}
+
+message DeleteEvaluationRequest{
+  string pid = 1;
+}
+
+message EvaluationResponse{
+  repeated Evaluation e = 1;
+}
+
+message GetEvaluationRequest{
+  string method = 1;
+  string id = 2;
+}
+
+message UpdateEvaluationRequest{
+  Evaluation e = 1;
+}
+
+service Eva_info {
+  rpc CreateEvaluation(CreateEvaluationRequest) returns (StatusResponse);
+  rpc DeleteEvaluation(DeleteEvaluationRequest) returns (StatusResponse);
+  rpc GetEvaluation(GetEvaluationRequest) returns (EvaluationResponse);
+  rpc UpdateEvaluation(UpdateEvaluationRequest) returns (StatusResponse);
+}
+
+message Like{
+  string pid = 1;
+  string sid = 2;
+  int32 status = 3;
+}
+
+message SetLikeRequest{
+  string pid = 1;
+  string sid = 2;
+  int32 status = 3;
+}
+
+message GetLikeRequest{
+  string pid = 1;
+  string sid = 2;
+}
+
+message GetLikeResponse{
+  Like l = 1;
+}
+
+service Eva_like{
+  rpc SetLike(SetLikeRequest) returns (StatusResponse);
+  rpc GetLike(GetLikeRequest) returns (GetLikeResponse);
+}
+

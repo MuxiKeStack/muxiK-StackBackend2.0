@@ -36,14 +36,17 @@ type (
 	}
 
 	EvaluationInfo struct {
-		Pid      int64         `db:"pid"`
-		Sid      string        `db:"sid"` // 学号
-		Cid      string        `db:"cid"` // 课程号
-		Folded   int64         `db:"folded"`
-		Deleted  int64         `db:"deleted"`
-		Info     string        `db:"info"` // 评课内容
-		Liked    sql.NullInt64 `db:"liked"`
-		Disliked sql.NullInt64 `db:"disliked"`
+		Pid       int64         `db:"pid"`
+		Sid       string        `db:"sid"` // 学号
+		Cid       string        `db:"cid"` // 课程号
+		Folded    int64         `db:"folded"`
+		Deleted   int64         `db:"deleted"`
+		Info      string        `db:"info"` // 评课内容
+		Liked     sql.NullInt64 `db:"liked"`
+		Disliked  sql.NullInt64 `db:"disliked"`
+		CreatedAt sql.NullTime  `db:"CreatedAt"`
+		UpdatedAt sql.NullTime  `db:"UpdatedAt"`
+		DeletedAt sql.NullTime  `db:"DeletedAt"`
 	}
 )
 
@@ -96,14 +99,14 @@ func (m *defaultEvaluationInfoModel) FindOneByPid(ctx context.Context, pid int64
 }
 
 func (m *defaultEvaluationInfoModel) Insert(ctx context.Context, data *EvaluationInfo) (sql.Result, error) {
-	query := fmt.Sprintf("insert into %s (%s) values (?, ?, ?, ?, ?, ?, ?)", m.table, evaluationInfoRowsExpectAutoSet)
-	ret, err := m.conn.ExecCtx(ctx, query, data.Sid, data.Cid, data.Folded, data.Deleted, data.Info, data.Liked, data.Disliked)
+	query := fmt.Sprintf("insert into %s (%s) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", m.table, evaluationInfoRowsExpectAutoSet)
+	ret, err := m.conn.ExecCtx(ctx, query, data.Sid, data.Cid, data.Folded, data.Deleted, data.Info, data.Liked, data.Disliked, data.CreatedAt, data.UpdatedAt, data.DeletedAt)
 	return ret, err
 }
 
 func (m *defaultEvaluationInfoModel) Update(ctx context.Context, newData *EvaluationInfo) error {
 	query := fmt.Sprintf("update %s set %s where `pid` = ?", m.table, evaluationInfoRowsWithPlaceHolder)
-	_, err := m.conn.ExecCtx(ctx, query, newData.Sid, newData.Cid, newData.Folded, newData.Deleted, newData.Info, newData.Liked, newData.Disliked, newData.Pid)
+	_, err := m.conn.ExecCtx(ctx, query, newData.Sid, newData.Cid, newData.Folded, newData.Deleted, newData.Info, newData.Liked, newData.Disliked, newData.CreatedAt, newData.UpdatedAt, newData.DeletedAt, newData.Pid)
 	return err
 }
 

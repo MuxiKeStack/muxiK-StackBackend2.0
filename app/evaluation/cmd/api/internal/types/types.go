@@ -8,13 +8,18 @@ type EvaluationInfo struct {
 	Info      string `json:"info"`
 }
 
+type Response struct {
+	Code int    `json:"code" default:"200"`
+	Msg  string `json:"msg" default:"ok"`
+}
+
 type EvaluateRequest struct {
 	CourseId string `json:"cid"`
 	Info     string `json:"info"`
 }
 
 type EvaluateResponse struct {
-	Status string `json:"status"`
+	Response
 }
 
 type DeleteEvaluationRequest struct {
@@ -22,7 +27,7 @@ type DeleteEvaluationRequest struct {
 }
 
 type DeleteEvaluationResponse struct {
-	Status string `json:"status"`
+	Response
 }
 
 type RestoreEvaluationRequest struct {
@@ -30,7 +35,7 @@ type RestoreEvaluationRequest struct {
 }
 
 type RestoreEvaluationResponse struct {
-	Status string `json:"status"`
+	Response
 }
 
 type GetHistoryRequest struct {
@@ -38,7 +43,8 @@ type GetHistoryRequest struct {
 }
 
 type GetHistoryResponse struct {
-	Status string `json:"status"`
+	Response
+	Info []EvaluationInfo `json:"info"`
 }
 
 type GetEvaluationRequest struct {
@@ -46,8 +52,8 @@ type GetEvaluationRequest struct {
 }
 
 type GetEvaluationResponse struct {
-	Status string           `json:"status"`
-	Info   []EvaluationInfo `json:"info"`
+	Response
+	Info []EvaluationInfo `json:"info"`
 }
 
 type LikeRequest struct {
@@ -55,7 +61,7 @@ type LikeRequest struct {
 }
 
 type LikeResponse struct {
-	Status string `json:"status"`
+	Response
 }
 
 type CancelLikeRequest struct {
@@ -63,7 +69,7 @@ type CancelLikeRequest struct {
 }
 
 type CancelLikeResponse struct {
-	Status string `json:"status"`
+	Response
 }
 
 type OpposeRequest struct {
@@ -71,7 +77,7 @@ type OpposeRequest struct {
 }
 
 type OpposeResponse struct {
-	Status string `json:"status"`
+	Response
 }
 
 type CancelOpposeRequest struct {
@@ -79,7 +85,7 @@ type CancelOpposeRequest struct {
 }
 
 type CancelOpposeResponse struct {
-	Status string `json:"status"`
+	Response
 }
 
 type ReportRequest struct {
@@ -88,5 +94,5 @@ type ReportRequest struct {
 }
 
 type ReportResponse struct {
-	Status string `json:"status"`
+	Response
 }
