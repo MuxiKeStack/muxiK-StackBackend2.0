@@ -39,6 +39,10 @@ service curriculacenter{
 	@doc "根据课程性质查看课程"
 	@handler checkCharacteristics
 	post /check_type (CheckCharacteristicsRequest)returns(CheckCharacteristicsResponse)
+
+	@doc "随机获取课程"
+	@handler randomCurricula
+	post /random_curricula (RandomCurriculaRequest)returns(RandomCurriculaResponse)
 }
 
 @server (
@@ -50,4 +54,8 @@ service curriculacenter{
 	@doc "收藏课程"
 	@handler collectCurriculum
 	post /collect (CollectCurriculumRequest)returns(CollectCurriculumResponse)
+
+	@doc "取消收藏"
+	@handler deleteCollection
+	post /deleteCollection (DeleteCollectionRequest)returns(DeleteCollectionResponse)
 }

@@ -8,6 +8,7 @@ info(
     version: "v1"
 )
 
+
 //课程模型
 type CurriculaModel {
     DataId int64 `json:"dataId"` //数据库主键
@@ -95,4 +96,16 @@ type (
     }
 
     CollectCurriculumResponse{}
+
+    DeleteCollectionRequest{
+        DataId int64 `json:"dataId"`
+    }
+
+    DeleteCollectionResponse{}
+
+    RandomCurriculaRequest{}
+
+    RandomCurriculaResponse{
+        CurriculaModel
+    }
 )
