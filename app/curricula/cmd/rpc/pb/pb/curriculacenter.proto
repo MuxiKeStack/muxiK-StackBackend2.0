@@ -87,6 +87,21 @@ message CollectCurriculumRequest{
 message CollectCurriculumResponse{
 }
 
+message DeleteCollectionRequest{
+  int64 DataId = 1;
+  int64 UserId = 2;
+}
+
+message DeleteCollectionResponse{
+}
+
+message RandomRequest{
+}
+
+message RandomResponse{
+  repeated CurriculaInfo Info = 1;
+}
+
 service curriculacenter{
   rpc addCurricula(AddCurriculaRequest)returns(AddCurriculaResponse);
   rpc deleteCurricula(DeleteCurriculaRequest)returns(DeleteCurriculaResponse);
@@ -95,4 +110,6 @@ service curriculacenter{
   rpc curriculumDetail(CurriculumDetailRequest)returns(CurriculumDetailResponse);
   rpc checkCharacteristics(CheckCharacteristicsRequest)returns(CheckCharacteristicsResponse);
   rpc collectCurriculum(CollectCurriculumRequest)returns(CollectCurriculumResponse);
+  rpc deleteCollection(DeleteCollectionRequest)returns(DeleteCollectionResponse);
+  rpc randomCurricula(RandomRequest)returns(RandomRequest);
 }
