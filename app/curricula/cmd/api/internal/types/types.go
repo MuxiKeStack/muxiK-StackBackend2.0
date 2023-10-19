@@ -88,3 +88,17 @@ type CollectCurriculumRequest struct {
 
 type CollectCurriculumResponse struct {
 }
+
+type DeleteCollectionRequest struct {
+	DataId int64 `json:"dataId"`
+}
+
+type DeleteCollectionResponse struct {
+}
+
+type RandomCurriculaRequest struct {
+}
+
+type RandomCurriculaResponse struct {
+	CurriculaModel
+}

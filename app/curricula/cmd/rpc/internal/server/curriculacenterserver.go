@@ -56,3 +56,13 @@ func (s *CurriculacenterServer) CollectCurriculum(ctx context.Context, in *pb.Co
 	l := logic.NewCollectCurriculumLogic(ctx, s.svcCtx)
 	return l.CollectCurriculum(in)
 }
+
+func (s *CurriculacenterServer) DeleteCollection(ctx context.Context, in *pb.DeleteCollectionRequest) (*pb.DeleteCollectionResponse, error) {
+	l := logic.NewDeleteCollectionLogic(ctx, s.svcCtx)
+	return l.DeleteCollection(in)
+}
+
+func (s *CurriculacenterServer) RandomCurricula(ctx context.Context, in *pb.RandomRequest) (*pb.RandomResponse, error) {
+	l := logic.NewRandomCurriculaLogic(ctx, s.svcCtx)
+	return l.RandomCurricula(in)
+}

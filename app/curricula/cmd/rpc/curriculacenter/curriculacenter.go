@@ -23,8 +23,12 @@ type (
 	CurriculaModel               = pb.CurriculaModel
 	CurriculumDetailRequest      = pb.CurriculumDetailRequest
 	CurriculumDetailResponse     = pb.CurriculumDetailResponse
+	DeleteCollectionRequest      = pb.DeleteCollectionRequest
+	DeleteCollectionResponse     = pb.DeleteCollectionResponse
 	DeleteCurriculaRequest       = pb.DeleteCurriculaRequest
 	DeleteCurriculaResponse      = pb.DeleteCurriculaResponse
+	RandomRequest                = pb.RandomRequest
+	RandomResponse               = pb.RandomResponse
 	SearchCurriculaRequest       = pb.SearchCurriculaRequest
 	SearchCurriculaResponse      = pb.SearchCurriculaResponse
 	UpdateCurriculaRequest       = pb.UpdateCurriculaRequest
@@ -38,6 +42,8 @@ type (
 		CurriculumDetail(ctx context.Context, in *CurriculumDetailRequest, opts ...grpc.CallOption) (*CurriculumDetailResponse, error)
 		CheckCharacteristics(ctx context.Context, in *CheckCharacteristicsRequest, opts ...grpc.CallOption) (*CheckCharacteristicsResponse, error)
 		CollectCurriculum(ctx context.Context, in *CollectCurriculumRequest, opts ...grpc.CallOption) (*CollectCurriculumResponse, error)
+		DeleteCollection(ctx context.Context, in *DeleteCollectionRequest, opts ...grpc.CallOption) (*DeleteCollectionResponse, error)
+		RandomCurricula(ctx context.Context, in *RandomRequest, opts ...grpc.CallOption) (*RandomResponse, error)
 	}
 
 	defaultCurriculacenter struct {
@@ -84,4 +90,14 @@ func (m *defaultCurriculacenter) CheckCharacteristics(ctx context.Context, in *C
 func (m *defaultCurriculacenter) CollectCurriculum(ctx context.Context, in *CollectCurriculumRequest, opts ...grpc.CallOption) (*CollectCurriculumResponse, error) {
 	client := pb.NewCurriculacenterClient(m.cli.Conn())
 	return client.CollectCurriculum(ctx, in, opts...)
+}
+
+func (m *defaultCurriculacenter) DeleteCollection(ctx context.Context, in *DeleteCollectionRequest, opts ...grpc.CallOption) (*DeleteCollectionResponse, error) {
+	client := pb.NewCurriculacenterClient(m.cli.Conn())
+	return client.DeleteCollection(ctx, in, opts...)
+}
+
+func (m *defaultCurriculacenter) RandomCurricula(ctx context.Context, in *RandomRequest, opts ...grpc.CallOption) (*RandomResponse, error) {
+	client := pb.NewCurriculacenterClient(m.cli.Conn())
+	return client.RandomCurricula(ctx, in, opts...)
 }
