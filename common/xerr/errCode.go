@@ -12,12 +12,15 @@ const ErrToken uint32 = 20003
 const ErrGetQuery uint32 = 20004
 const ErrGetParam uint32 = 20005
 const ErrDelete uint32 = 20006
+const ErrMarshal uint32 = 20007
 
 const ErrSecurityCheck uint32 = 20007
+const ErrCopyData uint32 = 20008
 
 // Auth errors
 const ErrAuthFailed uint32 = 20101
 const ErrTokenInvalid uint32 = 20102
+const ErrPermissionDenied uint32 = 20103
 
 // user errors
 const ErrCreateUser uint32 = 20201
@@ -43,6 +46,8 @@ const ErrDeleteComment uint32 = 20311
 const ErrHasEvaluated uint32 = 20312
 const ErrWordLimitation uint32 = 20313
 const ErrGetEvaluationInfo uint32 = 20314
+const ErrCreateComment uint32 = 20315
+const ErrGetOneComment uint32 = 20316
 
 // table errors
 const ErrTableExisting uint32 = 20401
@@ -54,6 +59,14 @@ const ErrNewTable uint32 = 20406
 
 // message errors
 const ErrGetMessage uint32 = 20501
+const ErrGetNormalMessageBySid uint32 = 20502
+const ErrGetOfficialMessageBySid uint32 = 20503
+const ErrGetOfficialMessageByNullSid uint32 = 20504
+const ErrUpgradeWebsocket uint32 = 20505
+const ErrBroadcast uint32 = 20506
+const ErrSendMessage uint32 = 20507
+const ErrStoreOfficialMessage = 20508
+const ErrStoreNormalMessage = 20509
 
 // search errors
 const ErrSearchCourse uint32 = 20601
@@ -73,3 +86,6 @@ const ErrCreateReport uint32 = 20901
 
 // collection errors
 const ErrGetCollections uint32 = 21001
+
+// reply errors
+const ErrCreateReply uint32 = 21101

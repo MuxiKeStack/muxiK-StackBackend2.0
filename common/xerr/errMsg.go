@@ -16,10 +16,17 @@ func init() {
 	message[ErrDelete] = "Error occurred while deleting sth. "
 
 	message[ErrSecurityCheck] = "Error occurred in security check"
+	message[ErrCopyData] = "Error occurred copying"
+	message[ErrMarshal] = "Error JSON marshaling failed"
+	message[ErrBroadcast] = "Error broadcast"
+	message[ErrSendMessage] = "Error occurred while sending message"
+	message[ErrStoreOfficialMessage] = "Error occurred while storing official message"
+	message[ErrStoreNormalMessage] = "Error occurred while storing normal message"
 
 	// Auth errors
 	message[ErrAuthFailed] = "The sid or password was incorrect."
 	message[ErrTokenInvalid] = "The token was invalid."
+	message[ErrPermissionDenied] = "The permission was denied"
 
 	// user errors
 	message[ErrCreateUser] = "Error occurred in creating user."
@@ -45,7 +52,8 @@ func init() {
 	message[ErrHasEvaluated] = "User has evaluated the course"
 	message[ErrWordLimitation] = "Word limit exceeded"
 	message[ErrGetEvaluationInfo] = "Error occurred while getting evaluation info"
-
+	message[ErrCreateComment] = "Error occurred while creating a comment"
+	message[ErrGetOneComment] = "Error occurred while getting a comment"
 	// table errors
 	message[ErrTableExisting] = "The table does not exist"
 	message[ErrClassExisting] = "The class does not exist"
@@ -56,6 +64,10 @@ func init() {
 
 	// message errors
 	message[ErrGetMessage] = "Error occurred in getting message list"
+	message[ErrGetNormalMessageBySid] = "Error occurred while getting normal message by sid"
+	message[ErrGetOfficialMessageBySid] = "Error occurred while getting official message by sid"
+	message[ErrGetOfficialMessageByNullSid] = "Error occurred while getting official message without sid"
+	message[ErrUpgradeWebsocket] = "Error occurred while upgrading websocket"
 
 	// search errors
 	message[ErrSearchCourse] = "Error occured in searching courses."
@@ -77,6 +89,9 @@ func init() {
 
 	// collection errors
 	message[ErrGetCollections] = "Error occurred in getting collections"
+
+	// reply errors
+	message[ErrCreateReply] = "Error occurred in creating reply"
 }
 
 func MapErrMsg(errcode uint32) string {

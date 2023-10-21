@@ -1,0 +1,96 @@
+syntax = "v1"
+
+info(
+	title: "message"
+	desc: "message服务和evaluation服务网关"
+	author: "big-dust"
+	email: "3264085417@qq.com"
+	version: "v1"
+)
+//1.
+type ConnectReq {
+	Authorization string `header:"Authorization"`
+}
+
+//2.
+type OfficialMessage {
+	Title     string `json:"title"`
+	Text      string `json:"text"`
+	Image     string `json:"image"`
+	SendAt    int64  `json:"send_at"`
+	ObjectSid string `json:"object_sid,optional"`
+}
+
+type SendOfficialMessageReq {
+	Authorization string          `header:"Authorization"`
+	AllUser       bool            `json:"allUser"`
+	Msg           OfficialMessage `json:"message"`
+}
+
+type SendOfficialMessageRsp {
+	Flag bool `json:"flag"`
+}
+
+//3.
+type GetOfficialMessageReq {
+	Authorization string `header:"Authorization"`
+}
+
+type GetOfficialMessageRsp {
+	OfficialMsgs []OfficialMessage `json:"officialMsgs"`
+}
+
+//4.
+type NormalMessage {
+	Type            string `json:"type"`
+	ObjectSid       string `json:"object_sid"`
+	SenderId        string `json:"sender_sid"`
+	OriginContentId uint   `json:"origin_content_id"`
+	Text            string `json:"text"`
+	SendAt          int64  `json:"send_at"`
+}
+
+type GetNormalMessageReq {
+	Authorization string `header:"Authorization"`
+}
+
+type GetNormalMessageRsp {
+	NormalMsgs []NormalMessage `json:"normalMsgs"`
+}
+
+type SendNormalMessageReq {
+	Authorization   string `header:"Authorization"`
+	Type            string `json:"type"`
+	ObjectSid       string `json:"object_sid"`
+	OriginContentId uint   `json:"origin_content_id"`
+	Text            string `json:"text"`
+	SendAt          int64  `json:"send_at"`
+}
+
+type SendNormalMessageRsp {
+	Flag bool `json:"flag"`
+}
+
+@server(
+	jwt: Auth
+	group: message
+	prefix: /api/v1/message
+)
+
+service message {
+	@doc "建立socket连接"
+	@handler SocketConnect
+	get /connect (ConnectReq) returns()
+	@doc "发送非官方消息提醒"
+	@handler SendNormalMessage
+	post /normal (SendNormalMessageReq) returns(SendNormalMessageRsp)
+	@doc "发送官方消息"
+	@handler SendOfficialMessage
+	post /official (SendOfficialMessageReq) returns(SendOfficialMessageRsp)
+	@doc "获取历史官方消息"
+	@handler GetOfficialMessage
+	get /official (GetOfficialMessageReq) returns(GetOfficialMessageRsp)
+	@doc "获取历史一般消息"
+	@handler GetNormalMessage
+	get /normal (GetNormalMessageReq) returns(GetNormalMessageRsp)
+}
