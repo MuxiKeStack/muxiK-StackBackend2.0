@@ -2,11 +2,9 @@ package logic
 
 import (
 	"context"
-	"github.com/MuxiKeStack/muxiK-StackBackend2.0/app/curricula/model"
-	"strconv"
-
 	"github.com/MuxiKeStack/muxiK-StackBackend2.0/app/curricula/cmd/rpc/internal/svc"
 	"github.com/MuxiKeStack/muxiK-StackBackend2.0/app/curricula/cmd/rpc/pb/pb"
+	"github.com/MuxiKeStack/muxiK-StackBackend2.0/app/curricula/model"
 
 	"github.com/zeromicro/go-zero/core/logx"
 )
@@ -28,7 +26,7 @@ func NewDeleteCollectionLogic(ctx context.Context, svcCtx *svc.ServiceContext) *
 func (l *DeleteCollectionLogic) DeleteCollection(in *pb.DeleteCollectionRequest) (*pb.DeleteCollectionResponse, error) {
 	// todo: test this method
 	collection, err := l.svcCtx.CollectionModel.FindByInfos(l.ctx, model.CollectionInfo{
-		Sid: strconv.FormatInt(in.UserId, 10),
+		Sid: in.UserId,
 		Cid: in.DataId,
 	})
 	if err != nil {

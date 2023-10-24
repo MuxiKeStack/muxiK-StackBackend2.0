@@ -28,6 +28,7 @@ const (
 	Curriculacenter_CollectCurriculum_FullMethodName    = "/pb.curriculacenter/collectCurriculum"
 	Curriculacenter_DeleteCollection_FullMethodName     = "/pb.curriculacenter/deleteCollection"
 	Curriculacenter_RandomCurricula_FullMethodName      = "/pb.curriculacenter/randomCurricula"
+	Curriculacenter_GetAllCollection_FullMethodName     = "/pb.curriculacenter/getAllCollection"
 )
 
 // CurriculacenterClient is the client API for Curriculacenter service.
@@ -43,6 +44,7 @@ type CurriculacenterClient interface {
 	CollectCurriculum(ctx context.Context, in *CollectCurriculumRequest, opts ...grpc.CallOption) (*CollectCurriculumResponse, error)
 	DeleteCollection(ctx context.Context, in *DeleteCollectionRequest, opts ...grpc.CallOption) (*DeleteCollectionResponse, error)
 	RandomCurricula(ctx context.Context, in *RandomRequest, opts ...grpc.CallOption) (*RandomResponse, error)
+	GetAllCollection(ctx context.Context, in *GetAllCollectionRequest, opts ...grpc.CallOption) (*GetAllCollectionResponse, error)
 }
 
 type curriculacenterClient struct {
@@ -134,6 +136,15 @@ func (c *curriculacenterClient) RandomCurricula(ctx context.Context, in *RandomR
 	return out, nil
 }
 
+func (c *curriculacenterClient) GetAllCollection(ctx context.Context, in *GetAllCollectionRequest, opts ...grpc.CallOption) (*GetAllCollectionResponse, error) {
+	out := new(GetAllCollectionResponse)
+	err := c.cc.Invoke(ctx, Curriculacenter_GetAllCollection_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // CurriculacenterServer is the server API for Curriculacenter service.
 // All implementations must embed UnimplementedCurriculacenterServer
 // for forward compatibility
@@ -147,6 +158,7 @@ type CurriculacenterServer interface {
 	CollectCurriculum(context.Context, *CollectCurriculumRequest) (*CollectCurriculumResponse, error)
 	DeleteCollection(context.Context, *DeleteCollectionRequest) (*DeleteCollectionResponse, error)
 	RandomCurricula(context.Context, *RandomRequest) (*RandomResponse, error)
+	GetAllCollection(context.Context, *GetAllCollectionRequest) (*GetAllCollectionResponse, error)
 	mustEmbedUnimplementedCurriculacenterServer()
 }
 
@@ -180,6 +192,9 @@ func (UnimplementedCurriculacenterServer) DeleteCollection(context.Context, *Del
 }
 func (UnimplementedCurriculacenterServer) RandomCurricula(context.Context, *RandomRequest) (*RandomResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RandomCurricula not implemented")
+}
+func (UnimplementedCurriculacenterServer) GetAllCollection(context.Context, *GetAllCollectionRequest) (*GetAllCollectionResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetAllCollection not implemented")
 }
 func (UnimplementedCurriculacenterServer) mustEmbedUnimplementedCurriculacenterServer() {}
 
@@ -356,6 +371,24 @@ func _Curriculacenter_RandomCurricula_Handler(srv interface{}, ctx context.Conte
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Curriculacenter_GetAllCollection_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAllCollectionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CurriculacenterServer).GetAllCollection(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Curriculacenter_GetAllCollection_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CurriculacenterServer).GetAllCollection(ctx, req.(*GetAllCollectionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // Curriculacenter_ServiceDesc is the grpc.ServiceDesc for Curriculacenter service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -398,6 +431,10 @@ var Curriculacenter_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "randomCurricula",
 			Handler:    _Curriculacenter_RandomCurricula_Handler,
+		},
+		{
+			MethodName: "getAllCollection",
+			Handler:    _Curriculacenter_GetAllCollection_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

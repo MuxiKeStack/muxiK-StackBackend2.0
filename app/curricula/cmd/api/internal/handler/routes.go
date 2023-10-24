@@ -65,6 +65,11 @@ func RegisterHandlers(server *rest.Server, serverCtx *svc.ServiceContext) {
 					Path:    "/deleteCollection",
 					Handler: deleteCollectionHandler(serverCtx),
 				},
+				{
+					Method:  http.MethodGet,
+					Path:    "/getAllCollection",
+					Handler: getAllCollectionHandler(serverCtx),
+				},
 			}...,
 		),
 		rest.WithJwt(serverCtx.Config.JwtAuth.AccessSecret),

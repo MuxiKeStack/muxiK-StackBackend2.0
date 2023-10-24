@@ -100,5 +100,12 @@ type RandomCurriculaRequest struct {
 }
 
 type RandomCurriculaResponse struct {
-	CurriculaModel
+	Info []CurriculaInfo `json:"info"`
+}
+
+type GetAllCollectionRequest struct {
+}
+
+type GetAllCollectionResponse struct {
+	Info []CurriculaInfo `json:"info"`
 }

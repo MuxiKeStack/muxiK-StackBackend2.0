@@ -27,6 +27,8 @@ type (
 	DeleteCollectionResponse     = pb.DeleteCollectionResponse
 	DeleteCurriculaRequest       = pb.DeleteCurriculaRequest
 	DeleteCurriculaResponse      = pb.DeleteCurriculaResponse
+	GetAllCollectionRequest      = pb.GetAllCollectionRequest
+	GetAllCollectionResponse     = pb.GetAllCollectionResponse
 	RandomRequest                = pb.RandomRequest
 	RandomResponse               = pb.RandomResponse
 	SearchCurriculaRequest       = pb.SearchCurriculaRequest
@@ -44,6 +46,7 @@ type (
 		CollectCurriculum(ctx context.Context, in *CollectCurriculumRequest, opts ...grpc.CallOption) (*CollectCurriculumResponse, error)
 		DeleteCollection(ctx context.Context, in *DeleteCollectionRequest, opts ...grpc.CallOption) (*DeleteCollectionResponse, error)
 		RandomCurricula(ctx context.Context, in *RandomRequest, opts ...grpc.CallOption) (*RandomResponse, error)
+		GetAllCollection(ctx context.Context, in *GetAllCollectionRequest, opts ...grpc.CallOption) (*GetAllCollectionResponse, error)
 	}
 
 	defaultCurriculacenter struct {
@@ -100,4 +103,9 @@ func (m *defaultCurriculacenter) DeleteCollection(ctx context.Context, in *Delet
 func (m *defaultCurriculacenter) RandomCurricula(ctx context.Context, in *RandomRequest, opts ...grpc.CallOption) (*RandomResponse, error) {
 	client := pb.NewCurriculacenterClient(m.cli.Conn())
 	return client.RandomCurricula(ctx, in, opts...)
+}
+
+func (m *defaultCurriculacenter) GetAllCollection(ctx context.Context, in *GetAllCollectionRequest, opts ...grpc.CallOption) (*GetAllCollectionResponse, error) {
+	client := pb.NewCurriculacenterClient(m.cli.Conn())
+	return client.GetAllCollection(ctx, in, opts...)
 }

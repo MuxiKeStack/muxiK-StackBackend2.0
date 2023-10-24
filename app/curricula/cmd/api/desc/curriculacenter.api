@@ -58,4 +58,8 @@ service curriculacenter{
 	@doc "取消收藏"
 	@handler deleteCollection
 	post /deleteCollection (DeleteCollectionRequest)returns(DeleteCollectionResponse)
+
+	@doc "获取全部收藏"
+	@handler getAllCollection
+	get /getAllCollection (GetAllCollectionRequest)returns(GetAllCollectionResponse)
 }

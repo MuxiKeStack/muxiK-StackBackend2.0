@@ -106,6 +106,12 @@ type (
     RandomCurriculaRequest{}
 
     RandomCurriculaResponse{
-        CurriculaModel
+        Info []CurriculaInfo `json:"info"`
+    }
+
+    GetAllCollectionRequest{}
+
+    GetAllCollectionResponse{
+        Info []CurriculaInfo `json:"info"`
     }
 )

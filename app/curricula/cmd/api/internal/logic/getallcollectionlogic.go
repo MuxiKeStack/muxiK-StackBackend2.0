@@ -3,6 +3,7 @@ package logic
 import (
 	"context"
 	"github.com/MuxiKeStack/muxiK-StackBackend2.0/app/curricula/cmd/rpc/pb/pb"
+	"github.com/MuxiKeStack/muxiK-StackBackend2.0/common/ctxdata"
 
 	"github.com/MuxiKeStack/muxiK-StackBackend2.0/app/curricula/cmd/api/internal/svc"
 	"github.com/MuxiKeStack/muxiK-StackBackend2.0/app/curricula/cmd/api/internal/types"
@@ -10,23 +11,24 @@ import (
 	"github.com/zeromicro/go-zero/core/logx"
 )
 
-type RandomCurriculaLogic struct {
+type GetAllCollectionLogic struct {
 	logx.Logger
 	ctx    context.Context
 	svcCtx *svc.ServiceContext
 }
 
-func NewRandomCurriculaLogic(ctx context.Context, svcCtx *svc.ServiceContext) *RandomCurriculaLogic {
-	return &RandomCurriculaLogic{
+func NewGetAllCollectionLogic(ctx context.Context, svcCtx *svc.ServiceContext) *GetAllCollectionLogic {
+	return &GetAllCollectionLogic{
 		Logger: logx.WithContext(ctx),
 		ctx:    ctx,
 		svcCtx: svcCtx,
 	}
 }
 
-func (l *RandomCurriculaLogic) RandomCurricula(req *types.RandomCurriculaRequest) (resp *types.RandomCurriculaResponse, err error) {
+func (l *GetAllCollectionLogic) GetAllCollection(req *types.GetAllCollectionRequest) (resp *types.GetAllCollectionResponse, err error) {
 	// todo: test this method
-	response, err := l.svcCtx.CurriculaCenterRpc.RandomCurricula(l.ctx, &pb.RandomRequest{})
+	sid := ctxdata.GetStudentIdFromCtx(l.ctx)
+	response, err := l.svcCtx.CurriculaCenterRpc.GetAllCollection(l.ctx, &pb.GetAllCollectionRequest{UserId: sid})
 	if err != nil {
 		return nil, err
 	}
@@ -40,5 +42,5 @@ func (l *RandomCurriculaLogic) RandomCurricula(req *types.RandomCurriculaRequest
 			Rate:          info.Rate,
 		})
 	}
-	return
+	return resp, err
 }

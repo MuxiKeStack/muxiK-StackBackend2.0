@@ -66,3 +66,8 @@ func (s *CurriculacenterServer) RandomCurricula(ctx context.Context, in *pb.Rand
 	l := logic.NewRandomCurriculaLogic(ctx, s.svcCtx)
 	return l.RandomCurricula(in)
 }
+
+func (s *CurriculacenterServer) GetAllCollection(ctx context.Context, in *pb.GetAllCollectionRequest) (*pb.GetAllCollectionResponse, error) {
+	l := logic.NewGetAllCollectionLogic(ctx, s.svcCtx)
+	return l.GetAllCollection(in)
+}

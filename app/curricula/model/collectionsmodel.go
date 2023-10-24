@@ -28,17 +28,31 @@ type (
 
 	collectionLogicModel interface {
 		FindByInfos(ctx context.Context, infos CollectionInfo) (*Collections, error)
+		FindManyByUid(ctx context.Context, Sid string) ([]*Collections, error)
 	}
 )
 
 func (c customCollectionsModel) FindByInfos(ctx context.Context, infos CollectionInfo) (*Collections, error) {
-	//TODO implement me
 	var resp Collections
 	query := fmt.Sprintf("select %s from %s where `sid` = ? and `c_data_id` = ? limit 1", curriculasRows, c.table)
 	err := c.conn.QueryRowCtx(ctx, &resp, query, infos.Sid, infos.Cid)
 	switch err {
 	case nil:
 		return &resp, nil
+	case sqlc.ErrNotFound:
+		return nil, ErrNotFound
+	default:
+		return nil, err
+	}
+}
+
+func (c customCollectionsModel) FindManyByUid(ctx context.Context, Sid string) ([]*Collections, error) {
+	var resp []*Collections
+	query := fmt.Sprintf("select %s from %s where `sid` = ? limit 1", curriculasRows, c.table)
+	err := c.conn.QueryRowCtx(ctx, &resp, query, Sid)
+	switch err {
+	case nil:
+		return resp, nil
 	case sqlc.ErrNotFound:
 		return nil, ErrNotFound
 	default:
