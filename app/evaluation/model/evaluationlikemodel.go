@@ -13,14 +13,14 @@ type (
 	// and implement the added methods in customEvaluationLikeModel.
 	EvaluationLikeModel interface {
 		evaluationLikeModel
-		logic
+		LikeLogic
 	}
 
 	customEvaluationLikeModel struct {
 		*defaultEvaluationLikeModel
 	}
 
-	logic interface {
+	LikeLogic interface {
 		FindLike(ctx context.Context, pid string, sid string) (resp *EvaluationLike, err error)
 	}
 )

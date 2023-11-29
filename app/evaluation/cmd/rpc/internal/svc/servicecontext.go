@@ -7,9 +7,10 @@ import (
 )
 
 type ServiceContext struct {
-	Config    config.Config
-	InfoModel model.EvaluationInfoModel
-	LikeModel model.EvaluationLikeModel
+	Config      config.Config
+	InfoModel   model.EvaluationInfoModel
+	LikeModel   model.EvaluationLikeModel
+	ReportModel model.EvaluationReportModel
 }
 
 func NewServiceContext(c config.Config) *ServiceContext {
