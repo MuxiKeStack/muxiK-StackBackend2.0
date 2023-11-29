@@ -24,7 +24,7 @@ func NewGetHistoryLogic(ctx context.Context, svcCtx *svc.ServiceContext) *GetHis
 }
 
 func (l *GetHistoryLogic) GetHistory(req *types.GetHistoryRequest) (resp *types.GetHistoryResponse, err error) {
-	// todo: add your logic here and delete this line
+	// todo: test
 	evaluation, err := l.svcCtx.InfoRpc.GetEvaluation(l.ctx, &pb.GetEvaluationRequest{
 		Method: "sid",
 		Id:     req.StudentId,

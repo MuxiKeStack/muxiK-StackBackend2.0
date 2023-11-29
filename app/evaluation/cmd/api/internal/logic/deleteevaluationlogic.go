@@ -23,7 +23,7 @@ func NewDeleteEvaluationLogic(ctx context.Context, svcCtx *svc.ServiceContext) *
 }
 
 func (l *DeleteEvaluationLogic) DeleteEvaluation(req *types.DeleteEvaluationRequest) (resp *types.DeleteEvaluationResponse, err error) {
-	// todo: testing
+	// todo: test
 	response, err := l.svcCtx.InfoRpc.DeleteEvaluation(l.ctx, &pb.DeleteEvaluationRequest{
 		Pid: req.PostId,
 	})
