@@ -2,10 +2,10 @@ package logic
 
 import (
 	"context"
-	"github.com/MuxiKeStack/muxiK-StackBackend2.0/app/evaluation/cmd/rpc/pb/pb"
-
 	"github.com/MuxiKeStack/muxiK-StackBackend2.0/app/evaluation/cmd/api/internal/svc"
 	"github.com/MuxiKeStack/muxiK-StackBackend2.0/app/evaluation/cmd/api/internal/types"
+	"github.com/MuxiKeStack/muxiK-StackBackend2.0/app/evaluation/cmd/rpc/pb/pb"
+	"github.com/MuxiKeStack/muxiK-StackBackend2.0/common/ctxdata"
 
 	"github.com/zeromicro/go-zero/core/logx"
 )
@@ -25,13 +25,19 @@ func NewReportLogic(ctx context.Context, svcCtx *svc.ServiceContext) *ReportLogi
 }
 
 func (l *ReportLogic) Report(req *types.ReportRequest) (resp *types.ReportResponse, err error) {
-	// todo: add your logic here and delete this line
-	response, err := l.svcCtx.InfoRpc.UpdateEvaluation(l.ctx, &pb.UpdateEvaluationRequest{E: &pb.Evaluation{
-		Pid: req.PostId,
-	}})
+	// todo: test
+
+	_, err = l.svcCtx.ReportRpc.SendReport(l.ctx, &pb.SendReportRequest{
+		R: &pb.Report{
+			Pid:    req.PostId,
+			Sid:    ctxdata.GetStudentIdFromCtx(l.ctx),
+			Reason: req.Reason,
+			Status: "0",
+		}},
+	)
 	if err != nil {
-		resp.Code = 500
-		resp.Msg = response.String()
+		return nil, err
 	}
+
 	return
 }

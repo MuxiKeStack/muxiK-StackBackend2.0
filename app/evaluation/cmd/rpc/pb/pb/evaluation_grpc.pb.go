@@ -345,3 +345,204 @@ var EvaLike_ServiceDesc = grpc.ServiceDesc{
 	Streams:  []grpc.StreamDesc{},
 	Metadata: "pb/evaluation.proto",
 }
+
+const (
+	EvaReport_SendReport_FullMethodName   = "/pb.Eva_report/SendReport"
+	EvaReport_GetReports_FullMethodName   = "/pb.Eva_report/GetReports"
+	EvaReport_GetTheReport_FullMethodName = "/pb.Eva_report/GetTheReport"
+	EvaReport_SetReport_FullMethodName    = "/pb.Eva_report/SetReport"
+)
+
+// EvaReportClient is the client API for EvaReport service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type EvaReportClient interface {
+	SendReport(ctx context.Context, in *SendReportRequest, opts ...grpc.CallOption) (*StatusResponse, error)
+	GetReports(ctx context.Context, in *GetReportsRequest, opts ...grpc.CallOption) (*GetReportsResponse, error)
+	GetTheReport(ctx context.Context, in *GetTheReportRequest, opts ...grpc.CallOption) (*GetTheReportResponse, error)
+	SetReport(ctx context.Context, in *SetReportRequest, opts ...grpc.CallOption) (*StatusResponse, error)
+}
+
+type evaReportClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewEvaReportClient(cc grpc.ClientConnInterface) EvaReportClient {
+	return &evaReportClient{cc}
+}
+
+func (c *evaReportClient) SendReport(ctx context.Context, in *SendReportRequest, opts ...grpc.CallOption) (*StatusResponse, error) {
+	out := new(StatusResponse)
+	err := c.cc.Invoke(ctx, EvaReport_SendReport_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *evaReportClient) GetReports(ctx context.Context, in *GetReportsRequest, opts ...grpc.CallOption) (*GetReportsResponse, error) {
+	out := new(GetReportsResponse)
+	err := c.cc.Invoke(ctx, EvaReport_GetReports_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *evaReportClient) GetTheReport(ctx context.Context, in *GetTheReportRequest, opts ...grpc.CallOption) (*GetTheReportResponse, error) {
+	out := new(GetTheReportResponse)
+	err := c.cc.Invoke(ctx, EvaReport_GetTheReport_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *evaReportClient) SetReport(ctx context.Context, in *SetReportRequest, opts ...grpc.CallOption) (*StatusResponse, error) {
+	out := new(StatusResponse)
+	err := c.cc.Invoke(ctx, EvaReport_SetReport_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// EvaReportServer is the server API for EvaReport service.
+// All implementations must embed UnimplementedEvaReportServer
+// for forward compatibility
+type EvaReportServer interface {
+	SendReport(context.Context, *SendReportRequest) (*StatusResponse, error)
+	GetReports(context.Context, *GetReportsRequest) (*GetReportsResponse, error)
+	GetTheReport(context.Context, *GetTheReportRequest) (*GetTheReportResponse, error)
+	SetReport(context.Context, *SetReportRequest) (*StatusResponse, error)
+	mustEmbedUnimplementedEvaReportServer()
+}
+
+// UnimplementedEvaReportServer must be embedded to have forward compatible implementations.
+type UnimplementedEvaReportServer struct {
+}
+
+func (UnimplementedEvaReportServer) SendReport(context.Context, *SendReportRequest) (*StatusResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SendReport not implemented")
+}
+func (UnimplementedEvaReportServer) GetReports(context.Context, *GetReportsRequest) (*GetReportsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetReports not implemented")
+}
+func (UnimplementedEvaReportServer) GetTheReport(context.Context, *GetTheReportRequest) (*GetTheReportResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetTheReport not implemented")
+}
+func (UnimplementedEvaReportServer) SetReport(context.Context, *SetReportRequest) (*StatusResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SetReport not implemented")
+}
+func (UnimplementedEvaReportServer) mustEmbedUnimplementedEvaReportServer() {}
+
+// UnsafeEvaReportServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to EvaReportServer will
+// result in compilation errors.
+type UnsafeEvaReportServer interface {
+	mustEmbedUnimplementedEvaReportServer()
+}
+
+func RegisterEvaReportServer(s grpc.ServiceRegistrar, srv EvaReportServer) {
+	s.RegisterService(&EvaReport_ServiceDesc, srv)
+}
+
+func _EvaReport_SendReport_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SendReportRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EvaReportServer).SendReport(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EvaReport_SendReport_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EvaReportServer).SendReport(ctx, req.(*SendReportRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EvaReport_GetReports_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetReportsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EvaReportServer).GetReports(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EvaReport_GetReports_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EvaReportServer).GetReports(ctx, req.(*GetReportsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EvaReport_GetTheReport_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTheReportRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EvaReportServer).GetTheReport(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EvaReport_GetTheReport_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EvaReportServer).GetTheReport(ctx, req.(*GetTheReportRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EvaReport_SetReport_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetReportRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EvaReportServer).SetReport(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EvaReport_SetReport_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EvaReportServer).SetReport(ctx, req.(*SetReportRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// EvaReport_ServiceDesc is the grpc.ServiceDesc for EvaReport service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var EvaReport_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "pb.Eva_report",
+	HandlerType: (*EvaReportServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "SendReport",
+			Handler:    _EvaReport_SendReport_Handler,
+		},
+		{
+			MethodName: "GetReports",
+			Handler:    _EvaReport_GetReports_Handler,
+		},
+		{
+			MethodName: "GetTheReport",
+			Handler:    _EvaReport_GetTheReport_Handler,
+		},
+		{
+			MethodName: "SetReport",
+			Handler:    _EvaReport_SetReport_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "pb/evaluation.proto",
+}

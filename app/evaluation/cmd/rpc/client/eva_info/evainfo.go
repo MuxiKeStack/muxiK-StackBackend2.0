@@ -20,8 +20,15 @@ type (
 	GetEvaluationRequest    = pb.GetEvaluationRequest
 	GetLikeRequest          = pb.GetLikeRequest
 	GetLikeResponse         = pb.GetLikeResponse
+	GetReportsRequest       = pb.GetReportsRequest
+	GetReportsResponse      = pb.GetReportsResponse
+	GetTheReportRequest     = pb.GetTheReportRequest
+	GetTheReportResponse    = pb.GetTheReportResponse
 	Like                    = pb.Like
+	Report                  = pb.Report
+	SendReportRequest       = pb.SendReportRequest
 	SetLikeRequest          = pb.SetLikeRequest
+	SetReportRequest        = pb.SetReportRequest
 	StatusResponse          = pb.StatusResponse
 	UpdateEvaluationRequest = pb.UpdateEvaluationRequest
 

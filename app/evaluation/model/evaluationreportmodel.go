@@ -21,6 +21,7 @@ type (
 	}
 	ReportLogic interface {
 		FindReport(ctx context.Context, id string, method int) (resp *EvaluationReport, err error)
+		FindAll(ctx context.Context) (resp []*EvaluationReport, err error)
 	}
 )
 
@@ -48,4 +49,13 @@ func (m *customEvaluationReportModel) FindReport(ctx context.Context, id string,
 	if err != nil {
 		return nil, err
 	}
+}
+
+func (m *customEvaluationReportModel) FindAll(ctx context.Context) (resp []*EvaluationReport, err error) {
+	query := fmt.Sprintf("select * from %s", m.table)
+	err = m.conn.QueryRowsCtx(ctx, &resp, query)
+	if err != nil {
+		return nil, err
+	}
+	return
 }
