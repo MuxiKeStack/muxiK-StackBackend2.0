@@ -16,50 +16,56 @@ type EvaluationInfo{
     Info string  `json:"info"`
 }
 
+type response{
+    Code int `json:"code" default:"200"`
+    Msg string `json:"msg" default:"ok"`
+}
+
 type (
     EvaluateRequest{
-    CourseId string `json:"cid"`
-    Info string `json:"info"`
+        CourseId string `json:"cid"`
+        Info string `json:"info"`
     }
     EvaluateResponse{
-    Status string `json:"status"`
+        response
     }
 )
 
 type (
     DeleteEvaluationRequest{
-    PostId string `path:"pid"`
+        PostId string `path:"pid"`
     }
     DeleteEvaluationResponse{
-    Status string `json:"status"`
+        response
     }
 )
 
 type(
     RestoreEvaluationRequest{
-    PostId string `path:"pid"`
+        PostId string `path:"pid"`
     }
     RestoreEvaluationResponse{
-    Status string `json:"status"`
+        response
     }
 )
 
 type (
     GetHistoryRequest{
-    StudentId string `path:"sid"`
+        StudentId string `path:"sid"`
     }
     GetHistoryResponse{
-    Status string `json:"status"`
+        response
+        Info[] EvaluationInfo `json:"info"`
     }
 )
 
 type (
     GetEvaluationRequest{
-    CourseId string `path:"cid"`
+        CourseId string `path:"cid"`
     }
     GetEvaluationResponse{
-    Status string `json:"status"`
-    Info[] EvaluationInfo `json:"info"`
+        response
+        Info[] EvaluationInfo `json:"info"`
     }
 )
 
@@ -68,13 +74,13 @@ type(
         PostId string `path:"pid"`
     }
     LikeResponse{
-        Status string `json:"status"`
+        response
     }
     CancelLikeRequest{
         PostId string `path:"pid"`
     }
     CancelLikeResponse{
-        Status string `json:"status"`
+        response
     }
 )
 
@@ -83,13 +89,13 @@ type(
         PostId string `path:"pid"`
     }
     OpposeResponse{
-        Status string `json:"status"`
+        response
     }
     CancelOpposeRequest{
         PostId string `path:"pid"`
     }
     CancelOpposeResponse{
-        Status string `json:"status"`
+        response
     }
 )
 
@@ -99,7 +105,7 @@ type(
         Reason string `json:"reason"`
     }
     ReportResponse{
-        Status string `json:"status"`
+        response
     }
 )
 

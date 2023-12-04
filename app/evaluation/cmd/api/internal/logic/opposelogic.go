@@ -2,6 +2,8 @@ package logic
 
 import (
 	"context"
+	"github.com/MuxiKeStack/muxiK-StackBackend2.0/app/evaluation/cmd/rpc/pb/pb"
+	"github.com/MuxiKeStack/muxiK-StackBackend2.0/common/ctxdata"
 
 	"github.com/MuxiKeStack/muxiK-StackBackend2.0/app/evaluation/cmd/api/internal/svc"
 	"github.com/MuxiKeStack/muxiK-StackBackend2.0/app/evaluation/cmd/api/internal/types"
@@ -24,7 +26,11 @@ func NewOpposeLogic(ctx context.Context, svcCtx *svc.ServiceContext) *OpposeLogi
 }
 
 func (l *OpposeLogic) Oppose(req *types.OpposeRequest) (resp *types.OpposeResponse, err error) {
-	// todo: add your logic here and delete this line
-
+	// todo: test
+	l.svcCtx.LikeRpc.SetLike(l.ctx, &pb.SetLikeRequest{
+		Pid:    req.PostId,
+		Sid:    ctxdata.GetStudentIdFromCtx(l.ctx),
+		Status: -1,
+	})
 	return
 }
