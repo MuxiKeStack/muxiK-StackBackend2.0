@@ -6,7 +6,7 @@ package server
 import (
 	"context"
 
-	"github.com/MuxiKeStack/muxiK-StackBackend2.0/app/curricula/cmd/rpc/internal/logic"
+	"github.com/MuxiKeStack/muxiK-StackBackend2.0/app/curricula/cmd/rpc/internal/logic/curriculacenter"
 	"github.com/MuxiKeStack/muxiK-StackBackend2.0/app/curricula/cmd/rpc/internal/svc"
 	"github.com/MuxiKeStack/muxiK-StackBackend2.0/app/curricula/cmd/rpc/pb/pb"
 )
@@ -23,51 +23,46 @@ func NewCurriculacenterServer(svcCtx *svc.ServiceContext) *CurriculacenterServer
 }
 
 func (s *CurriculacenterServer) AddCurricula(ctx context.Context, in *pb.AddCurriculaRequest) (*pb.AddCurriculaResponse, error) {
-	l := logic.NewAddCurriculaLogic(ctx, s.svcCtx)
+	l := curriculacenterlogic.NewAddCurriculaLogic(ctx, s.svcCtx)
 	return l.AddCurricula(in)
 }
 
 func (s *CurriculacenterServer) DeleteCurricula(ctx context.Context, in *pb.DeleteCurriculaRequest) (*pb.DeleteCurriculaResponse, error) {
-	l := logic.NewDeleteCurriculaLogic(ctx, s.svcCtx)
+	l := curriculacenterlogic.NewDeleteCurriculaLogic(ctx, s.svcCtx)
 	return l.DeleteCurricula(in)
 }
 
 func (s *CurriculacenterServer) UpdateCurricula(ctx context.Context, in *pb.UpdateCurriculaRequest) (*pb.UpdateCurriculaResponse, error) {
-	l := logic.NewUpdateCurriculaLogic(ctx, s.svcCtx)
+	l := curriculacenterlogic.NewUpdateCurriculaLogic(ctx, s.svcCtx)
 	return l.UpdateCurricula(in)
 }
 
 func (s *CurriculacenterServer) SearchCurricula(ctx context.Context, in *pb.SearchCurriculaRequest) (*pb.SearchCurriculaResponse, error) {
-	l := logic.NewSearchCurriculaLogic(ctx, s.svcCtx)
+	l := curriculacenterlogic.NewSearchCurriculaLogic(ctx, s.svcCtx)
 	return l.SearchCurricula(in)
 }
 
 func (s *CurriculacenterServer) CurriculumDetail(ctx context.Context, in *pb.CurriculumDetailRequest) (*pb.CurriculumDetailResponse, error) {
-	l := logic.NewCurriculumDetailLogic(ctx, s.svcCtx)
+	l := curriculacenterlogic.NewCurriculumDetailLogic(ctx, s.svcCtx)
 	return l.CurriculumDetail(in)
 }
 
 func (s *CurriculacenterServer) CheckCharacteristics(ctx context.Context, in *pb.CheckCharacteristicsRequest) (*pb.CheckCharacteristicsResponse, error) {
-	l := logic.NewCheckCharacteristicsLogic(ctx, s.svcCtx)
+	l := curriculacenterlogic.NewCheckCharacteristicsLogic(ctx, s.svcCtx)
 	return l.CheckCharacteristics(in)
 }
 
 func (s *CurriculacenterServer) CollectCurriculum(ctx context.Context, in *pb.CollectCurriculumRequest) (*pb.CollectCurriculumResponse, error) {
-	l := logic.NewCollectCurriculumLogic(ctx, s.svcCtx)
+	l := curriculacenterlogic.NewCollectCurriculumLogic(ctx, s.svcCtx)
 	return l.CollectCurriculum(in)
 }
 
 func (s *CurriculacenterServer) DeleteCollection(ctx context.Context, in *pb.DeleteCollectionRequest) (*pb.DeleteCollectionResponse, error) {
-	l := logic.NewDeleteCollectionLogic(ctx, s.svcCtx)
+	l := curriculacenterlogic.NewDeleteCollectionLogic(ctx, s.svcCtx)
 	return l.DeleteCollection(in)
 }
 
-func (s *CurriculacenterServer) RandomCurricula(ctx context.Context, in *pb.RandomRequest) (*pb.RandomResponse, error) {
-	l := logic.NewRandomCurriculaLogic(ctx, s.svcCtx)
+func (s *CurriculacenterServer) RandomCurricula(ctx context.Context, in *pb.RandomRequest) (*pb.RandomRequest, error) {
+	l := curriculacenterlogic.NewRandomCurriculaLogic(ctx, s.svcCtx)
 	return l.RandomCurricula(in)
-}
-
-func (s *CurriculacenterServer) GetAllCollection(ctx context.Context, in *pb.GetAllCollectionRequest) (*pb.GetAllCollectionResponse, error) {
-	l := logic.NewGetAllCollectionLogic(ctx, s.svcCtx)
-	return l.GetAllCollection(in)
 }

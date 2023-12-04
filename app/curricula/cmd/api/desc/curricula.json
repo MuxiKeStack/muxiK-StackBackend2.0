@@ -1,0 +1,674 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "课程中心",
+    "description": "课程服务",
+    "version": "v1"
+  },
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "api/v1/curricula/add": {
+      "post": {
+        "summary": "新增课程",
+        "operationId": "addCurricula",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/AddCurriculaResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/AddCurriculaRequest"
+            }
+          }
+        ],
+        "requestBody": {},
+        "tags": [
+          "curriculacenter"
+        ]
+      }
+    },
+    "api/v1/curricula/check_type": {
+      "post": {
+        "summary": "根据课程性质查看课程",
+        "operationId": "checkCharacteristics",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/CheckCharacteristicsResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CheckCharacteristicsRequest"
+            }
+          }
+        ],
+        "requestBody": {},
+        "tags": [
+          "curriculacenter"
+        ]
+      }
+    },
+    "api/v1/curricula/delete": {
+      "delete": {
+        "summary": "删除课程",
+        "operationId": "deleteCurricula",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/DeleteCurriculaResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteCurriculaRequest"
+            }
+          }
+        ],
+        "requestBody": {},
+        "tags": [
+          "curriculacenter"
+        ]
+      }
+    },
+    "api/v1/curricula/detail": {
+      "post": {
+        "summary": "查看课程详情",
+        "operationId": "curriculumDetail",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/CurriculumDetailResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CurriculumDetailRequest"
+            }
+          }
+        ],
+        "requestBody": {},
+        "tags": [
+          "curriculacenter"
+        ]
+      }
+    },
+    "api/v1/curricula/random_curricula": {
+      "post": {
+        "summary": "随机获取课程",
+        "operationId": "randomCurricula",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/RandomCurriculaResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RandomCurriculaRequest"
+            }
+          }
+        ],
+        "requestBody": {},
+        "tags": [
+          "curriculacenter"
+        ]
+      }
+    },
+    "api/v1/curricula/search": {
+      "post": {
+        "summary": "搜索课程",
+        "operationId": "searchCurricula",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/SearchCurriculaResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SearchCurriculaRequest"
+            }
+          }
+        ],
+        "requestBody": {},
+        "tags": [
+          "curriculacenter"
+        ]
+      }
+    },
+    "api/v1/curricula/update": {
+      "post": {
+        "summary": "修改课程内容",
+        "operationId": "updateCurricula",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/UpdateCurriculaResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdateCurriculaRequest"
+            }
+          }
+        ],
+        "requestBody": {},
+        "tags": [
+          "curriculacenter"
+        ]
+      }
+    },
+    "api/v1/user/collect": {
+      "post": {
+        "summary": "收藏课程",
+        "operationId": "collectCurriculum",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/CollectCurriculumResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CollectCurriculumRequest"
+            }
+          }
+        ],
+        "requestBody": {},
+        "tags": [
+          "curriculacenter"
+        ]
+      }
+    },
+    "api/v1/user/deleteCollection": {
+      "post": {
+        "summary": "取消收藏",
+        "operationId": "deleteCollection",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/DeleteCollectionResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteCollectionRequest"
+            }
+          }
+        ],
+        "requestBody": {},
+        "tags": [
+          "curriculacenter"
+        ]
+      }
+    },
+    "api/v1/user/getAllCollection": {
+      "get": {
+        "summary": "获取全部收藏",
+        "operationId": "getAllCollection",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/GetAllCollectionResponse"
+            }
+          }
+        },
+        "requestBody": {},
+        "tags": [
+          "curriculacenter"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "AddCurriculaRequest": {
+      "type": "object",
+      "properties": {
+        "curriculaId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "curriculaName": {
+          "type": "string"
+        },
+        "teacher": {
+          "type": "string"
+        },
+        "type": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "title": "AddCurriculaRequest",
+      "required": [
+        "curriculaId",
+        "curriculaName",
+        "teacher",
+        "type"
+      ]
+    },
+    "AddCurriculaResponse": {
+      "type": "object",
+      "title": "AddCurriculaResponse"
+    },
+    "CheckCharacteristicsRequest": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "title": "CheckCharacteristicsRequest",
+      "required": [
+        "type"
+      ]
+    },
+    "CheckCharacteristicsResponse": {
+      "type": "object",
+      "properties": {
+        "info": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CurriculaInfo"
+          }
+        }
+      },
+      "title": "CheckCharacteristicsResponse",
+      "required": [
+        "info"
+      ]
+    },
+    "CollectCurriculumRequest": {
+      "type": "object",
+      "properties": {
+        "dataId": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "title": "CollectCurriculumRequest",
+      "required": [
+        "dataId"
+      ]
+    },
+    "CollectCurriculumResponse": {
+      "type": "object",
+      "title": "CollectCurriculumResponse"
+    },
+    "CurriculaInfo": {
+      "type": "object",
+      "properties": {
+        "dataId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "curriculaId": {
+          "type": "integer",
+          "format": "int32",
+          "description": "课程号"
+        },
+        "curriculaName": {
+          "type": "string",
+          "description": "课程名称"
+        },
+        "teacher": {
+          "type": "string",
+          "description": "授课教师"
+        },
+        "type": {
+          "type": "integer",
+          "format": "int32",
+          "description": "课程类型，公共课为0，专业课为1"
+        },
+        "rate": {
+          "type": "number",
+          "format": "float",
+          "description": "课程评分"
+        }
+      },
+      "title": "CurriculaInfo",
+      "required": [
+        "dataId",
+        "curriculaId",
+        "curriculaName",
+        "teacher",
+        "type",
+        "rate"
+      ]
+    },
+    "CurriculaModel": {
+      "type": "object",
+      "properties": {
+        "dataId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "数据库主键"
+        },
+        "curriculaId": {
+          "type": "integer",
+          "format": "int32",
+          "description": "课程号"
+        },
+        "curriculaName": {
+          "type": "string",
+          "description": "课程名称"
+        },
+        "teacher": {
+          "type": "string",
+          "description": "授课教师"
+        },
+        "type": {
+          "type": "integer",
+          "format": "int32",
+          "description": "课程类型，公共课为0，专业课为1"
+        },
+        "rate": {
+          "type": "number",
+          "format": "float",
+          "description": "课程评分"
+        },
+        "startsNum": {
+          "type": "integer",
+          "format": "int32",
+          "description": "课程评分人数"
+        },
+        "gradeSampleSize": {
+          "type": "integer",
+          "format": "int32",
+          "description": "课程成绩样本数"
+        },
+        "totalGrade": {
+          "type": "number",
+          "format": "float",
+          "description": "总成绩均分"
+        },
+        "usualGrade": {
+          "type": "number",
+          "format": "float",
+          "description": "平时成绩均分"
+        },
+        "gradeRank1": {
+          "type": "integer",
+          "format": "int32",
+          "description": "成绩85分以上的人数"
+        },
+        "gradeRank2": {
+          "type": "integer",
+          "format": "int32",
+          "description": "成绩70--85的人数"
+        },
+        "gradeRank3": {
+          "type": "integer",
+          "format": "int32",
+          "description": "成绩70分以下的人数"
+        }
+      },
+      "title": "CurriculaModel",
+      "required": [
+        "dataId",
+        "curriculaId",
+        "curriculaName",
+        "teacher",
+        "type",
+        "rate",
+        "startsNum",
+        "gradeSampleSize",
+        "totalGrade",
+        "usualGrade",
+        "gradeRank1",
+        "gradeRank2",
+        "gradeRank3"
+      ]
+    },
+    "CurriculumDetailRequest": {
+      "type": "object",
+      "properties": {
+        "dataId": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "title": "CurriculumDetailRequest",
+      "required": [
+        "dataId"
+      ]
+    },
+    "CurriculumDetailResponse": {
+      "type": "object",
+      "properties": {
+        "": {
+          "$ref": "#/definitions/CurriculaModel"
+        }
+      },
+      "title": "CurriculumDetailResponse"
+    },
+    "DeleteCollectionRequest": {
+      "type": "object",
+      "properties": {
+        "dataId": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "title": "DeleteCollectionRequest",
+      "required": [
+        "dataId"
+      ]
+    },
+    "DeleteCollectionResponse": {
+      "type": "object",
+      "title": "DeleteCollectionResponse"
+    },
+    "DeleteCurriculaRequest": {
+      "type": "object",
+      "properties": {
+        "dataId": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "title": "DeleteCurriculaRequest",
+      "required": [
+        "dataId"
+      ]
+    },
+    "DeleteCurriculaResponse": {
+      "type": "object",
+      "title": "DeleteCurriculaResponse"
+    },
+    "GetAllCollectionRequest": {
+      "type": "object",
+      "title": "GetAllCollectionRequest"
+    },
+    "GetAllCollectionResponse": {
+      "type": "object",
+      "properties": {
+        "info": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CurriculaInfo"
+          }
+        }
+      },
+      "title": "GetAllCollectionResponse",
+      "required": [
+        "info"
+      ]
+    },
+    "RandomCurriculaRequest": {
+      "type": "object",
+      "title": "RandomCurriculaRequest"
+    },
+    "RandomCurriculaResponse": {
+      "type": "object",
+      "properties": {
+        "info": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CurriculaInfo"
+          }
+        }
+      },
+      "title": "RandomCurriculaResponse",
+      "required": [
+        "info"
+      ]
+    },
+    "SearchCurriculaRequest": {
+      "type": "object",
+      "properties": {
+        "curriculaId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "curriculaName": {
+          "type": "string"
+        },
+        "teacher": {
+          "type": "string"
+        },
+        "type": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "title": "SearchCurriculaRequest",
+      "required": [
+        "curriculaId",
+        "curriculaName",
+        "teacher",
+        "type"
+      ]
+    },
+    "SearchCurriculaResponse": {
+      "type": "object",
+      "properties": {
+        "info": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CurriculaInfo"
+          }
+        }
+      },
+      "title": "SearchCurriculaResponse",
+      "required": [
+        "info"
+      ]
+    },
+    "UpdateCurriculaRequest": {
+      "type": "object",
+      "properties": {
+        "": {
+          "$ref": "#/definitions/CurriculaModel"
+        }
+      },
+      "title": "UpdateCurriculaRequest"
+    },
+    "UpdateCurriculaResponse": {
+      "type": "object",
+      "title": "UpdateCurriculaResponse"
+    },
+    "UserCollection": {
+      "type": "object",
+      "properties": {
+        "sid": {
+          "type": "string",
+          "description": "学号"
+        },
+        "curricula": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CurriculaModel"
+          },
+          "description": "收藏的课程"
+        }
+      },
+      "title": "UserCollection",
+      "required": [
+        "sid",
+        "curricula"
+      ]
+    }
+  },
+  "securityDefinitions": {
+    "apiKey": {
+      "type": "apiKey",
+      "description": "Enter JWT Bearer token **_only_**",
+      "name": "Authorization",
+      "in": "header"
+    }
+  },
+  "security": [
+    {
+      "apiKey": []
+    }
+  ]
+}

@@ -42,6 +42,11 @@ func RegisterHandlers(server *rest.Server, serverCtx *svc.ServiceContext) {
 				Path:    "/check_type",
 				Handler: checkCharacteristicsHandler(serverCtx),
 			},
+			{
+				Method:  http.MethodPost,
+				Path:    "/random_curricula",
+				Handler: randomCurriculaHandler(serverCtx),
+			},
 		},
 		rest.WithPrefix("/api/v1/curricula"),
 	)
@@ -54,6 +59,16 @@ func RegisterHandlers(server *rest.Server, serverCtx *svc.ServiceContext) {
 					Method:  http.MethodPost,
 					Path:    "/collect",
 					Handler: collectCurriculumHandler(serverCtx),
+				},
+				{
+					Method:  http.MethodPost,
+					Path:    "/deleteCollection",
+					Handler: deleteCollectionHandler(serverCtx),
+				},
+				{
+					Method:  http.MethodGet,
+					Path:    "/getAllCollection",
+					Handler: getAllCollectionHandler(serverCtx),
 				},
 			}...,
 		),

@@ -1,0 +1,504 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "evaluation",
+    "description": "evaluate courses",
+    "version": "v1"
+  },
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "api/v1/evaluation/cancel_like": {
+      "get": {
+        "operationId": "CancelLike",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/CancelLikeResponse"
+            }
+          }
+        },
+        "requestBody": {},
+        "tags": [
+          "EvaluationService"
+        ]
+      }
+    },
+    "api/v1/evaluation/cancel_oppose": {
+      "get": {
+        "operationId": "CancelOppose",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/CancelOpposeResponse"
+            }
+          }
+        },
+        "requestBody": {},
+        "tags": [
+          "EvaluationService"
+        ]
+      }
+    },
+    "api/v1/evaluation/delete": {
+      "get": {
+        "operationId": "DeleteEvaluation",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/DeleteEvaluationResponse"
+            }
+          }
+        },
+        "requestBody": {},
+        "tags": [
+          "EvaluationService"
+        ]
+      }
+    },
+    "api/v1/evaluation/evaluate": {
+      "post": {
+        "operationId": "Evaluation",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/EvaluateResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/EvaluateRequest"
+            }
+          }
+        ],
+        "requestBody": {},
+        "tags": [
+          "EvaluationService"
+        ]
+      }
+    },
+    "api/v1/evaluation/get": {
+      "get": {
+        "operationId": "GetEvaluation",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/GetEvaluationResponse"
+            }
+          }
+        },
+        "requestBody": {},
+        "tags": [
+          "EvaluationService"
+        ]
+      }
+    },
+    "api/v1/evaluation/history": {
+      "get": {
+        "operationId": "GetHistory",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/GetHistoryResponse"
+            }
+          }
+        },
+        "requestBody": {},
+        "tags": [
+          "EvaluationService"
+        ]
+      }
+    },
+    "api/v1/evaluation/like": {
+      "get": {
+        "operationId": "Like",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/LikeResponse"
+            }
+          }
+        },
+        "requestBody": {},
+        "tags": [
+          "EvaluationService"
+        ]
+      }
+    },
+    "api/v1/evaluation/oppose": {
+      "get": {
+        "operationId": "Oppose",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/OpposeResponse"
+            }
+          }
+        },
+        "requestBody": {},
+        "tags": [
+          "EvaluationService"
+        ]
+      }
+    },
+    "api/v1/evaluation/report": {
+      "post": {
+        "operationId": "Report",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/ReportResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ReportRequest"
+            }
+          }
+        ],
+        "requestBody": {},
+        "tags": [
+          "EvaluationService"
+        ]
+      }
+    },
+    "api/v1/evaluation/restore": {
+      "get": {
+        "operationId": "RestoreEvaluation",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/RestoreEvaluationResponse"
+            }
+          }
+        },
+        "requestBody": {},
+        "tags": [
+          "EvaluationService"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "CancelLikeRequest": {
+      "type": "object",
+      "properties": {
+        "pid": {
+          "type": "string"
+        }
+      },
+      "title": "CancelLikeRequest",
+      "required": [
+        "pid"
+      ]
+    },
+    "CancelLikeResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string"
+        }
+      },
+      "title": "CancelLikeResponse",
+      "required": [
+        "status"
+      ]
+    },
+    "CancelOpposeRequest": {
+      "type": "object",
+      "properties": {
+        "pid": {
+          "type": "string"
+        }
+      },
+      "title": "CancelOpposeRequest",
+      "required": [
+        "pid"
+      ]
+    },
+    "CancelOpposeResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string"
+        }
+      },
+      "title": "CancelOpposeResponse",
+      "required": [
+        "status"
+      ]
+    },
+    "DeleteEvaluationRequest": {
+      "type": "object",
+      "properties": {
+        "pid": {
+          "type": "string"
+        }
+      },
+      "title": "DeleteEvaluationRequest",
+      "required": [
+        "pid"
+      ]
+    },
+    "DeleteEvaluationResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string"
+        }
+      },
+      "title": "DeleteEvaluationResponse",
+      "required": [
+        "status"
+      ]
+    },
+    "EvaluateRequest": {
+      "type": "object",
+      "properties": {
+        "cid": {
+          "type": "string"
+        },
+        "info": {
+          "type": "string"
+        }
+      },
+      "title": "EvaluateRequest",
+      "required": [
+        "cid",
+        "info"
+      ]
+    },
+    "EvaluateResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string"
+        }
+      },
+      "title": "EvaluateResponse",
+      "required": [
+        "status"
+      ]
+    },
+    "EvaluationInfo": {
+      "type": "object",
+      "properties": {
+        "pid": {
+          "type": "string"
+        },
+        "sid": {
+          "type": "string"
+        },
+        "cid": {
+          "type": "string"
+        },
+        "info": {
+          "type": "string"
+        }
+      },
+      "title": "EvaluationInfo",
+      "required": [
+        "pid",
+        "sid",
+        "cid",
+        "info"
+      ]
+    },
+    "GetEvaluationRequest": {
+      "type": "object",
+      "properties": {
+        "cid": {
+          "type": "string"
+        }
+      },
+      "title": "GetEvaluationRequest",
+      "required": [
+        "cid"
+      ]
+    },
+    "GetEvaluationResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string"
+        },
+        "info": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/EvaluationInfo"
+          }
+        }
+      },
+      "title": "GetEvaluationResponse",
+      "required": [
+        "status",
+        "info"
+      ]
+    },
+    "GetHistoryRequest": {
+      "type": "object",
+      "properties": {
+        "sid": {
+          "type": "string"
+        }
+      },
+      "title": "GetHistoryRequest",
+      "required": [
+        "sid"
+      ]
+    },
+    "GetHistoryResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string"
+        }
+      },
+      "title": "GetHistoryResponse",
+      "required": [
+        "status"
+      ]
+    },
+    "LikeRequest": {
+      "type": "object",
+      "properties": {
+        "pid": {
+          "type": "string"
+        }
+      },
+      "title": "LikeRequest",
+      "required": [
+        "pid"
+      ]
+    },
+    "LikeResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string"
+        }
+      },
+      "title": "LikeResponse",
+      "required": [
+        "status"
+      ]
+    },
+    "OpposeRequest": {
+      "type": "object",
+      "properties": {
+        "pid": {
+          "type": "string"
+        }
+      },
+      "title": "OpposeRequest",
+      "required": [
+        "pid"
+      ]
+    },
+    "OpposeResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string"
+        }
+      },
+      "title": "OpposeResponse",
+      "required": [
+        "status"
+      ]
+    },
+    "ReportRequest": {
+      "type": "object",
+      "properties": {
+        "pid": {
+          "type": "string"
+        },
+        "reason": {
+          "type": "string"
+        }
+      },
+      "title": "ReportRequest",
+      "required": [
+        "pid",
+        "reason"
+      ]
+    },
+    "ReportResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string"
+        }
+      },
+      "title": "ReportResponse",
+      "required": [
+        "status"
+      ]
+    },
+    "RestoreEvaluationRequest": {
+      "type": "object",
+      "properties": {
+        "pid": {
+          "type": "string"
+        }
+      },
+      "title": "RestoreEvaluationRequest",
+      "required": [
+        "pid"
+      ]
+    },
+    "RestoreEvaluationResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string"
+        }
+      },
+      "title": "RestoreEvaluationResponse",
+      "required": [
+        "status"
+      ]
+    }
+  },
+  "securityDefinitions": {
+    "apiKey": {
+      "type": "apiKey",
+      "description": "Enter JWT Bearer token **_only_**",
+      "name": "Authorization",
+      "in": "header"
+    }
+  },
+  "security": [
+    {
+      "apiKey": []
+    }
+  ]
+}
