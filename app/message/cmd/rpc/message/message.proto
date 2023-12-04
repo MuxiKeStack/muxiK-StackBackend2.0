@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package message;
+
+message Message {
+  string Content = 1;
+
+}
+
+message sendMessageReq {
+  string Type = 1;
+  Message Msg = 2;
+}
+
+message sendMessageRsp {
+  string greet = 1;
+}
+
+message persistMessageReq {
+  string Type = 1;
+  Message Msg = 2;
+}
+
+message persistMessageRsp {
+  string greet = 1;
+}
+
+
+service message {
+  rpc Send(sendMessageReq) returns (sendMessageRsp);
+  rpc PersistMessage(persistMessageReq)returns (persistMessageRsp);
+}

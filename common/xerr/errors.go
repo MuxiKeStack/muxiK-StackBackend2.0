@@ -30,6 +30,7 @@ func (e *CodeError) Error() string {
 func NewErrCodeMsg(errCode uint32, errMsg string) *CodeError {
 	return &CodeError{errCode: errCode, errMsg: errMsg}
 }
+
 func NewErrCode(errCode uint32) *CodeError {
 	return &CodeError{errCode: errCode, errMsg: MapErrMsg(errCode)}
 }
