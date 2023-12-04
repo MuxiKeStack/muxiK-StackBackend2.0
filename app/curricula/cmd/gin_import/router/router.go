@@ -7,6 +7,6 @@ import (
 
 func RouterInit() *gin.Engine {
 	e := gin.Default()
-	e.POST("/import", handler.ImportCurricula)
+	e.POST("/api/v1/curricula/import", handler.ImportCurricula)
 	return e
 }

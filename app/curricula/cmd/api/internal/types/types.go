@@ -6,7 +6,7 @@ type CurriculaModel struct {
 	CurriculaId     uint32  `json:"curriculaId"`     //课程号
 	CurriculaName   string  `json:"curriculaName"`   //课程名称
 	Teacher         string  `json:"teacher"`         //授课教师
-	Type            uint8   `json:"type"`            //课程类型，公共课为0，专业课为1
+	Type            uint32  `json:"type"`            //课程类型，公共课为0，专业课为1
 	Rate            float32 `json:"rate"`            //课程评分
 	StartsNum       uint32  `json:"startsNum"`       //课程评分人数
 	GradeSampleSize uint32  `json:"gradeSampleSize"` //课程成绩样本数
@@ -22,7 +22,7 @@ type CurriculaInfo struct {
 	CurriculaId   uint32  `json:"curriculaId"`   //课程号
 	CurriculaName string  `json:"curriculaName"` //课程名称
 	Teacher       string  `json:"teacher"`       //授课教师
-	Type          uint8   `json:"type"`          //课程类型，公共课为0，专业课为1
+	Type          uint32  `json:"type"`          //课程类型，公共课为0，专业课为1
 	Rate          float32 `json:"rate"`          //课程评分
 }
 
@@ -45,7 +45,7 @@ type SearchCurriculaRequest struct {
 	CurriculaId   uint32 `json:"curriculaId"`
 	CurriculaName string `json:"curriculaName"`
 	Teacher       string `json:"teacher"`
-	Type          uint8  `json:"type"`
+	Type          uint32 `json:"type"`
 }
 
 type SearchCurriculaResponse struct {
@@ -67,7 +67,7 @@ type UpdateCurriculaResponse struct {
 }
 
 type CheckCharacteristicsRequest struct {
-	Type uint8 `json:"type"`
+	Type uint32 `json:"type"`
 }
 
 type CheckCharacteristicsResponse struct {
