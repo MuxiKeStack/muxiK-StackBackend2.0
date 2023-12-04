@@ -4,9 +4,9 @@ import (
 	"flag"
 	"fmt"
 
-	"github.com/MuxiKeStack/muxiK-StackBackend2.0/app/evaluation(1)/cmd/api/internal/config"
-	"github.com/MuxiKeStack/muxiK-StackBackend2.0/app/evaluation(1)/cmd/api/internal/handler"
-	"github.com/MuxiKeStack/muxiK-StackBackend2.0/app/evaluation(1)/cmd/api/internal/svc"
+	"github.com/MuxiKeStack/muxiK-StackBackend2.0/app/evaluation1/cmd/api/internal/config"
+	"github.com/MuxiKeStack/muxiK-StackBackend2.0/app/evaluation1/cmd/api/internal/handler"
+	"github.com/MuxiKeStack/muxiK-StackBackend2.0/app/evaluation1/cmd/api/internal/svc"
 
 	"github.com/zeromicro/go-zero/core/conf"
 	"github.com/zeromicro/go-zero/rest"

@@ -1,0 +1,212 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "evaluation",
+    "description": "evaluation服务",
+    "version": "v1"
+  },
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/api/v1/evaluation/comment": {
+      "delete": {
+        "summary": "删除评论",
+        "operationId": "DeleteComment",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/DeleteCommentRsp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteCommentReq"
+            }
+          }
+        ],
+        "requestBody": {},
+        "tags": [
+          "comment"
+        ]
+      },
+      "post": {
+        "summary": "评论评价",
+        "operationId": "CommentEvaluation",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/CommentEvaluationRsp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CommentEvaluationReq"
+            }
+          }
+        ],
+        "requestBody": {},
+        "tags": [
+          "comment"
+        ]
+      }
+    },
+    "/api/v1/evaluation/comment/reply": {
+      "post": {
+        "summary": "回复评论",
+        "operationId": "ReplyComment",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/ReplyCommentRsp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ReplyCommentReq"
+            }
+          }
+        ],
+        "requestBody": {},
+        "tags": [
+          "reply"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "CommentEvaluationReq": {
+      "type": "object",
+      "properties": {
+        "Authorization": {
+          "type": "string"
+        },
+        "Content": {
+          "type": "string"
+        },
+        "ObjectEvaluationId": {
+          "$ref": "#/definitions/uint"
+        }
+      },
+      "title": "CommentEvaluationReq",
+      "required": [
+        "Authorization",
+        "Content",
+        "ObjectEvaluationId"
+      ]
+    },
+    "CommentEvaluationRsp": {
+      "type": "object",
+      "properties": {
+        "Flag": {
+          "type": "boolean",
+          "format": "boolean"
+        }
+      },
+      "title": "CommentEvaluationRsp",
+      "required": [
+        "Flag"
+      ]
+    },
+    "DeleteCommentReq": {
+      "type": "object",
+      "properties": {
+        "Authorization": {
+          "type": "string"
+        },
+        "ObjectEvaluationId": {
+          "$ref": "#/definitions/uint"
+        }
+      },
+      "title": "DeleteCommentReq",
+      "required": [
+        "Authorization",
+        "ObjectEvaluationId"
+      ]
+    },
+    "DeleteCommentRsp": {
+      "type": "object",
+      "properties": {
+        "Flag": {
+          "type": "boolean",
+          "format": "boolean"
+        }
+      },
+      "title": "DeleteCommentRsp",
+      "required": [
+        "Flag"
+      ]
+    },
+    "ReplyCommentReq": {
+      "type": "object",
+      "properties": {
+        "Authorization": {
+          "type": "string"
+        },
+        "Content": {
+          "type": "string"
+        },
+        "ObjectEvaluationId": {
+          "$ref": "#/definitions/uint"
+        }
+      },
+      "title": "ReplyCommentReq",
+      "required": [
+        "Authorization",
+        "Content",
+        "ObjectEvaluationId"
+      ]
+    },
+    "ReplyCommentRsp": {
+      "type": "object",
+      "properties": {
+        "Flag": {
+          "type": "boolean",
+          "format": "boolean"
+        }
+      },
+      "title": "ReplyCommentRsp",
+      "required": [
+        "Flag"
+      ]
+    }
+  },
+  "securityDefinitions": {
+    "apiKey": {
+      "type": "apiKey",
+      "description": "Enter JWT Bearer token **_only_**",
+      "name": "Authorization",
+      "in": "header"
+    }
+  },
+  "security": [
+    {
+      "apiKey": []
+    }
+  ]
+}

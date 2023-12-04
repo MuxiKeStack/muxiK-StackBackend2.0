@@ -5,8 +5,8 @@ import (
 	"github.com/MuxiKeStack/muxiK-StackBackend2.0/common/ctxdata"
 	"github.com/MuxiKeStack/muxiK-StackBackend2.0/common/xerr"
 
-	"github.com/MuxiKeStack/muxiK-StackBackend2.0/app/evaluation(1)/cmd/api/internal/svc"
-	"github.com/MuxiKeStack/muxiK-StackBackend2.0/app/evaluation(1)/cmd/api/internal/types"
+	"github.com/MuxiKeStack/muxiK-StackBackend2.0/app/evaluation1/cmd/api/internal/svc"
+	"github.com/MuxiKeStack/muxiK-StackBackend2.0/app/evaluation1/cmd/api/internal/types"
 
 	"github.com/zeromicro/go-zero/core/logx"
 )

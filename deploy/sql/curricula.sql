@@ -1,3 +1,5 @@
+create database kstack;
+use kstack;
 CREATE TABLE `curriculas`(
     `id`             INT UNSIGNED NOT NULL AUTO_INCREMENT,
     `cid`            INT          NOT NULL COMMENT '课程编号',

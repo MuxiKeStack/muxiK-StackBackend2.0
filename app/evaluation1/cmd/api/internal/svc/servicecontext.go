@@ -1,8 +1,8 @@
 package svc
 
 import (
-	"github.com/MuxiKeStack/muxiK-StackBackend2.0/app/evaluation(1)/cmd/api/internal/config"
-	"github.com/MuxiKeStack/muxiK-StackBackend2.0/app/evaluation(1)/model"
+	"github.com/MuxiKeStack/muxiK-StackBackend2.0/app/evaluation1/cmd/api/internal/config"
+	"github.com/MuxiKeStack/muxiK-StackBackend2.0/app/evaluation1/model"
 	"github.com/zeromicro/go-zero/core/stores/sqlx"
 )
 

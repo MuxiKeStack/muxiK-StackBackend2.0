@@ -36,7 +36,7 @@ func (l *RandomCurriculaLogic) RandomCurricula(req *types.RandomCurriculaRequest
 			CurriculaId:   info.CurriculaId,
 			CurriculaName: info.CurriculaName,
 			Teacher:       info.Teacher,
-			Type:          uint8(info.Type),
+			Type:          info.Type,
 			Rate:          info.Rate,
 		})
 	}

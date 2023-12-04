@@ -40,7 +40,7 @@ func btoi(b bool) (a int) {
 }
 
 func gettime(s string) time.Time {
-	t, _ := time.Parse(time.DateTime, s)
+	t, _ := time.Parse("2006-01-02 15:04:05", s)
 	return t
 }
 

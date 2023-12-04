@@ -4,9 +4,9 @@ package handler
 import (
 	"net/http"
 
-	comment "github.com/MuxiKeStack/muxiK-StackBackend2.0/app/evaluation(1)/cmd/api/internal/handler/comment"
-	reply "github.com/MuxiKeStack/muxiK-StackBackend2.0/app/evaluation(1)/cmd/api/internal/handler/reply"
-	"github.com/MuxiKeStack/muxiK-StackBackend2.0/app/evaluation(1)/cmd/api/internal/svc"
+	comment "github.com/MuxiKeStack/muxiK-StackBackend2.0/app/evaluation1/cmd/api/internal/handler/comment"
+	reply "github.com/MuxiKeStack/muxiK-StackBackend2.0/app/evaluation1/cmd/api/internal/handler/reply"
+	"github.com/MuxiKeStack/muxiK-StackBackend2.0/app/evaluation1/cmd/api/internal/svc"
 
 	"github.com/zeromicro/go-zero/rest"
 )

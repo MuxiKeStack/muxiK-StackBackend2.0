@@ -49,6 +49,7 @@ func (m *customEvaluationReportModel) FindReport(ctx context.Context, id string,
 	if err != nil {
 		return nil, err
 	}
+	return
 }
 
 func (m *customEvaluationReportModel) FindAll(ctx context.Context) (resp []*EvaluationReport, err error) {
