@@ -8,13 +8,14 @@ info(
     version: "v1"
 )
 
+
 //课程模型
 type CurriculaModel {
     DataId int64 `json:"dataId"` //数据库主键
     CurriculaId uint32 `json:"curriculaId"` //课程号
     CurriculaName string `json:"curriculaName"` //课程名称
     Teacher string `json:"teacher"` //授课教师
-    Type uint8 `json:"type"`    //课程类型，公共课为0，专业课为1
+    Type uint32 `json:"type"`    //课程类型，公共课为0，专业课为1
     Rate float32 `json:"rate"` //课程评分
     StartsNum uint32 `json:"startsNum"` //课程评分人数
     GradeSampleSize uint32 `json:"gradeSampleSize"` //课程成绩样本数
@@ -31,7 +32,7 @@ type CurriculaInfo{
     CurriculaId uint32 `json:"curriculaId"` //课程号
     CurriculaName string `json:"curriculaName"` //课程名称
     Teacher string `json:"teacher"` //授课教师
-    Type uint8 `json:"type"`    //课程类型，公共课为0，专业课为1
+    Type uint32 `json:"type"`    //课程类型，公共课为0，专业课为1
     Rate float32 `json:"rate"` //课程评分
 }
 
@@ -55,7 +56,7 @@ type (
         CurriculaId uint32 `json:"curriculaId"`
         CurriculaName string `json:"curriculaName"`
         Teacher string `json:"teacher"`
-        Type uint8 `json:"type"`
+        Type uint32 `json:"type"`
     }
 
     SearchCurriculaResponse{
@@ -75,7 +76,7 @@ type (
     UpdateCurriculaResponse{}
 
     CheckCharacteristicsRequest{
-        Type uint8 `json:"type"`
+        Type uint32 `json:"type"`
     }
 
     CheckCharacteristicsResponse{
@@ -95,4 +96,22 @@ type (
     }
 
     CollectCurriculumResponse{}
+
+    DeleteCollectionRequest{
+        DataId int64 `json:"dataId"`
+    }
+
+    DeleteCollectionResponse{}
+
+    RandomCurriculaRequest{}
+
+    RandomCurriculaResponse{
+        Info []CurriculaInfo `json:"info"`
+    }
+
+    GetAllCollectionRequest{}
+
+    GetAllCollectionResponse{
+        Info []CurriculaInfo `json:"info"`
+    }
 )

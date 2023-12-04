@@ -1,0 +1,312 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "用户中心",
+    "description": "用户服务",
+    "version": "v1"
+  },
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "api/v1/user/info": {
+      "get": {
+        "summary": "获取个人信息",
+        "operationId": "getMyInfo",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/MyInfoResponse"
+            }
+          }
+        },
+        "requestBody": {},
+        "tags": [
+          "usercenter"
+        ]
+      },
+      "post": {
+        "summary": "更新信息",
+        "operationId": "updateInfo",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/UpdateInfoResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdateInfoRequest"
+            }
+          }
+        ],
+        "requestBody": {},
+        "tags": [
+          "usercenter"
+        ]
+      }
+    },
+    "api/v1/user/info/{sid}": {
+      "get": {
+        "summary": "获取他人信息",
+        "operationId": "getOtherInfo",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/OtherInfoResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "sid",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "requestBody": {},
+        "tags": [
+          "usercenter"
+        ]
+      }
+    },
+    "api/v1/user/login": {
+      "post": {
+        "summary": "一站式登录",
+        "operationId": "login",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/LoginResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/LoginRequest"
+            }
+          }
+        ],
+        "requestBody": {},
+        "tags": [
+          "usercenter"
+        ]
+      }
+    },
+    "api/v1/user/share": {
+      "get": {
+        "summary": "共享计划",
+        "operationId": "sharingPlan",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/SharingResponse"
+            }
+          }
+        },
+        "requestBody": {},
+        "tags": [
+          "usercenter"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "LoginRequest": {
+      "type": "object",
+      "properties": {
+        "studentId": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        }
+      },
+      "title": "LoginRequest",
+      "required": [
+        "studentId",
+        "password"
+      ]
+    },
+    "LoginResponse": {
+      "type": "object",
+      "properties": {
+        "token": {
+          "type": "string"
+        },
+        "ifnew": {
+          "type": "boolean",
+          "format": "boolean"
+        }
+      },
+      "title": "LoginResponse",
+      "required": [
+        "token",
+        "ifnew"
+      ]
+    },
+    "MyInfoRequest": {
+      "type": "object",
+      "title": "MyInfoRequest"
+    },
+    "MyInfoResponse": {
+      "type": "object",
+      "properties": {
+        "personalInfo": {
+          "$ref": "#/definitions/PersonalInfo"
+        }
+      },
+      "title": "MyInfoResponse",
+      "required": [
+        "personalInfo"
+      ]
+    },
+    "OtherInfo": {
+      "type": "object",
+      "properties": {
+        "studentId": {
+          "type": "string"
+        },
+        "userName": {
+          "type": "string"
+        },
+        "avatar": {
+          "type": "string"
+        }
+      },
+      "title": "OtherInfo",
+      "required": [
+        "studentId",
+        "userName",
+        "avatar"
+      ]
+    },
+    "OtherInfoRequest": {
+      "type": "object",
+      "properties": {
+        "sid": {
+          "type": "string"
+        }
+      },
+      "title": "OtherInfoRequest",
+      "required": [
+        "sid"
+      ]
+    },
+    "OtherInfoResponse": {
+      "type": "object",
+      "properties": {
+        "otherInfo": {
+          "$ref": "#/definitions/OtherInfo"
+        }
+      },
+      "title": "OtherInfoResponse",
+      "required": [
+        "otherInfo"
+      ]
+    },
+    "PersonalInfo": {
+      "type": "object",
+      "properties": {
+        "studentId": {
+          "type": "string"
+        },
+        "userName": {
+          "type": "string"
+        },
+        "avatar": {
+          "type": "string"
+        },
+        "isBlocked": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "roleGrade": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "integral": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "licence": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "title": "PersonalInfo",
+      "required": [
+        "studentId",
+        "userName",
+        "avatar",
+        "isBlocked",
+        "roleGrade",
+        "integral",
+        "licence"
+      ]
+    },
+    "SharingRequest": {
+      "type": "object",
+      "title": "SharingRequest"
+    },
+    "SharingResponse": {
+      "type": "object",
+      "title": "SharingResponse"
+    },
+    "UpdateInfoRequest": {
+      "type": "object",
+      "properties": {
+        "userName": {
+          "type": "string"
+        },
+        "avatar": {
+          "type": "string"
+        }
+      },
+      "title": "UpdateInfoRequest",
+      "required": [
+        "userName",
+        "avatar"
+      ]
+    },
+    "UpdateInfoResponse": {
+      "type": "object",
+      "title": "UpdateInfoResponse"
+    }
+  },
+  "securityDefinitions": {
+    "apiKey": {
+      "type": "apiKey",
+      "description": "Enter JWT Bearer token **_only_**",
+      "name": "Authorization",
+      "in": "header"
+    }
+  },
+  "security": [
+    {
+      "apiKey": []
+    }
+  ]
+}

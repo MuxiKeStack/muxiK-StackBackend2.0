@@ -25,7 +25,12 @@ func NewAddCurriculaLogic(ctx context.Context, svcCtx *svc.ServiceContext) *AddC
 }
 
 func (l *AddCurriculaLogic) AddCurricula(in *pb.AddCurriculaRequest) (*pb.AddCurriculaResponse, error) {
-	curricula, err := l.svcCtx.CurriculaModel.FindOneByCid(l.ctx, int64(in.CurriculaId))
+	curricula, err := l.svcCtx.CurriculaModel.FindByInfos(l.ctx, model.Cinfo{
+		CurriculaId:   in.CurriculaId,
+		CurriculaName: in.CurriculaName,
+		Teacher:       in.Teacher,
+		Type:          uint8(in.Type),
+	})
 	if err == nil {
 		return nil, xerr.NewErrCode(xerr.ErrCourseHasExisted)
 	}
