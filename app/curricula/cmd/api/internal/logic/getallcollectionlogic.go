@@ -38,7 +38,7 @@ func (l *GetAllCollectionLogic) GetAllCollection(req *types.GetAllCollectionRequ
 			CurriculaId:   info.CurriculaId,
 			CurriculaName: info.CurriculaName,
 			Teacher:       info.Teacher,
-			Type:          uint8(info.Type),
+			Type:          info.Type,
 			Rate:          info.Rate,
 		})
 	}

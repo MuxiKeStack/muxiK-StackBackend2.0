@@ -38,7 +38,7 @@ func (l *CurriculumDetailLogic) CurriculumDetail(req *types.CurriculumDetailRequ
 			CurriculaId:     result.Info[0].CurriculaId,
 			CurriculaName:   result.Info[0].CurriculaName,
 			Teacher:         result.Info[0].Teacher,
-			Type:            uint8(result.Info[0].Type),
+			Type:            result.Info[0].Type,
 			Rate:            result.Info[0].Rate,
 			StartsNum:       result.Info[0].StarsNum,
 			GradeSampleSize: result.Info[0].GradeSampleSize,

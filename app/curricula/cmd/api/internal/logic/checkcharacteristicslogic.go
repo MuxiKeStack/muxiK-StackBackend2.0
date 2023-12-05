@@ -37,7 +37,7 @@ func (l *CheckCharacteristicsLogic) CheckCharacteristics(req *types.CheckCharact
 			CurriculaId:   result.Info[i].CurriculaId,
 			CurriculaName: result.Info[i].CurriculaName,
 			Teacher:       result.Info[i].Teacher,
-			Type:          uint8(result.Info[i].Type),
+			Type:          result.Info[i].Type,
 			Rate:          result.Info[i].Rate,
 		}
 	}

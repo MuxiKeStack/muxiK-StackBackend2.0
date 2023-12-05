@@ -6,7 +6,7 @@ package server
 import (
 	"context"
 
-	"github.com/MuxiKeStack/muxiK-StackBackend2.0/app/curricula/cmd/rpc/internal/logic/curriculacenter"
+	curriculacenterlogic "github.com/MuxiKeStack/muxiK-StackBackend2.0/app/curricula/cmd/rpc/internal/logic"
 	"github.com/MuxiKeStack/muxiK-StackBackend2.0/app/curricula/cmd/rpc/internal/svc"
 	"github.com/MuxiKeStack/muxiK-StackBackend2.0/app/curricula/cmd/rpc/pb/pb"
 )
@@ -62,7 +62,7 @@ func (s *CurriculacenterServer) DeleteCollection(ctx context.Context, in *pb.Del
 	return l.DeleteCollection(in)
 }
 
-func (s *CurriculacenterServer) RandomCurricula(ctx context.Context, in *pb.RandomRequest) (*pb.RandomRequest, error) {
+func (s *CurriculacenterServer) RandomCurricula(ctx context.Context, in *pb.RandomRequest) (*pb.RandomResponse, error) {
 	l := curriculacenterlogic.NewRandomCurriculaLogic(ctx, s.svcCtx)
 	return l.RandomCurricula(in)
 }

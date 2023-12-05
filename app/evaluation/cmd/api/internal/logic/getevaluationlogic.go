@@ -2,6 +2,7 @@ package logic
 
 import (
 	"context"
+	"github.com/MuxiKeStack/muxiK-StackBackend2.0/app/evaluation/cmd/rpc/pb/pb"
 
 	"github.com/MuxiKeStack/muxiK-StackBackend2.0/app/evaluation/cmd/api/internal/svc"
 	"github.com/MuxiKeStack/muxiK-StackBackend2.0/app/evaluation/cmd/api/internal/types"
@@ -24,7 +25,23 @@ func NewGetEvaluationLogic(ctx context.Context, svcCtx *svc.ServiceContext) *Get
 }
 
 func (l *GetEvaluationLogic) GetEvaluation(req *types.GetEvaluationRequest) (resp *types.GetEvaluationResponse, err error) {
-	// todo: add your logic here and delete this line
+	// todo: test
+	evaluation, err := l.svcCtx.InfoRpc.GetEvaluation(l.ctx, &pb.GetEvaluationRequest{
+		Method: "cid",
+		Id:     req.CourseId,
+	})
+	if err != nil {
+		return nil, err
+	}
 
-	return
+	for _, v := range evaluation.E {
+		resp.Info = append(resp.Info, types.EvaluationInfo{
+			PostId:    v.Pid,
+			StudentId: v.Sid,
+			CourseId:  v.Cid,
+			Info:      v.Info,
+		})
+	}
+
+	return resp, nil
 }

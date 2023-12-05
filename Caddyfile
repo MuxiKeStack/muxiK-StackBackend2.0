@@ -1,0 +1,10 @@
+kstack.muxixyz.com {
+    reverse_proxy /api/v1/user/collect localhost:30001
+    reverse_proxy /api/v1/user/deleteCollection localhost:30001
+    reverse_proxy /api/v1/user/getAllCollection localhost:30001
+    reverse_proxy /api/v1/curricula* localhost:30001
+    reverse_proxy /api/v1/evaluation/comment* localhost:30004
+    reverse_proxy /api/v1/evaluation* localhost:30005
+    reverse_proxy /api/v1/message* localhost:30003
+    reverse_proxy /api/v1/user* localhost:30002
+}

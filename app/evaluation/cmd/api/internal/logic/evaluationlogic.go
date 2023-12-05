@@ -2,9 +2,9 @@ package logic
 
 import (
 	"context"
-	"fmt"
-	"github.com/MuxiKeStack/muxiK-StackBackend2.0/app/evaluation/model"
+	"github.com/MuxiKeStack/muxiK-StackBackend2.0/app/evaluation/cmd/rpc/pb/pb"
 	"github.com/MuxiKeStack/muxiK-StackBackend2.0/common/ctxdata"
+	"time"
 
 	"github.com/MuxiKeStack/muxiK-StackBackend2.0/app/evaluation/cmd/api/internal/svc"
 	"github.com/MuxiKeStack/muxiK-StackBackend2.0/app/evaluation/cmd/api/internal/types"
@@ -27,12 +27,18 @@ func NewEvaluationLogic(ctx context.Context, svcCtx *svc.ServiceContext) *Evalua
 }
 
 func (l *EvaluationLogic) Evaluation(req *types.EvaluateRequest) (resp *types.EvaluateResponse, err error) {
-	// todo: add your logic here and delete this line
-	post := model.EvaluationInfo{
-		Sid:  ctxdata.GetStudentIdFromCtx(l.ctx),
-		Cid:  req.CourseId,
-		Info: req.Info,
+	// todo: test
+	r, err := l.svcCtx.InfoRpc.CreateEvaluation(l.ctx, &pb.CreateEvaluationRequest{E: &pb.Evaluation{
+		Sid:      ctxdata.GetStudentIdFromCtx(l.ctx),
+		Cid:      req.CourseId,
+		Info:     req.Info,
+		Liked:    0,
+		Disliked: 0,
+		CreateAt: time.Now().String(),
+	}})
+	if r.Status == false {
+		resp.Code = 400
+		resp.Msg = err.Error()
 	}
-	fmt.Println(post)
 	return
 }

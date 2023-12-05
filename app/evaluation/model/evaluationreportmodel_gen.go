@@ -40,6 +40,7 @@ type (
 		Pid    string         `db:"pid"`
 		Sid    string         `db:"sid"`
 		Reason sql.NullString `db:"reason"` // 举报原因
+		Status sql.NullInt64  `db:"status"` // 处理状态
 	}
 )
 
@@ -92,14 +93,14 @@ func (m *defaultEvaluationReportModel) FindOneById(ctx context.Context, id int64
 }
 
 func (m *defaultEvaluationReportModel) Insert(ctx context.Context, data *EvaluationReport) (sql.Result, error) {
-	query := fmt.Sprintf("insert into %s (%s) values (?, ?, ?)", m.table, evaluationReportRowsExpectAutoSet)
-	ret, err := m.conn.ExecCtx(ctx, query, data.Pid, data.Sid, data.Reason)
+	query := fmt.Sprintf("insert into %s (%s) values (?, ?, ?, ?)", m.table, evaluationReportRowsExpectAutoSet)
+	ret, err := m.conn.ExecCtx(ctx, query, data.Pid, data.Sid, data.Reason, data.Status)
 	return ret, err
 }
 
 func (m *defaultEvaluationReportModel) Update(ctx context.Context, newData *EvaluationReport) error {
 	query := fmt.Sprintf("update %s set %s where `id` = ?", m.table, evaluationReportRowsWithPlaceHolder)
-	_, err := m.conn.ExecCtx(ctx, query, newData.Pid, newData.Sid, newData.Reason, newData.Id)
+	_, err := m.conn.ExecCtx(ctx, query, newData.Pid, newData.Sid, newData.Reason, newData.Status, newData.Id)
 	return err
 }
 

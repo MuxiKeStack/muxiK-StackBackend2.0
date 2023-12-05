@@ -1,0 +1,64 @@
+syntax = "v1"
+
+info(
+	title: "evaluation"
+	desc: "evaluation服务"
+	author: "big-dust"
+	email: "3264085417@qq.com"
+	version: "v1"
+)
+
+type CommentEvaluationReq {
+	Authorization      string `header:"Authorization"`
+	Content            string `json:"Content"`
+	ObjectEvaluationId uint   `json:"ObjectEvaluationId"`
+}
+
+type CommentEvaluationRsp {
+	Flag bool `json:"Flag"`
+}
+
+type DeleteCommentReq {
+	Authorization   string `header:"Authorization"`
+	ObjectCommentId uint   `json:"ObjectEvaluationId"`
+}
+
+type DeleteCommentRsp {
+	Flag bool `json:"Flag"`
+}
+
+type ReplyCommentReq {
+	Authorization   string `header:"Authorization"`
+	Content         string `json:"Content"`
+	ObjectCommentId uint   `json:"ObjectEvaluationId"`
+}
+
+type ReplyCommentRsp {
+	Flag bool `json:"Flag"`
+}
+
+@server(
+	jwt: Auth
+	prefix : /api/v1/evaluation
+	group: comment
+)
+
+service evaluation {
+	@doc "评论评价"
+	@handler CommentEvaluation
+	post /comment (CommentEvaluationReq)returns(CommentEvaluationRsp)
+	@doc "删除评论"
+	@handler DeleteComment
+	delete /comment (DeleteCommentReq)returns(DeleteCommentRsp)
+}
+
+@server(
+	jwt: Auth
+	prefix : /api/v1/evaluation
+	group: reply
+)
+service evaluation {
+	@doc "回复评论"
+	@handler ReplyComment
+	post /comment/reply (ReplyCommentReq)returns(ReplyCommentRsp)
+}

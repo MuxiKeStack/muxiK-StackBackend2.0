@@ -1,0 +1,370 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "message",
+    "description": "message服务和evaluation服务网关",
+    "version": "v1"
+  },
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/api/v1/message/connect": {
+      "get": {
+        "summary": "建立socket连接",
+        "operationId": "SocketConnect",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {}
+          }
+        },
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "requestBody": {},
+        "tags": [
+          "message"
+        ]
+      }
+    },
+    "/api/v1/message/normal": {
+      "get": {
+        "summary": "获取历史一般消息",
+        "operationId": "GetNormalMessage",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/GetNormalMessageRsp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "requestBody": {},
+        "tags": [
+          "message"
+        ]
+      },
+      "post": {
+        "summary": "发送非官方消息提醒",
+        "operationId": "SendNormalMessage",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/SendNormalMessageRsp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SendNormalMessageReq"
+            }
+          }
+        ],
+        "requestBody": {},
+        "tags": [
+          "message"
+        ]
+      }
+    },
+    "/api/v1/message/official": {
+      "get": {
+        "summary": "获取历史官方消息",
+        "operationId": "GetOfficialMessage",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/GetOfficialMessageRsp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "requestBody": {},
+        "tags": [
+          "message"
+        ]
+      },
+      "post": {
+        "summary": "发送官方消息",
+        "operationId": "SendOfficialMessage",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/SendOfficialMessageRsp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SendOfficialMessageReq"
+            }
+          }
+        ],
+        "requestBody": {},
+        "tags": [
+          "message"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "ConnectReq": {
+      "type": "object",
+      "properties": {
+        "Authorization": {
+          "type": "string"
+        }
+      },
+      "title": "ConnectReq",
+      "required": [
+        "Authorization"
+      ]
+    },
+    "GetNormalMessageReq": {
+      "type": "object",
+      "properties": {
+        "Authorization": {
+          "type": "string"
+        }
+      },
+      "title": "GetNormalMessageReq",
+      "required": [
+        "Authorization"
+      ]
+    },
+    "GetNormalMessageRsp": {
+      "type": "object",
+      "properties": {
+        "normalMsgs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/NormalMessage"
+          }
+        }
+      },
+      "title": "GetNormalMessageRsp",
+      "required": [
+        "normalMsgs"
+      ]
+    },
+    "GetOfficialMessageReq": {
+      "type": "object",
+      "properties": {
+        "Authorization": {
+          "type": "string"
+        }
+      },
+      "title": "GetOfficialMessageReq",
+      "required": [
+        "Authorization"
+      ]
+    },
+    "GetOfficialMessageRsp": {
+      "type": "object",
+      "properties": {
+        "officialMsgs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OfficialMessage"
+          }
+        }
+      },
+      "title": "GetOfficialMessageRsp",
+      "required": [
+        "officialMsgs"
+      ]
+    },
+    "NormalMessage": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "object_sid": {
+          "type": "string"
+        },
+        "sender_sid": {
+          "type": "string"
+        },
+        "origin_content_id": {
+          "$ref": "#/definitions/uint"
+        },
+        "text": {
+          "type": "string"
+        },
+        "send_at": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "title": "NormalMessage",
+      "required": [
+        "type",
+        "object_sid",
+        "sender_sid",
+        "origin_content_id",
+        "text",
+        "send_at"
+      ]
+    },
+    "OfficialMessage": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "text": {
+          "type": "string"
+        },
+        "image": {
+          "type": "string"
+        },
+        "send_at": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "object_sid": {
+          "type": "string"
+        }
+      },
+      "title": "OfficialMessage",
+      "required": [
+        "title",
+        "text",
+        "image",
+        "send_at"
+      ]
+    },
+    "SendNormalMessageReq": {
+      "type": "object",
+      "properties": {
+        "Authorization": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "object_sid": {
+          "type": "string"
+        },
+        "origin_content_id": {
+          "$ref": "#/definitions/uint"
+        },
+        "text": {
+          "type": "string"
+        },
+        "send_at": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "title": "SendNormalMessageReq",
+      "required": [
+        "Authorization",
+        "type",
+        "object_sid",
+        "origin_content_id",
+        "text",
+        "send_at"
+      ]
+    },
+    "SendNormalMessageRsp": {
+      "type": "object",
+      "properties": {
+        "flag": {
+          "type": "boolean",
+          "format": "boolean"
+        }
+      },
+      "title": "SendNormalMessageRsp",
+      "required": [
+        "flag"
+      ]
+    },
+    "SendOfficialMessageReq": {
+      "type": "object",
+      "properties": {
+        "Authorization": {
+          "type": "string"
+        },
+        "allUser": {
+          "type": "boolean",
+          "format": "boolean"
+        },
+        "message": {
+          "$ref": "#/definitions/OfficialMessage"
+        }
+      },
+      "title": "SendOfficialMessageReq",
+      "required": [
+        "Authorization",
+        "allUser",
+        "message"
+      ]
+    },
+    "SendOfficialMessageRsp": {
+      "type": "object",
+      "properties": {
+        "flag": {
+          "type": "boolean",
+          "format": "boolean"
+        }
+      },
+      "title": "SendOfficialMessageRsp",
+      "required": [
+        "flag"
+      ]
+    }
+  },
+  "securityDefinitions": {
+    "apiKey": {
+      "type": "apiKey",
+      "description": "Enter JWT Bearer token **_only_**",
+      "name": "Authorization",
+      "in": "header"
+    }
+  },
+  "security": [
+    {
+      "apiKey": []
+    }
+  ]
+}

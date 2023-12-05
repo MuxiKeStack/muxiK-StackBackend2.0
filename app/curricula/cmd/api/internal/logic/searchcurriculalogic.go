@@ -41,7 +41,7 @@ func (l *SearchCurriculaLogic) SearchCurricula(req *types.SearchCurriculaRequest
 		CurriculaId:   info[0].CurriculaId,
 		CurriculaName: info[0].CurriculaName,
 		Teacher:       info[0].Teacher,
-		Type:          uint8(info[0].Type),
+		Type:          info[0].Type,
 		Rate:          info[0].Rate,
 	}
 	return resp, nil
