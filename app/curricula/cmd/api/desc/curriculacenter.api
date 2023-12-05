@@ -46,7 +46,7 @@ service curriculacenter{
 }
 
 @server (
-	prefix : api/v1/user
+	prefix : api/v1/curricula
 	jwt :JwtAuth
 	middleware :AuthorizeHandler
 )
